@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ofisprojesi
 {
    [Table("OfisProjesi")]
-    public class User
+    public class Demirbaslar
     {
         
         [Key]
