@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ofisprojesi.Models;
 
 namespace ofisprojesi
 {
@@ -29,10 +31,9 @@ namespace ofisprojesi
             services
             .AddControllersWithViews();
              services.AddCors();
-            services.AddControllers()
-            .AddNewtonsoftJson();
+            services.AddControllers();
             
-            services.AddDbContext<TodoContext>(opt =>
+            services.AddDbContext<OfisProjesiContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("OfisDb")));
         
            

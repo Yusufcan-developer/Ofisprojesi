@@ -44,3 +44,12 @@
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/ref/ofisprojesi.dll
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/ofisprojesi.pdb
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/ofisprojesi.genruntimeconfig.cache
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/Npgsql.dll
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/Humanizer.dll
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.Design.dll
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/dotnet-ef.dll
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/Newtonsoft.Json.dll
+/home/yusufcan/Masaüstü/ofisprojesi/bin/Debug/net5.0/Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
