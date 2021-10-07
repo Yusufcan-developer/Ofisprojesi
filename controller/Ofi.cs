@@ -1,13 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-
-#nullable disable
-
-namespace ofisprojesi.Models
+namespace ofisprojesi
 {
-    public partial class ofi
+    public partial class Ofi
     {
         public int Ofisid { get; set; }
         public string OfisIsim { get; set; }
+        public bool? OfisDurum { get; set; }
     }
 }
