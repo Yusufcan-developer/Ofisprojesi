@@ -80,11 +80,11 @@ namespace ofisprojesi.Models
                     .ValueGeneratedNever()
                     .HasColumnName("zimmetid");
 
-                entity.Property(e => e.Demirbas).HasColumnName("demirbas");
+                entity.Property(e => e.Zimmetid).HasColumnName("demirbas");
 
-                entity.Property(e => e.Kisi).HasColumnName("kisi");
+                entity.Property(e => e.ZimmetlenenKisi).HasColumnName("kisi");
 
-                entity.Property(e => e.Tarih)
+                entity.Property(e => e.ZimmetlenenTarih)
                     .HasColumnType("date")
                     .HasColumnName("tarih");
             });

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ofisprojesi
+namespace ofisprojesi.Models
 {
     public partial class Calisan
     {
