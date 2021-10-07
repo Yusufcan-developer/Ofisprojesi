@@ -10,7 +10,7 @@ namespace ofisprojesi.Models
         public int Calisanid { get; set; }
         public string CalisanAdi { get; set; }
         public string CalisanSoyadi { get; set; }
-        public bool? CalisanDurum { get; set; }
-        public int? CalisanOda { get; set; }
+        public bool calisan_durum { get; set; }
+        public int calisan_oda { get; set; }
     }
 }
