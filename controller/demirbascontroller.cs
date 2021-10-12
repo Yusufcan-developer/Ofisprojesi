@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
-using ofisprojesi.Models;
 
 namespace ofisprojesi
 { 
@@ -19,7 +18,7 @@ namespace ofisprojesi
             _demirbascontext = context;
         }
         [HttpPost]
-        public Demirba Post1([FromBody][FromQuery] Demirba yenikayit1)
+        public Demirba demirbasPost1([FromBody][FromQuery] Demirba yenikayit1)
         {
             _demirbascontext.Demirbas.Add(yenikayit1);
             _demirbascontext.SaveChanges();
@@ -28,14 +27,14 @@ namespace ofisprojesi
         }
 
         [HttpDelete]
-        public void Delete1([FromQuery]int id1)
+        public void demirbasDelete1([FromQuery]int id1)
         {
             var DeletedUser = _demirbascontext.Demirbas.SingleOrDefault(p => p.Demirbasid == id1);
             _demirbascontext.Demirbas.Remove(DeletedUser);
             _demirbascontext.SaveChanges();
         }
         [HttpPut]
-        public void Put1(int id2, [FromBody][FromQuery] Demirba yenikayit2)
+        public void demirbasPut1(int id2, [FromBody][FromQuery] Demirba yenikayit2)
         {
             var updateuser = _demirbascontext.Demirbas.FirstOrDefault(p => p.Demirbasid== id2);
             updateuser.DemirbasAdi = yenikayit2.DemirbasAdi;

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
-using ofisprojesi.Models;
 
 namespace ofisprojesi
 { 
@@ -19,25 +18,25 @@ namespace ofisprojesi
             _ofiscontext = context;
         }
         [HttpPost]
-        public ofi Post1([FromBody][FromQuery] ofi yenikayit1)
+        public Ofi ofisPost([FromBody][FromQuery] Ofi yenikayit1)
         {
-            _ofiscontext.ofis.Add(yenikayit1);
+            _ofiscontext.Ofis.Add(yenikayit1);
             _ofiscontext.SaveChanges();
             return yenikayit1;
 
         }
 
         [HttpDelete]
-        public void Delete1([FromQuery]int id1)
+        public void ofisDelete1([FromQuery]int id1)
         {
-            var DeletedUser = _ofiscontext.ofis.SingleOrDefault(p => p.Ofisid == id1);
-            _ofiscontext.ofis.Remove(DeletedUser);
+            var DeletedUser = _ofiscontext.Ofis.SingleOrDefault(p => p.Ofisid == id1);
+            _ofiscontext.Ofis.Remove(DeletedUser);
             _ofiscontext.SaveChanges();
         }
         [HttpPut]
-        public void Put1(int id2, [FromBody][FromQuery] ofi yenikayit2)
+        public void ofisPut1(int id2, [FromBody][FromQuery] Ofi yenikayit2)
         {
-            var updateuser = _ofiscontext.ofis.FirstOrDefault(p => p.Ofisid== id2);
+            var updateuser = _ofiscontext.Ofis.FirstOrDefault(p => p.Ofisid== id2);
             updateuser.OfisIsim = yenikayit2.OfisIsim;
             
 
@@ -47,21 +46,21 @@ namespace ofisprojesi
 
         }
         [HttpGet("{userId2:int}")]
-        public ofi GetUserById1(int userId2)
+        public Ofi GetUserById1(int userId2)
         {
-            return _ofiscontext.ofis.Where(p => p.Ofisid == userId2).FirstOrDefault();
+            return _ofiscontext.Ofis.Where(p => p.Ofisid == userId2).FirstOrDefault();
             
 
 
 
         }
         [HttpGet]
-        public IList<ofi> GetOfis([FromQuery]string name2){
+        public IList<Ofi> GetOfis([FromQuery]string name2){
 
-        var listin= (_ofiscontext.ofis.Where(p=>p.OfisIsim==name2).ToList());
+        var listin= (_ofiscontext.Ofis.Where(p=>p.OfisIsim==name2).ToList());
         
 
-        var kosul= _ofiscontext.ofis.ToList();
+        var kosul= _ofiscontext.Ofis.ToList();
         
         if (name2 == null){
             return kosul;

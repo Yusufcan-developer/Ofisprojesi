@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
-using ofisprojesi.Models;
 
 namespace ofisprojesi
 { 
@@ -20,9 +19,9 @@ namespace ofisprojesi
         {
             _context = context;
         }
-      
+
         [HttpPost]
-        public Calisan Post([FromBody][FromQuery] Calisan yenikayit)
+        public Calisan calisanPost([FromBody][FromQuery] Calisan yenikayit)
         {
             _context.Calisans.Add(yenikayit);
             _context.SaveChanges();
@@ -31,17 +30,17 @@ namespace ofisprojesi
         }
 
         [HttpDelete]
-        public void Delete([FromQuery]int id)
+        public void calisanDelete([FromQuery]int id)
         {
             var DeletedUser = _context.Calisans.SingleOrDefault(p => p.Calisanid == id);
             _context.Calisans.Remove(DeletedUser);
             _context.SaveChanges();
         }
         [HttpPut]
-        public void Put(int id, [FromBody][FromQuery] Calisan yenikayit)
+        public void calisanPut(int id, [FromBody][FromQuery] Calisan yenikayit)
         {
             var updateuser = _context.Calisans.FirstOrDefault(p => p.Calisanid== id);
-            updateuser.CalisanAdi = yenikayit.CalisanAdi;
+            updateuser.CalisanAdi= yenikayit.CalisanAdi;
             updateuser.CalisanAdi=yenikayit.CalisanAdi;
             
 

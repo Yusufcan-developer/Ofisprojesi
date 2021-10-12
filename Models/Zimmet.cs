@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ofisprojesi.Models
+namespace ofisprojesi
 {
     public partial class Zimmet
     {
@@ -11,6 +11,9 @@ namespace ofisprojesi.Models
         public int ZimmetlenenKisi { get; set; }
         public DateTime ZimmetlenenTarih { get; set; }
         public bool ZimmetDurumu { get; set; }
-        public int demirbas_zimmet{get;set;}
+        public int DemirbasZimmet { get; set; }
+
+        public virtual Demirba DemirbasZimmetNavigation { get; set; }
+        public virtual Calisan ZimmetlenenKisiNavigation { get; set; }
     }
 }
