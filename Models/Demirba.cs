@@ -12,10 +12,10 @@ namespace ofisprojesi
             Zimmets = new HashSet<Zimmet>();
         }
 
-        public int Demirbasid { get; set; }
-        public string DemirbasAdi { get; set; }
-        public bool? DemirbasDurumu { get; set; }
-        public int? DemirbasOda { get; set; }
+        public int Id { get; set; }
+        public string Ad { get; set; }
+        public bool? Durum { get; set; }
+        public int? BulunduguOfis { get; set; }
 
         public virtual ICollection<Zimmet> Zimmets { get; set; }
     }

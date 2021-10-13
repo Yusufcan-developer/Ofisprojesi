@@ -39,7 +39,6 @@
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/staticwebassets/ofisprojesi.StaticWebAssets.xml
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/scopedcss/bundle/ofisprojesi.styles.css
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/ofisprojesi.RazorTargetAssemblyInfo.cache
-/home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/ofisprojesi.csproj.CopyComplete
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/ofisprojesi.dll
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/ref/ofisprojesi.dll
 /home/yusufcan/Masaüstü/ofisprojesi/obj/Debug/net5.0/ofisprojesi.pdb

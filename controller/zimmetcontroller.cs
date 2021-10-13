@@ -21,7 +21,7 @@ namespace ofisprojesi
             _Zcontext = context;
         }
         [HttpGet]
-           public IList<Zimmet> GetZimmets([FromQuery]int name2){
+           public IList<Zimmet> zimmetGet([FromQuery]int name2){
 
         
         
@@ -33,38 +33,28 @@ namespace ofisprojesi
 
         }
        }
-       [HttpPost]
-        public void postzimmet( [FromQuery]Zimmet zimmet){
+     
 
-        Calisan c = new Calisan();
-        Zimmet z = new Zimmet();
-        var zimmetlenen =_Zcontext.Calisans.Where(p=>p.Calisanid==zimmet.ZimmetlenenKisi).FirstOrDefault();
-        var zimmetdemirbass =_Zcontext.Demirbas.Where(p=>p.Demirbasid==zimmet.DemirbasZimmet).FirstOrDefault();
-        z.ZimmetDurumu=true;
-        z.ZimmetlenenTarih=DateTime.Today;
-        _Zcontext.Zimmets.Add(zimmet);
-        _Zcontext.SaveChanges();
-}
 
 
 
 [HttpDelete]
-        public void Delete([FromQuery]int id)
+        public void zimmetDelete([FromQuery]int id)
         {
-            var Deletedcalisan = _Zcontext.Zimmets.SingleOrDefault(p => p.Zimmetid == id);
+            var Deletedcalisan = _Zcontext.Zimmets.SingleOrDefault(p => p.Id == id);
             _Zcontext.Zimmets.Remove(Deletedcalisan);
             _Zcontext.SaveChanges();
             return;
         }
 
  [HttpPut]
-        public void calisanPut(int id, [FromBody][FromQuery] Zimmet yenikayit)
+        public void zimmetPut(int id, [FromBody][FromQuery] Zimmet güncelleme)
         {
-            var updateuser = _Zcontext.Zimmets.FirstOrDefault(p => p.Zimmetid== id);
-            updateuser.ZimmetlenenKisi= yenikayit.ZimmetlenenKisi;
-            updateuser.DemirbasZimmet=yenikayit.DemirbasZimmet;
-            updateuser.ZimmetlenenTarih=yenikayit.ZimmetlenenTarih;
-            updateuser.ZimmetDurumu=yenikayit.ZimmetDurumu;
+            var updatezimmet = _Zcontext.Zimmets.FirstOrDefault(p => p.Id== id);
+            updatezimmet.ZimmetlenenCalisanlar= güncelleme.ZimmetlenenCalisanlar;
+            updatezimmet.ZimmetlenmisDemirbas=güncelleme.ZimmetlenmisDemirbas;
+            updatezimmet.Tarih=güncelleme.Tarih;
+            updatezimmet.Durum=güncelleme.Durum;
             
 
 
@@ -72,11 +62,11 @@ namespace ofisprojesi
             return;
 
         }
-         [HttpGet("{zimmetidsorgu:int}")]
-        public List<Zimmet> zimmetsorgusu(int zimmetidsorgu)
+         [HttpGet("{Id:int}")]
+        public List<Zimmet> id(int Id)
         {
-         var zimmetidsorgus= _Zcontext.Zimmets.Where(p => p.Zimmetid == zimmetidsorgu).ToList();
-            return zimmetidsorgus;
+         var zimmetidsorgusu= _Zcontext.Zimmets.Where(p => p.Id == Id).ToList();
+            return zimmetidsorgusu;
 
 
 

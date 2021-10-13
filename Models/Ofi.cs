@@ -7,8 +7,8 @@ namespace ofisprojesi
 {
     public partial class Ofi
     {
-        public int Ofisid { get; set; }
-        public string OfisIsim { get; set; }
-        public bool? OfisDurum { get; set; }
+        public int Id { get; set; }
+        public string Ad { get; set; }
+        public bool? Durum { get; set; }
     }
 }

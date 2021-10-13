@@ -7,13 +7,13 @@ namespace ofisprojesi
 {
     public partial class Zimmet
     {
-        public int Zimmetid { get; set; }
-        public int ZimmetlenenKisi { get; set; }
-        public DateTime ZimmetlenenTarih { get; set; }
-        public bool ZimmetDurumu { get; set; }
-        public int DemirbasZimmet { get; set; }
+        public int Id { get; set; }
+        public int? ZimmetlenenCalisanlar { get; set; }
+        public DateTime? Tarih { get; set; }
+        public bool? Durum { get; set; }
+        public int? ZimmetlenmisDemirbas { get; set; }
 
-        public virtual Demirba DemirbasZimmetNavigation { get; set; }
-        public virtual Calisan ZimmetlenenKisiNavigation { get; set; }
+        public virtual Calisan ZimmetlenenCalisanlarNavigation { get; set; }
+        public virtual Demirba ZimmetlenmisDemirbasNavigation { get; set; }
     }
 }

@@ -39,88 +39,86 @@ namespace ofisprojesi
             {
                 entity.ToTable("calisan");
 
-                entity.Property(e => e.Calisanid)
-                    .HasColumnName("calisanid")
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
                     .UseIdentityAlwaysColumn();
 
-                entity.Property(e => e.CalisanAdi)
-                    .HasColumnType("character varying")
-                    .HasColumnName("calisan_adi");
+                entity.Property(e => e.Ad)
+                    .HasMaxLength(25)
+                    .HasColumnName("ad");
 
-                entity.Property(e => e.CalisanDurum).HasColumnName("calisan_durum");
+                entity.Property(e => e.BagliOlduguOfis).HasColumnName("bagli_oldugu_ofis");
 
-                entity.Property(e => e.CalisanOda).HasColumnName("calisan_oda");
+                entity.Property(e => e.Durum).HasColumnName("durum");
 
-                entity.Property(e => e.CalisanSoyadi)
-                    .HasColumnType("character varying")
-                    .HasColumnName("calisan_soyadi");
+                entity.Property(e => e.Soyad)
+                    .HasMaxLength(25)
+                    .HasColumnName("soyad");
             });
 
             modelBuilder.Entity<Demirba>(entity =>
             {
-                entity.HasKey(e => e.Demirbasid)
-                    .HasName("Demirbas_pkey");
-
                 entity.ToTable("demirbas");
 
-                entity.Property(e => e.Demirbasid).ValueGeneratedNever();
+                entity.Property(e => e.Id)
+                    .ValueGeneratedNever()
+                    .HasColumnName("id");
 
-                entity.Property(e => e.DemirbasAdi).HasColumnType("character varying");
+                entity.Property(e => e.Ad)
+                    .HasMaxLength(25)
+                    .HasColumnName("ad");
 
-                entity.Property(e => e.DemirbasDurumu).HasColumnName("Demirbas_Durumu");
+                entity.Property(e => e.BulunduguOfis).HasColumnName("bulundugu_ofis");
 
-                entity.Property(e => e.DemirbasOda).HasColumnName("Demirbas_oda");
+                entity.Property(e => e.Durum).HasColumnName("durum");
             });
 
             modelBuilder.Entity<Ofi>(entity =>
             {
-                entity.HasKey(e => e.Ofisid)
-                    .HasName("Ofis_pkey");
-
                 entity.ToTable("ofis");
 
-                entity.Property(e => e.Ofisid)
+                entity.Property(e => e.Id)
                     .ValueGeneratedNever()
-                    .HasColumnName("ofisid");
+                    .HasColumnName("id");
 
-                entity.Property(e => e.OfisDurum).HasColumnName("ofis_durum");
+                entity.Property(e => e.Ad)
+                    .HasMaxLength(25)
+                    .HasColumnName("ad");
 
-                entity.Property(e => e.OfisIsim)
-                    .HasColumnType("character varying")
-                    .HasColumnName("ofis_isim");
+                entity.Property(e => e.Durum).HasColumnName("durum");
             });
 
             modelBuilder.Entity<Zimmet>(entity =>
             {
-                entity.ToTable("Zimmet");
+                entity.ToTable("zimmet");
 
-                entity.HasIndex(e => e.DemirbasZimmet, "fki_demirbaszimmeting");
+                entity.HasIndex(e => e.ZimmetlenmisDemirbas, "fki_demirbaszimmeting");
 
-                entity.HasIndex(e => e.ZimmetlenenKisi, "fki_zimmeting");
+                entity.HasIndex(e => e.ZimmetlenenCalisanlar, "fki_zimmeting");
 
-                entity.Property(e => e.Zimmetid)
-                    .HasColumnName("zimmetid")
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
                     .UseIdentityAlwaysColumn();
 
-                entity.Property(e => e.DemirbasZimmet).HasColumnName("demirbas_zimmet");
+                entity.Property(e => e.Durum).HasColumnName("durum");
 
-                entity.Property(e => e.ZimmetDurumu).HasColumnName("zimmet_durumu");
-
-                entity.Property(e => e.ZimmetlenenKisi).HasColumnName("zimmetlenen_kisi");
-
-                entity.Property(e => e.ZimmetlenenTarih)
+                entity.Property(e => e.Tarih)
                     .HasColumnType("date")
-                    .HasColumnName("zimmetlenen_tarih");
+                    .HasColumnName("tarih");
 
-                entity.HasOne(d => d.DemirbasZimmetNavigation)
-                    .WithMany(p => p.Zimmets)
-                    .HasForeignKey(d => d.DemirbasZimmet)
-                    .HasConstraintName("demirbaszimmeting");
+                entity.Property(e => e.ZimmetlenenCalisanlar).HasColumnName("zimmetlenen_calisanlar");
 
-                entity.HasOne(d => d.ZimmetlenenKisiNavigation)
+                entity.Property(e => e.ZimmetlenmisDemirbas).HasColumnName("zimmetlenmis_demirbas");
+
+                entity.HasOne(d => d.ZimmetlenenCalisanlarNavigation)
                     .WithMany(p => p.Zimmets)
-                    .HasForeignKey(d => d.ZimmetlenenKisi)
+                    .HasForeignKey(d => d.ZimmetlenenCalisanlar)
                     .HasConstraintName("Zimmet_zimmetlenen_kisi_fkey");
+
+                entity.HasOne(d => d.ZimmetlenmisDemirbasNavigation)
+                    .WithMany(p => p.Zimmets)
+                    .HasForeignKey(d => d.ZimmetlenmisDemirbas)
+                    .HasConstraintName("demirbaszimmeting");
             });
 
             OnModelCreatingPartial(modelBuilder);

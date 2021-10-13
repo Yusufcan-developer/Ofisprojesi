@@ -18,26 +18,26 @@ namespace ofisprojesi
             _demirbascontext = context;
         }
         [HttpPost]
-        public Demirba demirbasPost1([FromBody][FromQuery] Demirba yenikayit1)
+        public Demirba demirbasPost([FromBody][FromQuery] Demirba ekle)
         {
-            _demirbascontext.Demirbas.Add(yenikayit1);
+            _demirbascontext.Demirbas.Add(ekle);
             _demirbascontext.SaveChanges();
-            return yenikayit1;
+            return ekle;
 
         }
 
         [HttpDelete]
-        public void demirbasDelete1([FromQuery]int id1)
+        public void demirbasDelete([FromQuery]int id1)
         {
-            var DeletedUser = _demirbascontext.Demirbas.SingleOrDefault(p => p.Demirbasid == id1);
-            _demirbascontext.Demirbas.Remove(DeletedUser);
+            var demirbassil = _demirbascontext.Demirbas.SingleOrDefault(p => p.Id == id1);
+            _demirbascontext.Demirbas.Remove(demirbassil);
             _demirbascontext.SaveChanges();
         }
         [HttpPut]
-        public void demirbasPut1(int id2, [FromBody][FromQuery] Demirba yenikayit2)
+        public void demirbasPut(int id2, [FromBody][FromQuery] Demirba güncelle)
         {
-            var updateuser = _demirbascontext.Demirbas.FirstOrDefault(p => p.Demirbasid== id2);
-            updateuser.DemirbasAdi = yenikayit2.DemirbasAdi;
+            var demirbasgüncelle = _demirbascontext.Demirbas.FirstOrDefault(p => p.Id== id2);
+            demirbasgüncelle.Id = güncelle.Id;
             
 
 
@@ -45,31 +45,27 @@ namespace ofisprojesi
             return;
 
         }
-        [HttpGet("{userId2:int}")]
-        public Demirba GetUserById1(int userId2)
+        [HttpGet("{Id:int}")]
+        public Demirba demirbasGetid(int Id)
         {
-            return _demirbascontext.Demirbas.Where(p => p.Demirbasid == userId2).FirstOrDefault();
+            return _demirbascontext.Demirbas.Where(p => p.Id == Id).FirstOrDefault();
             
 
 
 
         }
         [HttpGet]
-        public IList<Demirba> GetDemirbas([FromQuery]string name2,int pageindex2,int pagecount2){
+        public IList<Demirba> demirbasGet([FromQuery]string name2){
 
-            int page=1;
-            int recordPage=10;
-            
-
-        var listin= (_demirbascontext.Demirbas.Where(p=>p.DemirbasAdi.Contains(name2)).Skip(recordPage* (page - 1)).Take(recordPage).ToList());
+        var demirbasadsorgula = _demirbascontext.Demirbas.Where(p=>p.Ad.Contains(name2)).ToList();
         
 
-        var kosul= _demirbascontext.Demirbas.Skip(recordPage*(page - 1 )).Take(recordPage).ToList();
+        var demirbaslarigetir= _demirbascontext.Demirbas.ToList();
         
         if (name2 == null){
-            return kosul;
+            return demirbaslarigetir;
         }
-            return listin;
+            return demirbasadsorgula;
         }
     }
     }

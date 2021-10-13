@@ -32,16 +32,16 @@ namespace ofisprojesi
         [HttpDelete]
         public void calisanDelete([FromQuery]int id)
         {
-            var DeletedUser = _context.Calisans.SingleOrDefault(p => p.Calisanid == id);
+            var DeletedUser = _context.Calisans.SingleOrDefault(p => p.Id == id);
             _context.Calisans.Remove(DeletedUser);
             _context.SaveChanges();
         }
         [HttpPut]
         public void calisanPut(int id, [FromBody][FromQuery] Calisan yenikayit)
         {
-            var updateuser = _context.Calisans.FirstOrDefault(p => p.Calisanid== id);
-            updateuser.CalisanAdi= yenikayit.CalisanAdi;
-            updateuser.CalisanAdi=yenikayit.CalisanAdi;
+            var updateuser = _context.Calisans.FirstOrDefault(p => p.Id== id);
+            updateuser.Ad= yenikayit.Ad;
+            updateuser.Ad=yenikayit.Ad;
             
 
 
@@ -52,23 +52,20 @@ namespace ofisprojesi
         [HttpGet("{userId:int}")]
         public Calisan GetUserById(int userId)
         {
-            return _context.Calisans.Where(p => p.Calisanid == userId).FirstOrDefault();
+            return _context.Calisans.Where(p => p.Id == userId).FirstOrDefault();
             
 
 
-
+        
         }
         [HttpGet]
-        public IList<Calisan> GetUserByName([FromQuery]string name,int pageindex,int pagecount){
+        public IList<Calisan> GetUserByName([FromQuery]string name){
 
-            int page=1;
-            int recordPage=10;
-            
 
-        var listin= (_context.Calisans.Where(p=>p.CalisanAdi.Contains(name)).Skip(recordPage* (page - 1)).Take(recordPage).ToList());
+        var listin= (_context.Calisans.Where(p=>p.Ad.Contains(name)).ToList());
         
 
-        var kosul= _context.Calisans.Skip(recordPage*(page - 1 )).Take(recordPage).ToList();
+        var kosul= _context.Calisans.ToList();
         
         if (name == null){
             return kosul;
