@@ -67,18 +67,22 @@ namespace ofisprojesi
         {
          var zimmetidsorgusu= _Zcontext.Zimmets.Where(p => p.Id == Id).ToList();
             return zimmetidsorgusu;
-
-
-
         }
+
+        [HttpPost]
+        public void zimmetPost(int zimmetlenencalisan ,int demirbas)
+        {   
+            Zimmet zimmetlenme=new Zimmet ();
+            zimmetlenme.ZimmetlenenCalisanlar=zimmetlenencalisan;
+            zimmetlenme.ZimmetlenmisDemirbas=demirbas;
+
+         _Zcontext.Zimmets.Add(zimmetlenme);
+         
+        }
+
+
     }
-            
-            
-            
-            
-
-
-        }
+}
 
      
 
