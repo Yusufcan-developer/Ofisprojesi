@@ -21,12 +21,15 @@ namespace ofisprojesi
         }
 
         [HttpPost]
-        public Calisan calisanPost([FromBody][FromQuery] Calisan yenikayit)
+        public void POST([FromQuery]string ad,int ofis,Boolean Durum,String soyad)
         {
-            _context.Calisans.Add(yenikayit);
+            Calisan c = new Calisan();
+            c.Ad=ad;
+            c.Soyad=soyad;
+            c.Durum=Durum;
+            c.BagliOlduguOfis=ofis;
+            _context.Calisans.Add(c);
             _context.SaveChanges();
-            return yenikayit;
-
         }
 
         [HttpDelete]
@@ -37,11 +40,13 @@ namespace ofisprojesi
             _context.SaveChanges();
         }
         [HttpPut]
-        public void calisanPut(int id, [FromBody][FromQuery] Calisan yenikayit)
+        public void calisanPut([FromQuery] Calisan yenikayit, int id)
         {
-            var updateuser = _context.Calisans.FirstOrDefault(p => p.Id== id);
+            var updateuser = _context.Calisans.FirstOrDefault(p => p.Id==id);
             updateuser.Ad= yenikayit.Ad;
-            updateuser.Ad=yenikayit.Ad;
+            updateuser.Soyad=yenikayit.Soyad;
+            updateuser.Durum=yenikayit.Durum;
+            updateuser.BagliOlduguOfis=yenikayit.BagliOlduguOfis;
             
 
 

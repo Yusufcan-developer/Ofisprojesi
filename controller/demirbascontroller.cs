@@ -18,14 +18,15 @@ namespace ofisprojesi
             _demirbascontext = context;
         }
         [HttpPost]
-        public Demirba demirbasPost([FromBody][FromQuery] Demirba ekle)
+        public void POST([FromQuery]string ad,int ofis,Boolean Durum)
         {
-            _demirbascontext.Demirbas.Add(ekle);
+            Demirba d = new Demirba();
+            d.Ad=ad;
+            d.Durum=Durum;
+            d.BulunduguOfis=ofis;
+            _demirbascontext.Demirbas.Add(d);
             _demirbascontext.SaveChanges();
-            return ekle;
-
         }
-
         [HttpDelete]
         public void demirbasDelete([FromQuery]int id1)
         {

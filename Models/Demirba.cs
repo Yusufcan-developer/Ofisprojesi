@@ -14,9 +14,10 @@ namespace ofisprojesi
 
         public int Id { get; set; }
         public string Ad { get; set; }
-        public bool? Durum { get; set; }
-        public int? BulunduguOfis { get; set; }
+        public bool Durum { get; set; }
+        public int BulunduguOfis { get; set; }
 
+        public virtual Ofi BulunduguOfisNavigation { get; set; }
         public virtual ICollection<Zimmet> Zimmets { get; set; }
     }
 }

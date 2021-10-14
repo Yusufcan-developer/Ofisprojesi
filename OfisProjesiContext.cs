@@ -39,6 +39,8 @@ namespace ofisprojesi
             {
                 entity.ToTable("calisan");
 
+                entity.HasIndex(e => e.BagliOlduguOfis, "bagli_oldugu_ofis");
+
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .UseIdentityAlwaysColumn();
@@ -54,15 +56,22 @@ namespace ofisprojesi
                 entity.Property(e => e.Soyad)
                     .HasMaxLength(25)
                     .HasColumnName("soyad");
+
+                entity.HasOne(d => d.BagliOlduguOfisNavigation)
+                    .WithMany(p => p.Calisans)
+                    .HasForeignKey(d => d.BagliOlduguOfis)
+                    .HasConstraintName("calisan_bagli_oldugu_ofis_fkey");
             });
 
             modelBuilder.Entity<Demirba>(entity =>
             {
                 entity.ToTable("demirbas");
 
+                entity.HasIndex(e => e.BulunduguOfis, "fki_ofisiddd");
+
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
 
                 entity.Property(e => e.Ad)
                     .HasMaxLength(25)
@@ -71,6 +80,11 @@ namespace ofisprojesi
                 entity.Property(e => e.BulunduguOfis).HasColumnName("bulundugu_ofis");
 
                 entity.Property(e => e.Durum).HasColumnName("durum");
+
+                entity.HasOne(d => d.BulunduguOfisNavigation)
+                    .WithMany(p => p.Demirbas)
+                    .HasForeignKey(d => d.BulunduguOfis)
+                    .HasConstraintName("demirbas_bulundugu_ofis_fkey");
             });
 
             modelBuilder.Entity<Ofi>(entity =>
@@ -78,8 +92,8 @@ namespace ofisprojesi
                 entity.ToTable("ofis");
 
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
 
                 entity.Property(e => e.Ad)
                     .HasMaxLength(25)

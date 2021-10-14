@@ -21,15 +21,15 @@ namespace ofisprojesi
             _Zcontext = context;
         }
         [HttpGet]
-           public IList<Zimmet> zimmetGet([FromQuery]int name2){
+           public IList<Zimmet> Get([FromQuery]int name2){
 
         
         
 
-        var limit= _Zcontext.Zimmets.ToList();
+        var alldata= _Zcontext.Zimmets.ToList();
         
         {
-           return limit;
+           return alldata;
 
         }
        }
@@ -70,13 +70,16 @@ namespace ofisprojesi
         }
 
         [HttpPost]
-        public void zimmetPost(int zimmetlenencalisan ,int demirbas)
+        public void zimmetPost(int calisan ,int demirbas,Boolean Durum)
         {   
             Zimmet zimmetlenme=new Zimmet ();
-            zimmetlenme.ZimmetlenenCalisanlar=zimmetlenencalisan;
+            zimmetlenme.ZimmetlenenCalisanlar=calisan;
             zimmetlenme.ZimmetlenmisDemirbas=demirbas;
-
+            zimmetlenme.Durum=Durum;
+            zimmetlenme.Tarih=DateTime.Now;
+            
          _Zcontext.Zimmets.Add(zimmetlenme);
+         _Zcontext.SaveChanges();
          
         }
 

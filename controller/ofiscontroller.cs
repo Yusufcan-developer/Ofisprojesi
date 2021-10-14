@@ -18,11 +18,14 @@ namespace ofisprojesi
             _ofiscontext = context;
         }
         [HttpPost]
-        public Ofi ofisPost([FromBody][FromQuery] Ofi ekle)
+        public void ofisPost([FromQuery] String ad,Boolean Durum)
         {
-            _ofiscontext.Ofis.Add(ekle);
+            Ofi O = new Ofi();
+            O.Ad=ad;
+            O.Durum=Durum;
+            _ofiscontext.Ofis.Add(O);
             _ofiscontext.SaveChanges();
-            return ekle;
+
 
         }
 
