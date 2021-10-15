@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace ofisprojesi
-{ 
+{
 
 
     [Route("api/calisanlar")]
@@ -21,33 +21,33 @@ namespace ofisprojesi
         }
 
         [HttpPost]
-        public void POST([FromQuery]string ad,int ofis,Boolean Durum,String soyad)
+        public void POST([FromQuery] string ad, int ofis, Boolean Durum, String soyad)
         {
-            Calisan c = new Calisan();
-            c.Ad=ad;
-            c.Soyad=soyad;
-            c.Durum=Durum;
-            c.BagliOlduguOfis=ofis;
-            _context.Calisans.Add(c);
+            Calisan calisan = new Calisan();
+            calisan.Ad = ad;
+            calisan.Soyad = soyad;
+            calisan.Durum = Durum;
+            calisan.OfisId = ofis;
+            _context.Calisans.Add(calisan);
             _context.SaveChanges();
         }
 
         [HttpDelete]
-        public void calisanDelete([FromQuery]int id)
+        public void Delete([FromQuery] int id)
         {
             var DeletedUser = _context.Calisans.SingleOrDefault(p => p.Id == id);
             _context.Calisans.Remove(DeletedUser);
             _context.SaveChanges();
         }
         [HttpPut]
-        public void calisanPut([FromQuery] Calisan yenikayit, int id)
+        public void Put([FromQuery] string ad, int id , string soyad,Boolean Durum,int ofis)
         {
-            var updateuser = _context.Calisans.FirstOrDefault(p => p.Id==id);
-            updateuser.Ad= yenikayit.Ad;
-            updateuser.Soyad=yenikayit.Soyad;
-            updateuser.Durum=yenikayit.Durum;
-            updateuser.BagliOlduguOfis=yenikayit.BagliOlduguOfis;
-            
+            var update = _context.Calisans.FirstOrDefault(p => p.Id == id);
+            update.Ad = ad;
+            update.Soyad = soyad;
+            update.Durum = Durum;
+            update.OfisId = ofis;
+
 
 
             _context.SaveChanges();
@@ -58,31 +58,33 @@ namespace ofisprojesi
         public Calisan GetUserById(int userId)
         {
             return _context.Calisans.Where(p => p.Id == userId).FirstOrDefault();
-            
 
 
-        
+
+
         }
         [HttpGet]
-        public IList<Calisan> GetUserByName([FromQuery]string name){
+        public IList<Calisan> GetUserByName([FromQuery] string name)
+        {
 
 
-        var listin= (_context.Calisans.Where(p=>p.Ad.Contains(name)).ToList());
-        
+            var SearchName = (_context.Calisans.Where(p => p.Ad.Contains(name)).ToList());
 
-        var kosul= _context.Calisans.ToList();
-        
-        if (name == null){
-            return kosul;
-        }
-            return listin;
+
+            var GetAllData = _context.Calisans.ToList();
+
+            if (name == null)
+            {
+                return GetAllData;
+            }
+            return SearchName;
         }
     }
-     
+
 }
 
 
 
-    
+
 
 

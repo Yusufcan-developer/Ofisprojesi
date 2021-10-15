@@ -8,12 +8,12 @@ namespace ofisprojesi
     public partial class Zimmet
     {
         public int Id { get; set; }
-        public int? ZimmetlenenCalisanlar { get; set; }
+        public int? CalisanId { get; set; }
         public DateTime? Tarih { get; set; }
         public bool? Durum { get; set; }
-        public int? ZimmetlenmisDemirbas { get; set; }
+        public int? DemirbasId { get; set; }
 
-        public virtual Calisan ZimmetlenenCalisanlarNavigation { get; set; }
-        public virtual Demirba ZimmetlenmisDemirbasNavigation { get; set; }
+        public virtual Calisan Calisan { get; set; }
+        public virtual Demirba Demirbas { get; set; }
     }
 }

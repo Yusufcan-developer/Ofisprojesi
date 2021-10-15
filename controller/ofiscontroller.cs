@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace ofisprojesi
-{ 
+{
     [Route("api/ofisler")]
     [ApiController]
     public class ofiscontroller : ControllerBase
@@ -18,11 +18,11 @@ namespace ofisprojesi
             _ofiscontext = context;
         }
         [HttpPost]
-        public void ofisPost([FromQuery] String ad,Boolean Durum)
+        public void Post([FromQuery] String ad, Boolean Durum)
         {
             Ofi O = new Ofi();
-            O.Ad=ad;
-            O.Durum=Durum;
+            O.Ad = ad;
+            O.Durum = Durum;
             _ofiscontext.Ofis.Add(O);
             _ofiscontext.SaveChanges();
 
@@ -30,18 +30,19 @@ namespace ofisprojesi
         }
 
         [HttpDelete]
-        public void ofisDelete([FromQuery]int id)
+        public void Delete([FromQuery] int id)
         {
             var ofissil = _ofiscontext.Ofis.SingleOrDefault(p => p.Id == id);
             _ofiscontext.Ofis.Remove(ofissil);
             _ofiscontext.SaveChanges();
         }
         [HttpPut]
-        public void ofisPut(int id2, [FromBody][FromQuery] Ofi güncelleme)
+        public void Put(int id,[FromQuery]string ad , Boolean Durum)
         {
-            var ofisgüncelleme = _ofiscontext.Ofis.FirstOrDefault(p => p.Id== id2);
-            ofisgüncelleme.Ad = güncelleme.Ad;
-            
+            var ofisgüncelleme = _ofiscontext.Ofis.FirstOrDefault(p => p.Id == id);
+           ofisgüncelleme.Ad=ad;
+           ofisgüncelleme.Durum=Durum;
+
 
 
             _ofiscontext.SaveChanges();
@@ -49,27 +50,29 @@ namespace ofisprojesi
 
         }
         [HttpGet("{Id:int}")]
-        public Ofi ofisidGet(int Id)
+        public Ofi idGet(int Id)
         {
             return _ofiscontext.Ofis.Where(p => p.Id == Id).FirstOrDefault();
-            
+
 
 
 
         }
         [HttpGet]
-        public IList<Ofi> ofisGet([FromQuery]string name2){
+        public IList<Ofi> Get([FromQuery] string name)
+        {
 
-        var calisanisimara= (_ofiscontext.Ofis.Where(p=>p.Ad==name2).ToList());
-        
+            var calisanisimara = (_ofiscontext.Ofis.Where(p => p.Ad == name).ToList());
 
-        var tümcalisanlar= _ofiscontext.Ofis.ToList();
-        
-        if (name2 == null){
-            return tümcalisanlar;
-        }
+
+            var tümcalisanlar = _ofiscontext.Ofis.ToList();
+
+            if (name == null)
+            {
+                return tümcalisanlar;
+            }
 
             return calisanisimara;
         }
     }
-    }
+}

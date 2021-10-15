@@ -30,13 +30,13 @@ namespace ofisprojesi
         {
             services
             .AddControllersWithViews();
-             services.AddCors();
+            services.AddCors();
             services.AddControllers();
-            
+
             services.AddDbContext<OfisProjesiContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("OfisDb")));
-        
-           
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ofisprojesi", Version = "v1" });

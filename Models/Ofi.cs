@@ -15,7 +15,7 @@ namespace ofisprojesi
 
         public int Id { get; set; }
         public string Ad { get; set; }
-        public bool Durum { get; set; }
+        public bool? Durum { get; set; }
 
         public virtual ICollection<Calisan> Calisans { get; set; }
         public virtual ICollection<Demirba> Demirbas { get; set; }

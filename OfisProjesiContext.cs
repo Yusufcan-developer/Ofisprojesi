@@ -39,7 +39,7 @@ namespace ofisprojesi
             {
                 entity.ToTable("calisan");
 
-                entity.HasIndex(e => e.BagliOlduguOfis, "bagli_oldugu_ofis");
+                entity.HasIndex(e => e.OfisId, "bagli_oldugu_ofis");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
@@ -49,17 +49,17 @@ namespace ofisprojesi
                     .HasMaxLength(25)
                     .HasColumnName("ad");
 
-                entity.Property(e => e.BagliOlduguOfis).HasColumnName("bagli_oldugu_ofis");
-
                 entity.Property(e => e.Durum).HasColumnName("durum");
+
+                entity.Property(e => e.OfisId).HasColumnName("ofis_id");
 
                 entity.Property(e => e.Soyad)
                     .HasMaxLength(25)
                     .HasColumnName("soyad");
 
-                entity.HasOne(d => d.BagliOlduguOfisNavigation)
+                entity.HasOne(d => d.Ofis)
                     .WithMany(p => p.Calisans)
-                    .HasForeignKey(d => d.BagliOlduguOfis)
+                    .HasForeignKey(d => d.OfisId)
                     .HasConstraintName("calisan_bagli_oldugu_ofis_fkey");
             });
 
@@ -67,7 +67,7 @@ namespace ofisprojesi
             {
                 entity.ToTable("demirbas");
 
-                entity.HasIndex(e => e.BulunduguOfis, "fki_ofisiddd");
+                entity.HasIndex(e => e.OfisId, "fki_ofisiddd");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
@@ -77,13 +77,13 @@ namespace ofisprojesi
                     .HasMaxLength(25)
                     .HasColumnName("ad");
 
-                entity.Property(e => e.BulunduguOfis).HasColumnName("bulundugu_ofis");
-
                 entity.Property(e => e.Durum).HasColumnName("durum");
 
-                entity.HasOne(d => d.BulunduguOfisNavigation)
+                entity.Property(e => e.OfisId).HasColumnName("ofis_id");
+
+                entity.HasOne(d => d.Ofis)
                     .WithMany(p => p.Demirbas)
-                    .HasForeignKey(d => d.BulunduguOfis)
+                    .HasForeignKey(d => d.OfisId)
                     .HasConstraintName("demirbas_bulundugu_ofis_fkey");
             });
 
@@ -106,13 +106,17 @@ namespace ofisprojesi
             {
                 entity.ToTable("zimmet");
 
-                entity.HasIndex(e => e.ZimmetlenmisDemirbas, "fki_demirbaszimmeting");
+                entity.HasIndex(e => e.DemirbasId, "fki_demirbaszimmeting");
 
-                entity.HasIndex(e => e.ZimmetlenenCalisanlar, "fki_zimmeting");
+                entity.HasIndex(e => e.CalisanId, "fki_zimmeting");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CalisanId).HasColumnName("calisan_id");
+
+                entity.Property(e => e.DemirbasId).HasColumnName("demirbas_id");
 
                 entity.Property(e => e.Durum).HasColumnName("durum");
 
@@ -120,18 +124,14 @@ namespace ofisprojesi
                     .HasColumnType("date")
                     .HasColumnName("tarih");
 
-                entity.Property(e => e.ZimmetlenenCalisanlar).HasColumnName("zimmetlenen_calisanlar");
-
-                entity.Property(e => e.ZimmetlenmisDemirbas).HasColumnName("zimmetlenmis_demirbas");
-
-                entity.HasOne(d => d.ZimmetlenenCalisanlarNavigation)
+                entity.HasOne(d => d.Calisan)
                     .WithMany(p => p.Zimmets)
-                    .HasForeignKey(d => d.ZimmetlenenCalisanlar)
+                    .HasForeignKey(d => d.CalisanId)
                     .HasConstraintName("Zimmet_zimmetlenen_kisi_fkey");
 
-                entity.HasOne(d => d.ZimmetlenmisDemirbasNavigation)
+                entity.HasOne(d => d.Demirbas)
                     .WithMany(p => p.Zimmets)
-                    .HasForeignKey(d => d.ZimmetlenmisDemirbas)
+                    .HasForeignKey(d => d.DemirbasId)
                     .HasConstraintName("demirbaszimmeting");
             });
 

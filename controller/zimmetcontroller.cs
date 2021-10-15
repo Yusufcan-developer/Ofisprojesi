@@ -7,91 +7,99 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace ofisprojesi
-{ 
-
-
+{
     [Route("api/zimmetler")]
     [ApiController]
     public class zimmetcontroller : ControllerBase
-    {   
+    {
         private OfisProjesiContext _Zcontext;
         public zimmetcontroller(OfisProjesiContext context)
         {
-            
+
             _Zcontext = context;
         }
-        [HttpGet]
-           public IList<Zimmet> Get([FromQuery]int name2){
+        [HttpGet]//tüm zimmet verilerini getir 
 
-        
-        
+        public IList<Zimmet> Get([FromQuery] int id)
 
-        var alldata= _Zcontext.Zimmets.ToList();
-        
         {
-           return alldata;
+
+            var GetAllData = _Zcontext.Zimmets.ToList();
+
+            {
+
+                return GetAllData;
+
+            }
 
         }
-       }
-     
 
+        [HttpDelete]//id ye göre zimmet verisi sil
 
+        public void Delete([FromQuery] int id)
 
-
-[HttpDelete]
-        public void zimmetDelete([FromQuery]int id)
         {
-            var Deletedcalisan = _Zcontext.Zimmets.SingleOrDefault(p => p.Id == id);
-            _Zcontext.Zimmets.Remove(Deletedcalisan);
-            _Zcontext.SaveChanges();
-            return;
-        }
 
- [HttpPut]
-        public void zimmetPut(int id, [FromBody][FromQuery] Zimmet güncelleme)
-        {
-            var updatezimmet = _Zcontext.Zimmets.FirstOrDefault(p => p.Id== id);
-            updatezimmet.ZimmetlenenCalisanlar= güncelleme.ZimmetlenenCalisanlar;
-            updatezimmet.ZimmetlenmisDemirbas=güncelleme.ZimmetlenmisDemirbas;
-            updatezimmet.Tarih=güncelleme.Tarih;
-            updatezimmet.Durum=güncelleme.Durum;
-            
-
-
+            var Deleted = _Zcontext.Zimmets.SingleOrDefault(p => p.Id == id);
+            _Zcontext.Zimmets.Remove(Deleted);
             _Zcontext.SaveChanges();
             return;
 
         }
-         [HttpGet("{Id:int}")]
+
+        [HttpPut]//zimmet verisi güncelle
+
+        public void Put(int id,[FromQuery] int calisan,int demirbas,DateTime tarih,Boolean Durum)
+        {
+
+            var update = _Zcontext.Zimmets.FirstOrDefault(p => p.Id == id);
+            update.CalisanId = calisan;
+            update.DemirbasId = demirbas;
+            update.Tarih = tarih;
+            update.Durum = Durum;
+            _Zcontext.SaveChanges();
+            return;
+
+        }
+
+
+        [HttpGet("{Id:int}")]//id ye göre zimmet verisi getir 
+
         public List<Zimmet> id(int Id)
         {
-         var zimmetidsorgusu= _Zcontext.Zimmets.Where(p => p.Id == Id).ToList();
-            return zimmetidsorgusu;
+
+            var ZimmetIdSorgusu = _Zcontext.Zimmets.Where(p => p.Id == Id).ToList();
+            return ZimmetIdSorgusu;
+
         }
 
-        [HttpPost]
-        public void zimmetPost(int calisan ,int demirbas,Boolean Durum)
-        {   
-            Zimmet zimmetlenme=new Zimmet ();
-            zimmetlenme.ZimmetlenenCalisanlar=calisan;
-            zimmetlenme.ZimmetlenmisDemirbas=demirbas;
-            zimmetlenme.Durum=Durum;
-            zimmetlenme.Tarih=DateTime.Now;
-            
-         _Zcontext.Zimmets.Add(zimmetlenme);
-         _Zcontext.SaveChanges();
-         
+
+
+        [HttpPost]//zimmet verisi kaydet
+
+        public void Post(int calisan, int demirbas, Boolean Durum)
+        {
+
+            Zimmet zimmet = new Zimmet();
+            zimmet.CalisanId = calisan;
+            zimmet.DemirbasId = demirbas;
+            zimmet.Durum = Durum;
+            zimmet.Tarih = DateTime.Now;
+
+            _Zcontext.Zimmets.Add(zimmet);
+            _Zcontext.SaveChanges();
+
         }
 
 
     }
 }
 
-     
 
 
 
 
-    
+
+
 
 
