@@ -20,23 +20,31 @@ namespace ofisprojesi
         }
         [HttpGet]//tüm zimmet verilerini getir 
 
-        public IList<Zimmet> Get([FromQuery] int id)
+        public IList<Zimmet> AllGetEmbezzled()
 
         {
 
-            var GetAllData = _Zcontext.Zimmets.ToList();
-
-            {
-
-                return GetAllData;
-
-            }
+            var Querry = (from item in _Zcontext.Zimmets
+            join item2 in _Zcontext.Calisans on item.CalisanId equals item2.Id
+            join item3 in _Zcontext.Demirbas
+            on item.DemirbasId equals item3.Id select new Zimmet(){
+                Id=item.Id,
+                CalisanAd=item2.Ad,
+                CalisanId=item2.Id,
+                DemirbasAd=item3.Ad,
+                DemirbasId=item3.Id,
+                Tarih=item.Tarih,
+                Durum=item.Durum
+                
+            }).ToList();
+             Querry.ToList();
+             return Querry;
 
         }
 
         [HttpDelete]//id ye göre zimmet verisi sil
 
-        public void Delete([FromQuery] int id)
+        public void DeleteEmbezzledById([FromQuery] int id)
 
         {
 
@@ -49,7 +57,7 @@ namespace ofisprojesi
 
         [HttpPut]//zimmet verisi güncelle
 
-        public void Put(int id,[FromQuery] int calisan,int demirbas,DateTime tarih,Boolean Durum)
+        public void AllEmbezzledUpdate(int id, [FromQuery] int calisan, int demirbas, DateTime tarih, Boolean Durum)
         {
 
             var update = _Zcontext.Zimmets.FirstOrDefault(p => p.Id == id);
@@ -62,19 +70,16 @@ namespace ofisprojesi
 
         }
 
-
         [HttpGet("{Id:int}")]//id ye göre zimmet verisi getir 
-
-        public List<Zimmet> id(int Id)
+        public Zimmet GetEmbezzledById(int Id)
         {
+            return _Zcontext.Zimmets.Where(p => p.Id == Id).FirstOrDefault();
 
-            var ZimmetIdSorgusu = _Zcontext.Zimmets.Where(p => p.Id == Id).ToList();
-            return ZimmetIdSorgusu;
+
+
 
         }
-
-
-
+        
         [HttpPost]//zimmet verisi kaydet
 
         public void Post(int calisan, int demirbas, Boolean Durum)

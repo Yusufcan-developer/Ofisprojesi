@@ -20,8 +20,8 @@ namespace ofisprojesi
             _context = context;
         }
 
-        [HttpPost]
-        public void POST([FromQuery] string ad, int ofis, Boolean Durum, String soyad)
+        [HttpPost]//calisan kaydetme
+        public void EmployeeSave([FromQuery] string ad, int ofis, Boolean Durum, String soyad)
         {
             Calisan calisan = new Calisan();
             calisan.Ad = ad;
@@ -32,15 +32,15 @@ namespace ofisprojesi
             _context.SaveChanges();
         }
 
-        [HttpDelete]
-        public void Delete([FromQuery] int id)
+        [HttpDelete]//calisan silme
+        public void DeleteByIdEmployee([FromQuery] int id)
         {
             var DeletedUser = _context.Calisans.SingleOrDefault(p => p.Id == id);
             _context.Calisans.Remove(DeletedUser);
             _context.SaveChanges();
         }
-        [HttpPut]
-        public void Put([FromQuery] string ad, int id , string soyad,Boolean Durum,int ofis)
+        [HttpPut]//calisan güncelle
+        public void EmployeeUpdate([FromQuery] string ad, int id, string soyad, Boolean Durum, int ofis)
         {
             var update = _context.Calisans.FirstOrDefault(p => p.Id == id);
             update.Ad = ad;
@@ -54,8 +54,8 @@ namespace ofisprojesi
             return;
 
         }
-        [HttpGet("{userId:int}")]
-        public Calisan GetUserById(int userId)
+        [HttpGet("{userId:int}")]//id ye göre calisan listele
+        public Calisan GetEmployeeById(int userId)
         {
             return _context.Calisans.Where(p => p.Id == userId).FirstOrDefault();
 
@@ -63,8 +63,8 @@ namespace ofisprojesi
 
 
         }
-        [HttpGet]
-        public IList<Calisan> GetUserByName([FromQuery] string name)
+        [HttpGet]//calisan adı sorgula yoksa tümünü getir
+        public IList<Calisan> GetEmployeeByName([FromQuery] string name)
         {
 
 
@@ -79,9 +79,10 @@ namespace ofisprojesi
             }
             return SearchName;
         }
-    }
 
+    }
 }
+
 
 
 

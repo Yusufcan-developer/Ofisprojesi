@@ -17,8 +17,8 @@ namespace ofisprojesi
         {
             _demirbascontext = context;
         }
-        [HttpPost]
-        public void POST([FromQuery] string ad, int ofis, Boolean Durum)
+        [HttpPost]//demirbas ekle
+        public void FixtureSave([FromQuery] string ad, int ofis, Boolean Durum)
         {
             Demirba d = new Demirba();
             d.Ad = ad;
@@ -27,15 +27,15 @@ namespace ofisprojesi
             _demirbascontext.Demirbas.Add(d);
             _demirbascontext.SaveChanges();
         }
-        [HttpDelete]
-        public void Delete([FromQuery] int id)
+        [HttpDelete]//demirbas sil
+        public void DeleteByIdFixture([FromQuery] int id)
         {
             var delete = _demirbascontext.Demirbas.SingleOrDefault(p => p.Id == id);
             _demirbascontext.Demirbas.Remove(delete);
             _demirbascontext.SaveChanges();
         }
-        [HttpPut]
-        public void Put(int id, [FromQuery] string ad , Boolean Durum ,int ofis)
+        [HttpPut]//demirbas güncelle
+        public void FixtureUpdate(int id, [FromQuery] string ad , Boolean Durum ,int ofis)
         {
             var update = _demirbascontext.Demirbas.FirstOrDefault(p => p.Id == id);
             update.Ad =ad;
@@ -48,8 +48,8 @@ namespace ofisprojesi
             return;
 
         }
-        [HttpGet("{Id:int}")]
-        public Demirba GetDemirbasById(int Id)
+        [HttpGet("{Id:int}")]//demirbas id ye göre sorgula
+        public Demirba GetFixtureById(int Id)
         {
             return _demirbascontext.Demirbas.Where(p => p.Id == Id).FirstOrDefault();
 
@@ -57,8 +57,8 @@ namespace ofisprojesi
 
 
         }
-        [HttpGet]
-        public IList<Demirba> Get([FromQuery] string name)
+        [HttpGet]//demibas adına göre sorgula yoksa veya nullsa tümünü getir
+        public IList<Demirba> GetFixtureByName([FromQuery] string name)
         {
 
             var sorgula = _demirbascontext.Demirbas.Where(p => p.Ad.Contains(name)).ToList();

@@ -17,8 +17,8 @@ namespace ofisprojesi
         {
             _ofiscontext = context;
         }
-        [HttpPost]
-        public void Post([FromQuery] String ad, Boolean Durum)
+        [HttpPost]//ofis yaratma
+        public void OfficeSave([FromQuery] String ad, Boolean Durum)
         {
             Ofi O = new Ofi();
             O.Ad = ad;
@@ -29,19 +29,19 @@ namespace ofisprojesi
 
         }
 
-        [HttpDelete]
-        public void Delete([FromQuery] int id)
+        [HttpDelete]//ofis sil
+        public void DeleteByIdOffice([FromQuery] int id)
         {
             var ofissil = _ofiscontext.Ofis.SingleOrDefault(p => p.Id == id);
             _ofiscontext.Ofis.Remove(ofissil);
             _ofiscontext.SaveChanges();
         }
-        [HttpPut]
-        public void Put(int id,[FromQuery]string ad , Boolean Durum)
+        [HttpPut]//ofis güncelle
+        public void OfficeUpdate(int id, [FromQuery] string ad, Boolean Durum)
         {
             var ofisgüncelleme = _ofiscontext.Ofis.FirstOrDefault(p => p.Id == id);
-           ofisgüncelleme.Ad=ad;
-           ofisgüncelleme.Durum=Durum;
+            ofisgüncelleme.Ad = ad;
+            ofisgüncelleme.Durum = Durum;
 
 
 
@@ -49,8 +49,8 @@ namespace ofisprojesi
             return;
 
         }
-        [HttpGet("{Id:int}")]
-        public Ofi idGet(int Id)
+        [HttpGet("{Id:int}")]//ofis id ye sorgulama
+        public Ofi OfficeGetById(int Id)
         {
             return _ofiscontext.Ofis.Where(p => p.Id == Id).FirstOrDefault();
 
@@ -58,8 +58,8 @@ namespace ofisprojesi
 
 
         }
-        [HttpGet]
-        public IList<Ofi> Get([FromQuery] string name)
+        [HttpGet]//ofis adına göre sorgula yoksa tümünü getir
+        public IList<Ofi> GetOfisByName([FromQuery] string name)
         {
 
             var calisanisimara = (_ofiscontext.Ofis.Where(p => p.Ad == name).ToList());

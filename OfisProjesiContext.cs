@@ -18,6 +18,7 @@ namespace ofisprojesi
         }
 
         public virtual DbSet<Calisan> Calisans { get; set; }
+        public virtual DbSet<CalisanHareket> CalisanHarekets { get; set; }
         public virtual DbSet<Demirba> Demirbas { get; set; }
         public virtual DbSet<Ofi> Ofis { get; set; }
         public virtual DbSet<Zimmet> Zimmets { get; set; }
@@ -61,6 +62,29 @@ namespace ofisprojesi
                     .WithMany(p => p.Calisans)
                     .HasForeignKey(d => d.OfisId)
                     .HasConstraintName("calisan_bagli_oldugu_ofis_fkey");
+            });
+
+            modelBuilder.Entity<CalisanHareket>(entity =>
+            {
+                entity.ToTable("calisan_hareket");
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedNever()
+                    .HasColumnName("id");
+
+                entity.Property(e => e.Adi)
+                    .HasMaxLength(25)
+                    .HasColumnName("adi");
+
+                entity.Property(e => e.Ofis).HasColumnName("ofis");
+
+                entity.Property(e => e.Soyad)
+                    .HasMaxLength(25)
+                    .HasColumnName("soyad");
+
+                entity.Property(e => e.Tarih)
+                    .HasColumnType("date")
+                    .HasColumnName("tarih");
             });
 
             modelBuilder.Entity<Demirba>(entity =>
@@ -114,7 +138,15 @@ namespace ofisprojesi
                     .HasColumnName("id")
                     .UseIdentityAlwaysColumn();
 
+                entity.Property(e => e.CalisanAd)
+                    .HasMaxLength(25)
+                    .HasColumnName("calisan_ad");
+
                 entity.Property(e => e.CalisanId).HasColumnName("calisan_id");
+
+                entity.Property(e => e.DemirbasAd)
+                    .HasMaxLength(25)
+                    .HasColumnName("demirbas_ad");
 
                 entity.Property(e => e.DemirbasId).HasColumnName("demirbas_id");
 
