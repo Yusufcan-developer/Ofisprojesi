@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ofisprojesi</name>
+    </assembly>
+    <members>
+        <member name="M:ofisprojesi.DebitController.GetAllDebit">
+            <summary>
+            "Tüm Zimmet Verilerini Getir"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.DebitController.DeleteDebitById(System.Int32)">
+            <summary>
+            "id ye Göre Zimmet Verisi sil"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.DebitController.UpdateAllDebit(System.Int32,ofisprojesi.Debit)">
+            <summary>
+            "Zimmet Verisini Güncelle"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.DebitController.GetDebitById(System.Int32)">
+            <summary>
+            "id ye Göre Zimmet Verisi Getir"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.DebitController.SaveDebitById(ofisprojesi.Debit)">
+            <summary>
+            "Zimmet Verisi"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.EmployeeController.SaveEmployee(ofisprojesi.Employee)">
+            <summary>
+             Çalışan kaydetme
+             </summary>
+             <return></return>
+        </member>
+        <member name="M:ofisprojesi.EmployeeController.DeleteByIdEmployee(System.Int32)">
+            <summary>
+             Çalışan Silme
+             </summary>
+             <return></return>
+        </member>
+        <member name="M:ofisprojesi.EmployeeController.UpdateEmployee(ofisprojesi.Employee,System.Int32)">
+            <summary>
+             Çalışan Güncelleme
+             </summary>
+             <return></return>
+        </member>
+        <member name="M:ofisprojesi.EmployeeController.GetEmployeeById(System.Int32)">
+            <summary>
+             Çalışanı id sine Göre Getir
+             </summary>
+             <return></return>
+        </member>
+        <member name="M:ofisprojesi.EmployeeController.GetEmployeeByName(System.String)">
+            <summary>
+             Tüm Çalışanları Getir
+             </summary>
+             <return></return>
+        </member>
+        <member name="M:ofisprojesi.EmployeeController.GetFiredEmployeeByName(System.String)">
+            <summary>
+             işten çıkarılmış çalışanları getir
+             </summary>
+             <return></return>
+        </member>
+        <member name="M:ofisprojesi.FixtureController.SaveFixture(ofisprojesi.Fixture)">
+            <summary>
+            "Demirbas Kaydetme"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.FixtureController.DeleteFixtureById(System.Int32)">
+            <summary>
+            "Demirbaş Silme"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.FixtureController.UpdateFixture(System.Int32,ofisprojesi.Fixture)">
+            <summary>
+            "Demirbas Güncelleme"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.FixtureController.GetFixtureById(System.Int32)">
+            <summary>
+            "Demirbas id ye göre Getir"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.FixtureController.GetFixtureByName(System.String)">
+            <summary>
+            "Tüm Demirbasları Getir"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.OfficeController.SaveOffice(ofisprojesi.Office)">
+            <summary>
+            "Ofis Kayrdetme"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.OfficeController.DeleteOfficeById(System.Int32)">
+            <summary>
+            "Ofis Silme"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.OfficeController.UpdateOffice(ofisprojesi.Office,System.Int32)">
+            <summary>
+            "Ofis Güncelle"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.OfficeController.GetOfficeById(System.Int32)">
+            <summary>
+            "Ofis id ye göre sorgula"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.OfficeController.GetOfisByName(System.String)">
+            <summary>
+            "Ofis Adına Göre Sorgula Yoksa Tümünü Getir"
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
