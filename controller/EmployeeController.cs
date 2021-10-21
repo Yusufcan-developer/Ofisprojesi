@@ -23,24 +23,24 @@ namespace ofisprojesi
         /// Çalışan kaydetme
         /// </summary>
         /// <return></return>
-        [Route("SaveEmployee")]
-        [HttpPost]//calisan Kaydetme
+        [Route("Save-Employee")]
+        [HttpPost]
         public ActionResult SaveEmployee([FromBody] Employee employee)
         {
-            Office officee = new Office();
+            Office officecontroller = _context.Offices.Where(p => p.Id == employee.OfficeId).SingleOrDefault();
             if (employee.Status == false || employee.Status == null)
             {
                 return BadRequest("çalışana ilk kayıt sırasında negatif veya boş değer verilemez");
             }
             else if (employee.Age > 150)
             {
-                return BadRequest("kayıt başarısız çalışan ölmüş lütfen gömün");
+                return BadRequest("kayıt başarısız çalışan ölmüş lütfen en yakın mezar sağlayıcısına başvurun");
             }
             else if (employee.Name == null || employee.Lastname == null)
             {
                 return BadRequest("isim veya soyisim boş bırakılamaz");
             }
-            else if (employee.OfficeId == null || employee.OfficeId != officee.Id)
+            else if (employee.OfficeId == null || officecontroller == null)
             {
                 return BadRequest("kayıtlı office bulunamadı");
 
@@ -61,8 +61,8 @@ namespace ofisprojesi
         /// Çalışan Silme
         /// </summary>
         /// <return></return>
-        [Route("DeleteByIdEmployee")]
-        [HttpDelete]//calisan silme
+        [Route("Delete-Employee-By-Id")]
+        [HttpDelete]
         public ActionResult DeleteByIdEmployee([FromQuery] int id)
         {
             var Deleted = _context.Employees.SingleOrDefault(p => p.Id == id);
@@ -84,13 +84,13 @@ namespace ofisprojesi
         /// Çalışan Güncelleme
         /// </summary>
         /// <return></return>
-        [Route("EmployeeUpdate")]
-        [HttpPut]//calisan güncelle
+        [Route("Update-Employee")]
+        [HttpPut]
         public ActionResult UpdateEmployee([FromBody] Employee employee, int id)
         {
-            var update = _context.Employees.FirstOrDefault(p => p.Id == id);
-            Office office = new Office();
-            if (update.OfficeId == null || id != update.Id)
+            Employee update = _context.Employees.FirstOrDefault(p => p.Id == id);
+            Office officecontrol = _context.Offices.Where(p => p.Id == id).SingleOrDefault();
+            if (update.OfficeId == null || id != officecontrol.Id)
             {
                 return BadRequest("ofis bulunumadı");
             }
@@ -120,7 +120,7 @@ namespace ofisprojesi
         /// Çalışanı id sine Göre Getir
         /// </summary>
         /// <return></return>
-        [HttpGet("{userId:int}", Name = "GetEmployeeById")]//id ye göre calisan listele
+        [HttpGet("{userId:int}", Name = "Get-Employee-By-Id")]
         public ActionResult<Employee> GetEmployeeById(int userId)
         {
             return Ok(_context.Employees.Where(p => p.Id == userId).FirstOrDefault());
@@ -133,53 +133,42 @@ namespace ofisprojesi
         /// Tüm Çalışanları Getir
         /// </summary>
         /// <return></return>
-        [Route("GetEmployeeByName")]
-        [HttpGet]//aktif çalışanların adını sorgula yoksa tümünü getir
-        public IList<Employee> GetEmployeeByName([FromQuery] string name)
+        [Route("Get-Employee-By-Name")]
+        [HttpGet]
+        public ActionResult GetEmployeeByName([FromQuery] string name, bool durum, bool names)
         {
 
 
-            var SearchName = (_context.Employees.Where(p => p.Name.Contains(name)).ToList());
+            List<Employee> SearchName = _context.Employees.Where(p => p.Name.Contains(name)).ToList();
+            List<Employee> durumcontroltrue = _context.Employees.Where(p => p.Status == durum).ToList();
+            List<Employee> durumcontrolfalse = _context.Employees.Where(p => p.Status == durum).ToList();
+
+            List<Employee> GetAllData = _context.Employees.ToList();
 
 
-            var GetAllData = _context.Employees.ToList();
-
-            if (name == null)
+            if (names == true)
             {
-                return GetAllData;
+                return Ok(GetAllData);
             }
-            return SearchName;
-        }
-        ///<summary>
-        /// işten çıkarılmış çalışanları getir
-        /// </summary>
-        /// <return></return>
-        [Route("GetFiredEmployeeByName")]
-        [HttpGet]//kovulan calisan adı sorgula yoksa tümünü getir
-        public ActionResult GetFiredEmployeeByName([FromQuery] string name)
-        {
-            Employee employee = new Employee();
-
-                var SearchName = (_context.Employees.Where(p => p.Name.Contains(name)&&p.Status==false).ToList());
-                var GetAllData =_context.Employees.Where(p=>p.Status==false).ToList();
-                if (name == null)
-                {
-
-                    return Ok(GetAllData);
-                }
-                
+            else if (durum == true)
+            {
+                return Ok(durumcontroltrue);
+            }
+            else if (durum == false)
+            {
+                return Ok(durumcontrolfalse);
+            }
+            else if (name!=null){
                 return Ok(SearchName);
             }
+            else{
+                return BadRequest("arama sırasında hata");
 
-
-
-
-
-
-
+            }
         }
-
     }
+}
+
 
 
 

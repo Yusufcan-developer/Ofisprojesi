@@ -80,10 +80,7 @@ namespace ofisprojesi
         [HttpGet]//ofis adına göre sorgula yoksa tümünü getir
         public IList<Office> GetOfisByName([FromQuery] string name)
         {
-
             var OfficeNameSearch = (_context.Offices.Where(p => p.Name == name).ToList());
-
-
             var GetAllOffice = _context.Offices.ToList();
 
             if (name == null)

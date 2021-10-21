@@ -30,18 +30,20 @@ namespace ofisprojesi
         {
 
             var Querry = (from item in _context.Debits
-            join item2 in _context.Employees on item.EmployeeId equals item2.Id
-            join item3 in _context.Fixtures
-            on item.FixtureId equals item3.Id select new Debit(){
-                Id=item.Id,
-                EmployeeId=item2.Id,
-                FixtureId=item3.Id,
-                Date=item.Date,
-                Status=item.Status
-            }
+                          join item2 in _context.Employees on item.EmployeeId equals item2.Id
+                          join item3 in _context.Fixtures
+                          on item.FixtureId equals item3.Id
+                          select new Debit()
+                          {
+                              Id = item.Id,
+                              EmployeeId = item2.Id,
+                              FixtureId = item3.Id,
+                              Date = item.Date,
+                              Status = item.Status
+                          }
             ).ToList();
-             Querry.ToList();
-             return Querry;
+            Querry.ToList();
+            return Querry;
 
         }
         /// <summary>
@@ -75,10 +77,10 @@ namespace ofisprojesi
             update.EmployeeId = debit.EmployeeId;
             update.FixtureId = debit.FixtureId;
             update.Date = debit.Date;
-            update.Status= debit.Status;
+            update.Status = debit.Status;
             _context.SaveChanges();
 
-            
+
             return;
 
         }
@@ -102,12 +104,12 @@ namespace ofisprojesi
         [Route("SaveDebitById")]
         [HttpPost]//zimmet verisi kaydet
 
-        public void SaveDebitById([FromBody]Debit debit)
+        public void SaveDebitById([FromBody] Debit debit)
         {
 
             _context.Debits.Add(debit);
             _context.SaveChanges();
-            
+
 
         }
 

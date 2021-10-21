@@ -58,15 +58,9 @@
              </summary>
              <return></return>
         </member>
-        <member name="M:ofisprojesi.EmployeeController.GetEmployeeByName(System.String)">
+        <member name="M:ofisprojesi.EmployeeController.GetEmployeeByName(System.String,System.Boolean,System.Boolean)">
             <summary>
              Tüm Çalışanları Getir
-             </summary>
-             <return></return>
-        </member>
-        <member name="M:ofisprojesi.EmployeeController.GetFiredEmployeeByName(System.String)">
-            <summary>
-             işten çıkarılmış çalışanları getir
              </summary>
              <return></return>
         </member>
