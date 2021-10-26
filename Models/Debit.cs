@@ -7,13 +7,16 @@ namespace ofisprojesi
 {
     public partial class Debit
     {
-        public int Id { get; set; }
+        
+        public int? Id { get; set; }
         public int? EmployeeId { get; set; }
         public DateTime? Date { get; set; }
         public bool? Status { get; set; }
         public int? FixtureId { get; set; }
 
+        [System.Text.Json.Serialization.JsonIgnore]   
         public virtual Employee Employee { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]   
         public virtual Fixture Fixture { get; set; }
     }
 }

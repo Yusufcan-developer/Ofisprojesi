@@ -17,78 +17,109 @@ namespace ofisprojesi
         {
             _context = context;
         }/// <summary>
-        /// "Ofis Kayrdetme"
-        /// </summary>
-        /// <returns></returns>
-        [Route("SaveOffice")]
-        [HttpPost]//ofis yaratma
-        public void SaveOffice([FromBody] Office office)
+         /// "Ofis Kaydetme"
+         /// </summary>
+         /// <returns></returns>
+        [Route("")]
+        [HttpPost]
+        public ActionResult SaveOffice([FromBody] Office offices)
         {
-            _context.Offices.Add(office);
-            _context.SaveChanges();
-
-
+            if (offices.Name == null || !offices.Status.HasValue || offices.Id != null)
+            {
+                return BadRequest("hata");
+            }
+            else
+            {
+                _context.Offices.Add(offices);
+                _context.SaveChanges();
+                return Ok(offices);
+            }
         }
         /// <summary>
-        /// "Ofis Silme"
+        /// "id ye göre Ofis Silme"
         /// </summary>
         /// <returns></returns>
-        [Route("DeleteOfficeById")]
-        [HttpDelete]//ofis sil
-        public void DeleteOfficeById([FromQuery] int id)
+        [Route("id")]
+        [HttpDelete]
+        public ActionResult DeleteOfficeById([FromQuery] int id)
         {
-            var Delete = _context.Offices.SingleOrDefault(p => p.Id == id);
-            _context.Offices.Remove(Delete);
-            _context.SaveChanges();
+
+            Office Delete = _context.Offices.SingleOrDefault(p => p.Id == id);
+            Employee calisanSorgula = _context.Employees.FirstOrDefault(x => x.OfficeId == id);
+            Fixture demirbasSorgula = _context.Fixtures.FirstOrDefault(p => p.OfficeId == id);
+
+            if (Delete == null)
+            {
+                return BadRequest("silme işlemi başarısız kişi bulunmadı");
+            }
+            else if ((calisanSorgula != null) || (demirbasSorgula != null))
+            {
+                return BadRequest("Ofisin kullanıcı ve demirbaşta tanımlandığı için silemezsiniz");
+            }
+            else
+            {
+                _context.Offices.Remove(Delete);
+                _context.SaveChanges();
+                return BadRequest("silme başarılı");
+            }
+
         }
         /// <summary>
         /// "Ofis Güncelle"
         /// </summary>
         /// <returns></returns>
-        [Route("UpdateOffice")]
+        [Route("{id}")]
         [HttpPut]//ofis güncelle
-        public void UpdateOffice([FromBody]Office office ,int id)
+        public ActionResult UpdateOffice([FromBody] Office office, int id)
         {
-            var Update = _context.Offices.FirstOrDefault(p => p.Id == id);
-            Update.Name = office.Name;
-            Update.Status =office.Status;
-
-
-
-            _context.SaveChanges();
-            return;
+            Office Update = _context.Offices.FirstOrDefault(p => p.Id == id);
+            if (office.Id != null)
+            {
+                return BadRequest("hata");
+            }
+            else
+            {
+                Update.Name = office.Name;
+                Update.Status = office.Status;
+                _context.SaveChanges();
+                return Ok(Update);
+            }
 
         }
         /// <summary>
         /// "Ofis id ye göre sorgula"
         /// </summary>
         /// <returns></returns>
-        [HttpGet("{Id:int}")]//ofis id ye sorgulama
-        public Office GetOfficeById(int Id)
+        [HttpGet("{id}")]//ofis id ye sorgulama
+        public Office GetOfficeById(int id)
         {
-            return _context.Offices.Where(p => p.Id == Id).FirstOrDefault();
-
-
-
-
+            return _context.Offices.Where(p => p.Id == id).FirstOrDefault();
         }
         /// <summary>
         /// "Ofis Adına Göre Sorgula Yoksa Tümünü Getir"
         /// </summary>
         /// <returns></returns>
-        [Route("GetOfisByName")]
+        [Route("name")]
         [HttpGet]//ofis adına göre sorgula yoksa tümünü getir
-        public IList<Office> GetOfisByName([FromQuery] string name)
+        public ActionResult GetOfisByName([FromQuery] string name, bool? status)
         {
-            var OfficeNameSearch = (_context.Offices.Where(p => p.Name == name).ToList());
-            var GetAllOffice = _context.Offices.ToList();
-
-            if (name == null)
+            List<Office> OfficeNameSearch = _context.Offices.ToList();
+            if (!string.IsNullOrWhiteSpace(name))
             {
-                return GetAllOffice;
+                OfficeNameSearch = OfficeNameSearch.Where(p => p.Name.Contains(name)).ToList();
             }
-
-            return OfficeNameSearch;
+            if (status.HasValue)
+            {
+                OfficeNameSearch = OfficeNameSearch.Where(p => p.Status == status).ToList();
+            }
+            if (OfficeNameSearch.ToList().Count > 0)
+            {
+                return Ok(OfficeNameSearch);
+            }
+            else
+            {
+                return BadRequest("kayıt bulunamadı");
+            }
         }
     }
 }

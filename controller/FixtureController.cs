@@ -25,7 +25,7 @@ namespace ofisprojesi
         /// "Demirbas Kaydetme"
         /// </summary>
         /// <returns></returns>
-        [Route("Save-Fixture")]
+        [Route("")]
         [HttpPost]//demirbas ekle
         public ActionResult<Fixture> SaveFixture([FromBody] Fixture fixture)
         {
@@ -44,11 +44,15 @@ namespace ofisprojesi
             {
                 return BadRequest("ofis bulunamadı");
             }
+            else if (fixture.Id != null)
+            {
+                return BadRequest("kayıt sırasında id gönderilmez");
+            }
             else
             {
                 _context.Fixtures.Add(fixture);
                 _context.SaveChanges();
-                return Ok("kayıt başarılı");
+                return Ok(fixture);
             }
 
         }
@@ -57,14 +61,16 @@ namespace ofisprojesi
         /// "Demirbaş Silme"
         /// </summary>
         /// <returns></returns>
-        [Route("Delete-Fixture-By-Id")]
+        [Route("id")]
         [HttpDelete]//demirbas sil
         public ActionResult DeleteFixtureById([FromQuery] int id)
         {
-            Fixture delete = _context.Fixtures.SingleOrDefault(p => p.Id == id);
-            if (delete == null)
+            
+            Fixture delete = _context.Fixtures.FirstOrDefault(p => p.Id == id);
+            Debit debits=_context.Debits.Where(p=>p.FixtureId==id).FirstOrDefault();
+            if (delete == null || delete.Id==debits.FixtureId)
             {
-                return BadRequest("silmeye çalıştığınız kişi bulunamadı");
+                return BadRequest("silmeye çalıştığınız demirbas bulunamadı");
             }
             else
             {
@@ -77,63 +83,67 @@ namespace ofisprojesi
         /// "Demirbas Güncelleme"
         /// </summary>
         /// <returns></returns>
-        [Route("Update-Fixture")]
+        [Route("{id}")]
         [HttpPut]//demirbas güncelle
-        public ActionResult UpdateFixture(int id, [FromBody] Fixture fixturee)
+        public ActionResult UpdateFixture([FromBody] Fixture fixturee, int id)
         {
-            Office officecontrol = _context.Offices.Where(p => p.Id == fixturee.OfficeId).SingleOrDefault();
-            Fixture update = _context.Fixtures.FirstOrDefault(p => p.Id == id);
-            if (update == null)
+            Fixture update = _context.Fixtures.Where(p => p.Id == id).FirstOrDefault();
+            Office officecontrol = _context.Offices.Where(p => p.Id == fixturee.OfficeId).FirstOrDefault();
+            if (fixturee.Status == false && officecontrol == null)
             {
-                return BadRequest("güncellenecek kişi bulunamadı");
+                return BadRequest("olmayan bir demirbaşı bir ofise kaydedemezsin");
             }
-            else if (update.Status == false)
+            else if(fixturee.Status==true&&officecontrol==null)
             {
-                return BadRequest("olmayan bir demirbaşı kaydedemezsiniz");
+                return BadRequest("office bulunamadı");
             }
-            else if (officecontrol == null)
+            else if (fixturee.Id!=null)
             {
-                return BadRequest("ofis bulunamadı");
+                return BadRequest("id hatası");
             }
-            else
             {
                 update.Name = fixturee.Name;
                 update.Status = fixturee.Status;
                 update.OfficeId = fixturee.OfficeId;
-
-
-
                 _context.SaveChanges();
-                return Ok("demirbas kaydedildi");
+                return Ok(update);
             }
-
-
         }
         /// <summary>
         /// "Demirbas id ye göre Getir"
         /// </summary>
         /// <returns></returns>
-        [HttpGet("{Id:int}")]//demirbas id ye göre sorgula
-        public Fixture GetFixtureById(int Id)
+        [HttpGet("{id}")]//demirbas id ye göre sorgula
+        public Fixture GetFixtureById(int id)
         {
-            return _context.Fixtures.Where(p => p.Id == Id).FirstOrDefault();
+            return _context.Fixtures.Where(p => p.Id == id).FirstOrDefault();
         }
         /// <summary>
         /// "Tüm Demirbasları Getir"
         /// </summary>
         /// <returns></returns>
-        [Route("Get-Fixture-By-Name")]
+        [Route("name")]
         [HttpGet]//demibas adına göre sorgula yoksa veya nullsa tümünü getir
-        public IList<Fixture> GetFixtureByName([FromQuery] string name)
+        public ActionResult GetFixtureByName([FromQuery] String name, bool? durum)
         {
-            List<Fixture> sorgula = _context.Fixtures.Where(p => p.Name.Contains(name)).ToList();
-            List<Fixture> AllDataGet = _context.Fixtures.ToList();
-            if (name == "tüm demirbaşları getir")
-            {
-                return AllDataGet;
-            }
+            List<Fixture> searchfixture = _context.Fixtures.ToList();
 
-            return sorgula;
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                searchfixture = searchfixture.Where(p => p.Name.Contains(name)).ToList();
+            }
+            if (durum.HasValue)
+            {
+                searchfixture = searchfixture.Where(p => p.Status == durum).ToList();
+            }
+            if (searchfixture.ToList().Count > 0)
+            {
+                return Ok(searchfixture);
+            }
+            else
+            {
+                return BadRequest("kayıt bulunamadı");
+            }
         }
     }
 }

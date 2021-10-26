@@ -22,99 +22,131 @@ namespace ofisprojesi
         /// "Tüm Zimmet Verilerini Getir"
         /// </summary>
         /// <returns></returns>
-        [Route("GetAllDebit")]
-        [HttpGet]//tüm zimmet verilerini getir 
+        [Route("")]
+        [HttpGet]
 
-        public IList<Debit> GetAllDebit()
+        public ActionResult GetAllDebit(bool? status)
 
         {
-
-            var Querry = (from item in _context.Debits
-                          join item2 in _context.Employees on item.EmployeeId equals item2.Id
-                          join item3 in _context.Fixtures
-                          on item.FixtureId equals item3.Id
-                          select new Debit()
-                          {
-                              Id = item.Id,
-                              EmployeeId = item2.Id,
-                              FixtureId = item3.Id,
-                              Date = item.Date,
-                              Status = item.Status
-                          }
-            ).ToList();
-            Querry.ToList();
-            return Querry;
+            List<Debit> controller = _context.Debits.Where(p=>p.Status==status).ToList();
+            if (status==null)
+            {
+              return BadRequest("kayıt bulunamadı");
+            }
+            if (status==true)
+            {
+                return Ok(controller);
+            }
+            if(status==false){
+                return Ok(controller);
+            }
+            else
+            {
+                return BadRequest("seçim yapılmadı");
+            }
 
         }
         /// <summary>
         /// "id ye Göre Zimmet Verisi sil"
         /// </summary>
         /// <returns></returns>
-        [Route("DeleteDebitById")]
-        [HttpDelete]//id ye göre zimmet verisi sil
+        [Route("id")]
+        [HttpDelete]
 
-        public void DeleteDebitById([FromQuery] int id)
+        public ActionResult DeleteDebitById([FromQuery] int id)
 
         {
+            Debit deleted = _context.Debits.Where(p => p.Id == id).FirstOrDefault();
+            if (deleted == null)
+            {
+                return BadRequest("ARANAN KİŞİ BULUNAMADI");
+            }
+            else
+            {
+                _context.Debits.Remove(deleted);
+                _context.SaveChanges();
+                return Ok("başarı ile silindi");
 
-            var Deleted = _context.Debits.Find(id);
-            _context.Debits.Remove(Deleted);
-            _context.SaveChanges();
-            return;
+            }
 
         }
         /// <summary>
         /// "Zimmet Verisini Güncelle"
         /// </summary>
         /// <returns></returns>
-        [Route("UpdateAllDebit")]
-        [HttpPut]//zimmet verisi güncelle
+        [Route("{id}")]
+        [HttpPut]
 
-        public void UpdateAllDebit(int id, [FromQuery] Debit debit)
-        {
-
-            var update = _context.Debits.FirstOrDefault(p => p.Id == id);
-            update.EmployeeId = debit.EmployeeId;
-            update.FixtureId = debit.FixtureId;
-            update.Date = debit.Date;
-            update.Status = debit.Status;
-            _context.SaveChanges();
-
-
-            return;
-
+        public ActionResult UpdateAllDebit(int id, [FromBody] Debit debit)
+        {   Employee employecont=_context.Employees.Where(p=>p.Id==debit.EmployeeId).FirstOrDefault();
+            Fixture fixturecont=_context.Fixtures.Where(p=>p.Id==debit.FixtureId).FirstOrDefault();
+            Debit update = _context.Debits.Where(p => p.Id == id).FirstOrDefault();
+            if (update==null)
+            {
+               return BadRequest("hata");
+            }
+            else if (employecont==null||fixturecont==null)
+            {
+               return BadRequest("çalışan veya demirbaş yok");
+            }
+            else if(debit.Id!=null){
+               return BadRequest(" id hatası");
+            }
+            else
+            {
+                update.EmployeeId = debit.EmployeeId;
+                update.Status= debit.Status;
+                update.FixtureId = debit.FixtureId;
+                update.Date=DateTime.Now;
+                _context.SaveChanges();
+                return Ok(update);
+            }
         }
-        /// <summary>
-        /// "id ye Göre Zimmet Verisi Getir"
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("{Id:int}")]//id ye göre zimmet verisi getir 
-        public Debit GetDebitById(int Id)
-        {
-            return _context.Debits.Where(p => p.Id == Id).FirstOrDefault();
-
-
-
-
-        }
-        /// <summary>
-        /// "Zimmet Verisi"
-        /// </summary>
-        /// <returns></returns>
-        [Route("SaveDebitById")]
-        [HttpPost]//zimmet verisi kaydet
-
-        public void SaveDebitById([FromBody] Debit debit)
-        {
-
-            _context.Debits.Add(debit);
-            _context.SaveChanges();
-
-
-        }
-
+    /// <summary>
+    /// "id ye Göre Zimmet Verisi Getir"
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("{id}")]
+    public Debit GetDebitById(int id)
+    {
+        return _context.Debits.Where(p => p.Id == id).FirstOrDefault();
 
     }
+    /// <summary>
+    /// "Zimmet Verisi kaydet"
+    /// </summary>
+    /// <returns></returns>
+    [Route("")]
+    [HttpPost]//zimmet verisi kaydet
+
+    public ActionResult SaveDebitById([FromBody] Debit debit)
+    {
+        Fixture fixturess = _context.Fixtures.Where(p => p.Id == debit.FixtureId).FirstOrDefault();
+        Employee employeess = _context.Employees.Where(p => p.Id == debit.EmployeeId).FirstOrDefault();
+
+        if (employeess.Id != debit.EmployeeId || employeess.Status == false)
+        {
+            return BadRequest("hata var");
+        }
+        else if (debit.Id!=null)
+        {
+           return BadRequest("id hatası");
+        }
+        {
+            
+        }
+        if (fixturess.Id != debit.FixtureId || fixturess.Status == false)
+        {
+            return BadRequest("hata var");
+        }
+        else
+        {
+            _context.Debits.Add(debit);
+            _context.SaveChanges();
+            return Ok(debit);
+        }
+    }
+}
 }
 
 
