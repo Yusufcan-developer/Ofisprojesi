@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Newtonsoft.Json;
 
+
 namespace ofisprojesi
 {
 

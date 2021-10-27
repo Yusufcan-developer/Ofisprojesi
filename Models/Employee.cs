@@ -22,9 +22,7 @@ namespace ofisprojesi
         public DateTime? UpdateDate { get; set; }
         public int? Age { get; set; }
          [System.Text.Json.Serialization.JsonIgnore]   
-        public virtual Office Office { get; set; }
-        [System.Text.Json.Serialization.JsonIgnore]   
-        public virtual EmployeeMovement EmployeeMovement { get; set; }
+        public virtual Office Office { get; set; } 
         [System.Text.Json.Serialization.JsonIgnore]   
         public virtual ICollection<Debit> Debits { get; set; }
     }

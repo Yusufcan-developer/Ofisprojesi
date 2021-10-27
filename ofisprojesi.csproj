@@ -1,25 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
-    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="2.0.0-preview1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-  </ItemGroup>
-<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\net5.0\ZimmetApi.xml</DocumentationFile>
-    <noWarn>1591</noWarn>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1"/>
+		<PackageReference Include="EntityFramework" Version="6.4.4"/>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.11"/>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.11"/>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.11">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3"/>
+		<PackageReference Include="Microsoft.NETCore.App" Version="2.2.8"/>
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10"/>
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1"/>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
+	</ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\Debug\net5.0\ZimmetApi.xml</DocumentationFile>
+		<noWarn>1591</noWarn>
+	</PropertyGroup>
 </Project>

@@ -1,20 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "njDtkW0FJ0F9WuBSIo9M3Psy9w5knp3u4tKxZeWmsyFXZa7LimS31kWoZPRzqEzQmIl800NrULYpQfTtm92tBw==",
+  "dgSpecHash": "rqijpsSH5g0EF9YhjrZ8h5AyN4VWpRgccN4h59ksGtjV53qQOyX/IQMOYPTXo6SgxHo7NqOBmqDfU53fUetYjQ==",
   "success": true,
   "projectFilePath": "/home/yusufcan/Masaüstü/Ofisprojesi-master/ofisprojesi.csproj",
   "expectedPackageFiles": [
+    "/home/yusufcan/.nuget/packages/automapper/10.1.1/automapper.10.1.1.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/8.1.1/automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/entityframework/6.4.4/entityframework.6.4.4.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore/5.0.11/microsoft.entityframeworkcore.5.0.11.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.abstractions/5.0.11/microsoft.entityframeworkcore.abstractions.5.0.11.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.analyzers/5.0.11/microsoft.entityframeworkcore.analyzers.5.0.11.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.design/5.0.10/microsoft.entityframeworkcore.design.5.0.10.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.inmemory/5.0.10/microsoft.entityframeworkcore.inmemory.5.0.10.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.design/5.0.11/microsoft.entityframeworkcore.design.5.0.11.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.inmemory/5.0.11/microsoft.entityframeworkcore.inmemory.5.0.11.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.relational/5.0.11/microsoft.entityframeworkcore.relational.5.0.11.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.relational.design/2.0.0-preview1-final/microsoft.entityframeworkcore.relational.design.2.0.0-preview1-final.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.tools/5.0.10/microsoft.entityframeworkcore.tools.5.0.10.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.relational.design/1.1.2/microsoft.entityframeworkcore.relational.design.1.1.2.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.tools/5.0.11/microsoft.entityframeworkcore.tools.5.0.11.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/microsoft.entityframeworkcore.tools.dotnet/2.0.3/microsoft.entityframeworkcore.tools.dotnet.2.0.3.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/microsoft.extensions.caching.abstractions/5.0.0/microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
@@ -39,15 +41,15 @@
     "/home/yusufcan/.nuget/packages/newtonsoft.json/10.0.1/newtonsoft.json.10.0.1.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/npgsql/5.0.10/npgsql.5.0.10.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/npgsql.entityframeworkcore.postgresql/5.0.10/npgsql.entityframeworkcore.postgresql.5.0.10.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/npgsql.entityframeworkcore.postgresql.design/2.0.0-preview1/npgsql.entityframeworkcore.postgresql.design.2.0.0-preview1.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/npgsql.entityframeworkcore.postgresql.design/1.1.1/npgsql.entityframeworkcore.postgresql.design.1.1.1.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/runtime.native.system.data.sqlclient.sni/4.7.0/runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.codedom/4.7.0/system.codedom.4.7.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
@@ -73,7 +75,7 @@
     "/home/yusufcan/.nuget/packages/system.linq.expressions/4.3.0/system.linq.expressions.4.3.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.objectmodel/4.3.0/system.objectmodel.4.3.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
-    "/home/yusufcan/.nuget/packages/system.reflection.emit/4.3.0/system.reflection.emit.4.3.0.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/system.reflection.emit/4.7.0/system.reflection.emit.4.7.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.reflection.emit.lightweight/4.3.0/system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.reflection.extensions/4.3.0/system.reflection.extensions.4.3.0.nupkg.sha512",
@@ -103,16 +105,5 @@
     "/home/yusufcan/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Microsoft.Extensions.Primitives 2.0.0-preview1-final, System.Runtime.CompilerServices.Unsafe (>= 4.4.0-preview1-25219-04) öğesine bağımlı ancak System.Runtime.CompilerServices.Unsafe 4.4.0-preview1-25219-04 bulunamadı. Yaklaşık bir en iyi eşleşme olan System.Runtime.CompilerServices.Unsafe 4.4.0-preview1-25305-02 çözümlendi.",
-      "libraryId": "System.Runtime.CompilerServices.Unsafe",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }

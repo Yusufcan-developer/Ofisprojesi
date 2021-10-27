@@ -93,6 +93,7 @@ namespace ofisprojesi
         [HttpGet("{id}")]//ofis id ye sorgulama
         public Office GetOfficeById(int id)
         {
+            
             return _context.Offices.Where(p => p.Id == id).FirstOrDefault();
         }
         /// <summary>

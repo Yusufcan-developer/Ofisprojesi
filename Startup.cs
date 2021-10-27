@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ofisprojesi;
 
+
 namespace ofisprojesi
 {
     public class Startup
@@ -29,10 +30,11 @@ namespace ofisprojesi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services
-            .AddControllersWithViews();
+            services.AddControllersWithViews();
             services.AddCors();
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
+            
 
             services.AddDbContext<OfisProjesiContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("OfisDb")));
@@ -44,7 +46,9 @@ namespace ofisprojesi
                 var filePath = Path.Combine(System.AppContext.BaseDirectory, "ZimmetApi.xml");
                 c.IncludeXmlComments(filePath);
             });
-        }
+                
+}
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

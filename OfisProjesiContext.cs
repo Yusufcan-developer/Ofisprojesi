@@ -19,7 +19,6 @@ namespace ofisprojesi
 
         public virtual DbSet<Debit> Debits { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<EmployeeMovement> EmployeeMovements { get; set; }
         public virtual DbSet<Fixture> Fixtures { get; set; }
         public virtual DbSet<Office> Offices { get; set; }
 
@@ -109,29 +108,7 @@ namespace ofisprojesi
                     .HasConstraintName("calisan_bagli_oldugu_ofis_fkey");
             });
 
-            modelBuilder.Entity<EmployeeMovement>(entity =>
-            {
-                entity.ToTable("employee_movement");
-
-                entity.HasIndex(e => e.Id, "Employee");
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Date)
-                    .HasColumnType("date")
-                    .HasColumnName("date");
-
-                entity.Property(e => e.Office).HasColumnName("office");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.EmployeeMovement)
-                    .HasForeignKey<EmployeeMovement>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("calisan_hareket_id_fkey");
-            });
-
+            
             modelBuilder.Entity<Fixture>(entity =>
             {
                 entity.ToTable("fixture");

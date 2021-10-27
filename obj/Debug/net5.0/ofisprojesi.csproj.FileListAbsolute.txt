@@ -107,3 +107,5 @@
 /home/yusufcan/Masaüstü/Ofisprojesi-master/obj/Debug/net5.0/ofisprojesi.pdb
 /home/yusufcan/Masaüstü/Ofisprojesi-master/obj/Debug/net5.0/ofisprojesi.genruntimeconfig.cache
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/ZimmetApi.xml
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/AutoMapper.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
