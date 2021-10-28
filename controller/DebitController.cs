@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+using AutoMapper;
+using Ofisprojesi;
 
 namespace ofisprojesi
 {
@@ -13,9 +15,10 @@ namespace ofisprojesi
     public class DebitController : ControllerBase
     {
         private OfisProjesiContext _context;
-        public DebitController(OfisProjesiContext context)
+        private IMapper _mapper;
+        public DebitController(OfisProjesiContext context, IMapper mapper)
         {
-
+            _mapper = mapper;
             _context = context;
         }
         /// <summary>
@@ -28,17 +31,20 @@ namespace ofisprojesi
         public ActionResult GetAllDebit(bool? status)
 
         {
-            List<Debit> controller = _context.Debits.Where(p=>p.Status==status).ToList();
-            if (status==null)
+            List<Debit> controller = _context.Debits.Where(p => p.Status == status).ToList();
+            if (status == null)
             {
-              return BadRequest("kayıt bulunamadı");
+                return BadRequest("kayıt bulunamadı");
             }
-            if (status==true)
+            if (status == true)
             {
-                return Ok(controller);
+                List<DebitDto> dto = _mapper.Map<List<DebitDto>>(controller);
+                return Ok(dto);
             }
-            if(status==false){
-                return Ok(controller);
+            if (status == false)
+            {
+                List<DebitDto> dto = _mapper.Map<List<DebitDto>>(controller);
+                return Ok(dto);
             }
             else
             {
@@ -77,76 +83,85 @@ namespace ofisprojesi
         [Route("{id}")]
         [HttpPut]
 
-        public ActionResult UpdateAllDebit(int id, [FromBody] Debit debit)
-        {   Employee employecont=_context.Employees.Where(p=>p.Id==debit.EmployeeId).FirstOrDefault();
-            Fixture fixturecont=_context.Fixtures.Where(p=>p.Id==debit.FixtureId).FirstOrDefault();
+        public ActionResult UpdateAllDebit(int id, [FromBody] DebitDto debit)
+        {
+            Employee employecont = _context.Employees.Where(p => p.Id == debit.EmployeeId).FirstOrDefault();
+            Fixture fixturecont = _context.Fixtures.Where(p => p.Id == debit.FixtureId).FirstOrDefault();
             Debit update = _context.Debits.Where(p => p.Id == id).FirstOrDefault();
-            if (update==null)
+            if (update == null)
             {
-               return BadRequest("hata");
+                return BadRequest("hata");
             }
-            else if (employecont==null||fixturecont==null)
+            else if (employecont == null || fixturecont == null)
             {
-               return BadRequest("çalışan veya demirbaş yok");
+                return BadRequest("çalışan veya demirbaş yok");
             }
-            else if(debit.Id!=null){
-               return BadRequest(" id hatası");
+            else if (debit.Id != null)
+            {
+                return BadRequest(" id hatası");
             }
             else
             {
                 update.EmployeeId = debit.EmployeeId;
-                update.Status= debit.Status;
+                update.Status = debit.status;
                 update.FixtureId = debit.FixtureId;
-                update.Date=DateTime.Now;
+                update.Date = DateTime.Now;
                 _context.SaveChanges();
-                return Ok(update);
+                DebitDto dto = _mapper.Map<DebitDto>(update);
+                return Ok(dto);
+
             }
         }
-    /// <summary>
-    /// "id ye Göre Zimmet Verisi Getir"
-    /// </summary>
-    /// <returns></returns>
-    [HttpGet("{id}")]
-    public Debit GetDebitById(int id)
-    {
-        return _context.Debits.Where(p => p.Id == id).FirstOrDefault();
+        /// <summary>
+        /// "id ye Göre Zimmet Verisi Getir"
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public ActionResult GetDebitById(int id)
+        {
 
+            Debit debit = _context.Debits.Where(p => p.Id == id).FirstOrDefault();
+            DebitDto dto = _mapper.Map<DebitDto>(debit);
+            return Ok(dto);
+        }
+        /// <summary>
+        /// "Zimmet Verisi kaydet"
+        /// </summary>
+        /// <returns></returns>
+        [Route("")]
+        [HttpPost]//zimmet verisi kaydet
+
+        public ActionResult SaveDebitById([FromBody] DebitDto debit)
+        {
+            Debit debit1 = new Debit();
+            debit1.EmployeeId=debit.EmployeeId;
+            debit1.FixtureId=debit.FixtureId;
+            debit1.Date=debit.date;
+            debit1.Status=debit.status;
+            Fixture fixturess = _context.Fixtures.Where(p => p.Id == debit.FixtureId).FirstOrDefault();
+            Employee employeess = _context.Employees.Where(p => p.Id == debit.EmployeeId).FirstOrDefault();
+
+            if (employeess.Id != debit.EmployeeId || employeess.Status == false)
+            {
+                return BadRequest("hata var");
+            }
+            else if (debit.Id != null)
+            {
+                return BadRequest("id hatası");
+            }
+            if (fixturess.Id != debit.FixtureId || fixturess.Status == false)
+            {
+                return BadRequest("hata var");
+            }
+            else
+            {
+                _context.Debits.Add(debit1);
+                _context.SaveChanges();
+                DebitDto dto = _mapper.Map<DebitDto>(debit1);
+                return Ok(dto);
+            }
+        }
     }
-    /// <summary>
-    /// "Zimmet Verisi kaydet"
-    /// </summary>
-    /// <returns></returns>
-    [Route("")]
-    [HttpPost]//zimmet verisi kaydet
-
-    public ActionResult SaveDebitById([FromBody] Debit debit)
-    {
-        Fixture fixturess = _context.Fixtures.Where(p => p.Id == debit.FixtureId).FirstOrDefault();
-        Employee employeess = _context.Employees.Where(p => p.Id == debit.EmployeeId).FirstOrDefault();
-
-        if (employeess.Id != debit.EmployeeId || employeess.Status == false)
-        {
-            return BadRequest("hata var");
-        }
-        else if (debit.Id!=null)
-        {
-           return BadRequest("id hatası");
-        }
-        {
-            
-        }
-        if (fixturess.Id != debit.FixtureId || fixturess.Status == false)
-        {
-            return BadRequest("hata var");
-        }
-        else
-        {
-            _context.Debits.Add(debit);
-            _context.SaveChanges();
-            return Ok(debit);
-        }
-    }
-}
 }
 
 

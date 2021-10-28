@@ -14,9 +14,9 @@ namespace ofisprojesi
         public bool? Status { get; set; }
         public int? FixtureId { get; set; }
 
-        [System.Text.Json.Serialization.JsonIgnore]   
+         
         public virtual Employee Employee { get; set; }
-        [System.Text.Json.Serialization.JsonIgnore]   
+         
         public virtual Fixture Fixture { get; set; }
     }
 }

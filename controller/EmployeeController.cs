@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Newtonsoft.Json;
-
+using AutoMapper;
 
 namespace ofisprojesi
 {
@@ -17,9 +17,11 @@ namespace ofisprojesi
     public class EmployeeController : ControllerBase
     {
         private OfisProjesiContext _context;
-        public EmployeeController(OfisProjesiContext context)
+        private IMapper _mapper;
+        public EmployeeController(OfisProjesiContext context,IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         ///<summary>
         /// Çalışan kaydetme
@@ -27,9 +29,20 @@ namespace ofisprojesi
         /// <return></return>
         [Route("")]
         [HttpPost]
-        public ActionResult SaveEmployee([FromBody] Employee employee)
+        public ActionResult SaveEmployee([FromBody] EmployeeDto employee)
         {
             Office officecontroller = _context.Offices.Where(p => p.Id == employee.OfficeId).SingleOrDefault();
+            Employee employee1=new Employee ();
+            employee1.Name=employee.Name;
+            employee1.OfficeId=employee.OfficeId;
+            employee1.Lastname=employee.Lastname;
+            employee1.Age=employee.Age;
+            employee1.RecordDate=DateTime.Now;
+            employee1.UpdateDate=DateTime.Now;
+            employee1.Status=employee.Status;
+
+
+
             if (employee.Status == false || employee.Status == null)
             {
                 return BadRequest("çalışanın ilk kayıt sırasında durumunu sadece true yapabilirsiniz");
@@ -52,11 +65,11 @@ namespace ofisprojesi
             }
             else
             {
-                _context.Employees.Add(employee);
-                _context.SaveChanges();
-
                 
-                return Ok(employee);
+                _context.Employees.Add(employee1);
+                _context.SaveChanges();
+                EmployeeDto dto =_mapper.Map<EmployeeDto>(employee);
+                return Ok(dto);
             }
         }
         ///<summary>
@@ -73,10 +86,6 @@ namespace ofisprojesi
             {
                 return BadRequest("silinmeye çalışılan kayıt bulunamadı");
             }
-            if (debitcontrol.EmployeeId!=null)
-            {
-                return BadRequest("KRİTİK HATA");
-            }
             else
             {
                 _context.Employees.Remove(Deleted);
@@ -92,7 +101,7 @@ namespace ofisprojesi
         /// <return></return>
         [Route("{id}")]
         [HttpPut]
-        public ActionResult UpdateEmployee([FromBody] Employee employee, int id)
+        public ActionResult UpdateEmployee([FromBody] EmployeeDto employee, int id)
         {
             Employee update = _context.Employees.Where(p => p.Id == id).FirstOrDefault();
             Office officecontrol = _context.Offices.Where(p => p.Id == employee.OfficeId).FirstOrDefault();
@@ -115,10 +124,11 @@ namespace ofisprojesi
                 update.Status = employee.Status;
                 update.OfficeId = employee.OfficeId;
                 update.Age = employee.Age;
-                update.RecordDate = employee.RecordDate;
+                update.RecordDate = update.RecordDate;
                 update.UpdateDate = DateTime.Now;
                 _context.SaveChanges();
-                return Ok(update);
+                EmployeeDto dto =_mapper.Map<EmployeeDto>(employee);
+                return Ok(dto);
             }
         }
         ///<summary>
@@ -126,10 +136,11 @@ namespace ofisprojesi
         /// </summary>
         /// <return></return>
         [HttpGet("{id}", Name = "Get-Employee-By-Id")]
-        public ActionResult<Employee> GetEmployeeById(int id)
+        public ActionResult GetEmployeeById(int id)
         {
-            return Ok(_context.Employees.Where(p => p.Id == id).FirstOrDefault());
-
+            Employee employees =_context.Employees.Where(p => p.Id == id).FirstOrDefault();
+            EmployeeDto employe=_mapper.Map<EmployeeDto>(employees);
+            return Ok(employe);
         }
         ///<summary>
         /// Tüm Çalışanları Getir
@@ -140,6 +151,7 @@ namespace ofisprojesi
         public ActionResult GetEmployeeByName([FromQuery] string name, bool? durum)
         {
             List<Employee> searchEmploye = _context.Employees.ToList();
+            
 
             if (!string.IsNullOrWhiteSpace(name))
             {
@@ -151,10 +163,12 @@ namespace ofisprojesi
             }
             if (searchEmploye.ToList().Count > 0)
             {
-                return Ok(searchEmploye);
+                List<EmployeeDto> employeeDtos=_mapper.Map<List<EmployeeDto>>(searchEmploye);
+                return Ok(employeeDtos);
             }
             else
             {
+
                 return BadRequest("kayıt bulunamadı");
             }
         }

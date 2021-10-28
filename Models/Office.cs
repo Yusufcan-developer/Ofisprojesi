@@ -19,9 +19,8 @@ namespace ofisprojesi
         public string Name { get; set; }
         public bool? Status { get; set; }
 
-        [System.Text.Json.Serialization.JsonIgnore]
+        
         public virtual ICollection<Employee> Employees { get; set; }
-        [System.Text.Json.Serialization.JsonIgnore]
         public virtual ICollection<Fixture> Fixtures { get; set; }
     }
 }

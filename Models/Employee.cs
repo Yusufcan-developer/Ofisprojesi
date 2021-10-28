@@ -21,9 +21,8 @@ namespace ofisprojesi
         public DateTime? RecordDate { get; set; }  
         public DateTime? UpdateDate { get; set; }
         public int? Age { get; set; }
-         [System.Text.Json.Serialization.JsonIgnore]   
+          
         public virtual Office Office { get; set; } 
-        [System.Text.Json.Serialization.JsonIgnore]   
         public virtual ICollection<Debit> Debits { get; set; }
     }
 }

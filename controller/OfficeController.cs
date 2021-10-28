@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Ofisprojesi;
+using AutoMapper;
 
 namespace ofisprojesi
 {
@@ -13,8 +15,10 @@ namespace ofisprojesi
     public class OfficeController : ControllerBase
     {
         private OfisProjesiContext _context;
-        public OfficeController(OfisProjesiContext context)
+        private readonly  IMapper _mapper;
+        public OfficeController(OfisProjesiContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }/// <summary>
          /// "Ofis Kaydetme"
@@ -22,17 +26,21 @@ namespace ofisprojesi
          /// <returns></returns>
         [Route("")]
         [HttpPost]
-        public ActionResult SaveOffice([FromBody] Office offices)
+        public ActionResult SaveOffice([FromBody] OfficeDto offices)
         {
+            Office offices1 = new Office();
+            offices1.Name=offices.Name;
+            offices1.Status=offices.Status;
             if (offices.Name == null || !offices.Status.HasValue || offices.Id != null)
             {
                 return BadRequest("hata");
             }
             else
             {
-                _context.Offices.Add(offices);
+                _context.Offices.Add(offices1);
                 _context.SaveChanges();
-                return Ok(offices);
+                OfficeDto dto =_mapper.Map<OfficeDto>(offices1);
+                return Ok(dto);
             }
         }
         /// <summary>
@@ -70,7 +78,7 @@ namespace ofisprojesi
         /// <returns></returns>
         [Route("{id}")]
         [HttpPut]//ofis güncelle
-        public ActionResult UpdateOffice([FromBody] Office office, int id)
+        public ActionResult UpdateOffice([FromBody] OfficeDto office, int id)
         {
             Office Update = _context.Offices.FirstOrDefault(p => p.Id == id);
             if (office.Id != null)
@@ -82,7 +90,8 @@ namespace ofisprojesi
                 Update.Name = office.Name;
                 Update.Status = office.Status;
                 _context.SaveChanges();
-                return Ok(Update);
+                OfficeDto dto =_mapper.Map<OfficeDto>(Update);
+                return Ok(dto);
             }
 
         }
@@ -91,10 +100,12 @@ namespace ofisprojesi
         /// </summary>
         /// <returns></returns>
         [HttpGet("{id}")]//ofis id ye sorgulama
-        public Office GetOfficeById(int id)
+        public ActionResult GetOfficeById(int id)
         {
-            
-            return _context.Offices.Where(p => p.Id == id).FirstOrDefault();
+
+            Office source = _context.Offices.Where(p => p.Id == id).FirstOrDefault();
+            OfficeDto dto =_mapper.Map<OfficeDto>(source);
+            return Ok(dto);
         }
         /// <summary>
         /// "Ofis Adına Göre Sorgula Yoksa Tümünü Getir"
@@ -105,6 +116,7 @@ namespace ofisprojesi
         public ActionResult GetOfisByName([FromQuery] string name, bool? status)
         {
             List<Office> OfficeNameSearch = _context.Offices.ToList();
+            
             if (!string.IsNullOrWhiteSpace(name))
             {
                 OfficeNameSearch = OfficeNameSearch.Where(p => p.Name.Contains(name)).ToList();
@@ -115,7 +127,8 @@ namespace ofisprojesi
             }
             if (OfficeNameSearch.ToList().Count > 0)
             {
-                return Ok(OfficeNameSearch);
+                List<OfficeDto> dto = _mapper.Map<List<OfficeDto>>(OfficeNameSearch);
+                return Ok(dto);
             }
             else
             {

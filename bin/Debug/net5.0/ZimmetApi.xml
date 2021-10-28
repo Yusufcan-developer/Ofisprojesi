@@ -16,7 +16,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.DebitController.UpdateAllDebit(System.Int32,ofisprojesi.Debit)">
+        <member name="M:ofisprojesi.DebitController.UpdateAllDebit(System.Int32,Ofisprojesi.DebitDto)">
             <summary>
             "Zimmet Verisini Güncelle"
             </summary>
@@ -28,13 +28,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.DebitController.SaveDebitById(ofisprojesi.Debit)">
+        <member name="M:ofisprojesi.DebitController.SaveDebitById(Ofisprojesi.DebitDto)">
             <summary>
             "Zimmet Verisi kaydet"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.EmployeeController.SaveEmployee(ofisprojesi.Employee)">
+        <member name="M:ofisprojesi.EmployeeController.SaveEmployee(ofisprojesi.EmployeeDto)">
             <summary>
              Çalışan kaydetme
              </summary>
@@ -46,7 +46,7 @@
              </summary>
              <return></return>
         </member>
-        <member name="M:ofisprojesi.EmployeeController.UpdateEmployee(ofisprojesi.Employee,System.Int32)">
+        <member name="M:ofisprojesi.EmployeeController.UpdateEmployee(ofisprojesi.EmployeeDto,System.Int32)">
             <summary>
              Çalışan Güncelleme
              </summary>
@@ -64,7 +64,7 @@
              </summary>
              <return></return>
         </member>
-        <member name="M:ofisprojesi.FixtureController.SaveFixture(ofisprojesi.Fixture)">
+        <member name="M:ofisprojesi.FixtureController.SaveFixture(Ofisprojesi.FixtureDto)">
             <summary>
             "Demirbas Kaydetme"
             </summary>
@@ -76,7 +76,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.FixtureController.UpdateFixture(ofisprojesi.Fixture,System.Int32)">
+        <member name="M:ofisprojesi.FixtureController.UpdateFixture(Ofisprojesi.FixtureDto,System.Int32)">
             <summary>
             "Demirbas Güncelleme"
             </summary>
@@ -94,7 +94,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.OfficeController.SaveOffice(ofisprojesi.Office)">
+        <member name="M:ofisprojesi.OfficeController.SaveOffice(Ofisprojesi.OfficeDto)">
             <summary>
             "Ofis Kaydetme"
             </summary>
@@ -106,7 +106,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.OfficeController.UpdateOffice(ofisprojesi.Office,System.Int32)">
+        <member name="M:ofisprojesi.OfficeController.UpdateOffice(Ofisprojesi.OfficeDto,System.Int32)">
             <summary>
             "Ofis Güncelle"
             </summary>

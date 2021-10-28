@@ -2,6 +2,7 @@
 
 
 using AutoMapper;
+using Ofisprojesi;
 
 namespace ofisprojesi 
     {  
@@ -9,8 +10,10 @@ namespace ofisprojesi
         {  
             public AutoMapperProfile()  
             {  
-               
-                CreateMap<Employee, Employeedto>(); 
+                CreateMap<Employee, EmployeeDto>(); 
+                CreateMap<Fixture,FixtureDto>();
+                CreateMap<Debit,DebitDto>();
+                CreateMap<Office,OfficeDto>();
 
             }  
             

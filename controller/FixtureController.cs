@@ -8,6 +8,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System.Net.Http;
 using System.Net;
 using ofisprojesi;
+using AutoMapper;
+using Ofisprojesi;
 
 namespace ofisprojesi
 {
@@ -17,19 +19,25 @@ namespace ofisprojesi
     {
 
         private OfisProjesiContext _context;
-        public FixtureController(OfisProjesiContext context)
+        private IMapper _mapper;
+        public FixtureController(OfisProjesiContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         /// <summary>
         /// "Demirbas Kaydetme"
         /// </summary>
         /// <returns></returns>
         [Route("")]
-        [HttpPost]//demirbas ekle
-        public ActionResult<Fixture> SaveFixture([FromBody] Fixture fixture)
+        [HttpPost]
+        public ActionResult SaveFixture([FromBody] FixtureDto fixture)
         {
-            Office officecontrol = _context.Offices.Where(p => p.Id == fixture.OfficeId).SingleOrDefault();
+            Office officecontrol = _context.Offices.Where(p => p.Id == fixture.Officeid).SingleOrDefault();
+            Fixture fixture1 = new Fixture();
+            fixture1.Name=fixture.Name;
+            fixture1.OfficeId=fixture.Officeid;
+            fixture1.Status=fixture.Status;
 
             if (fixture.Status == false)
             {
@@ -40,7 +48,7 @@ namespace ofisprojesi
                 return BadRequest("demirbaş ismi boş bırakılamaz");
             }
 
-            else if (fixture.OfficeId == null || fixture.OfficeId < 0 || officecontrol == null)
+            else if (fixture.Officeid == null || fixture.Officeid < 0 || officecontrol == null)
             {
                 return BadRequest("ofis bulunamadı");
             }
@@ -50,9 +58,10 @@ namespace ofisprojesi
             }
             else
             {
-                _context.Fixtures.Add(fixture);
+                _context.Fixtures.Add(fixture1);
                 _context.SaveChanges();
-                return Ok(fixture);
+                FixtureDto dto =_mapper.Map<FixtureDto>(fixture1);
+                return Ok(dto);
             }
 
         }
@@ -62,13 +71,13 @@ namespace ofisprojesi
         /// </summary>
         /// <returns></returns>
         [Route("id")]
-        [HttpDelete]//demirbas sil
+        [HttpDelete]
         public ActionResult DeleteFixtureById([FromQuery] int id)
         {
-            
+
             Fixture delete = _context.Fixtures.FirstOrDefault(p => p.Id == id);
-            Debit debits=_context.Debits.Where(p=>p.FixtureId==id).FirstOrDefault();
-            if (delete == null || delete.Id==debits.FixtureId)
+            Debit debits = _context.Debits.Where(p => p.FixtureId == id).FirstOrDefault();
+            if (delete == null || delete.Id == debits.FixtureId)
             {
                 return BadRequest("silmeye çalıştığınız demirbas bulunamadı");
             }
@@ -84,39 +93,42 @@ namespace ofisprojesi
         /// </summary>
         /// <returns></returns>
         [Route("{id}")]
-        [HttpPut]//demirbas güncelle
-        public ActionResult UpdateFixture([FromBody] Fixture fixturee, int id)
+        [HttpPut]
+        public ActionResult UpdateFixture([FromBody] FixtureDto fixturee, int id)
         {
             Fixture update = _context.Fixtures.Where(p => p.Id == id).FirstOrDefault();
-            Office officecontrol = _context.Offices.Where(p => p.Id == fixturee.OfficeId).FirstOrDefault();
+            Office officecontrol = _context.Offices.Where(p => p.Id == fixturee.Officeid).FirstOrDefault();
             if (fixturee.Status == false && officecontrol == null)
             {
                 return BadRequest("olmayan bir demirbaşı bir ofise kaydedemezsin");
             }
-            else if(fixturee.Status==true&&officecontrol==null)
+            else if (fixturee.Status == true && officecontrol == null)
             {
                 return BadRequest("office bulunamadı");
             }
-            else if (fixturee.Id!=null)
+            else if (fixturee.Id != null)
             {
                 return BadRequest("id hatası");
             }
             {
                 update.Name = fixturee.Name;
                 update.Status = fixturee.Status;
-                update.OfficeId = fixturee.OfficeId;
+                update.OfficeId = fixturee.Officeid;
                 _context.SaveChanges();
-                return Ok(update);
+                FixtureDto dto =_mapper.Map<FixtureDto>(fixturee);
+                return Ok(dto);
             }
         }
         /// <summary>
         /// "Demirbas id ye göre Getir"
         /// </summary>
         /// <returns></returns>
-        [HttpGet("{id}")]//demirbas id ye göre sorgula
-        public Fixture GetFixtureById(int id)
+        [HttpGet("{id}")]
+        public ActionResult GetFixtureById(int id)
         {
-            return _context.Fixtures.Where(p => p.Id == id).FirstOrDefault();
+            Fixture fixtures = _context.Fixtures.Where(p => p.Id == id).FirstOrDefault();
+            List<FixtureDto> dto = _mapper.Map<List<FixtureDto>>(fixtures);
+            return Ok(dto);
         }
         /// <summary>
         /// "Tüm Demirbasları Getir"
@@ -127,6 +139,7 @@ namespace ofisprojesi
         public ActionResult GetFixtureByName([FromQuery] String name, bool? durum)
         {
             List<Fixture> searchfixture = _context.Fixtures.ToList();
+            
 
             if (!string.IsNullOrWhiteSpace(name))
             {
@@ -138,7 +151,8 @@ namespace ofisprojesi
             }
             if (searchfixture.ToList().Count > 0)
             {
-                return Ok(searchfixture);
+                List<FixtureDto> dto =_mapper.Map<List<FixtureDto>>(searchfixture);
+                return Ok(dto);
             }
             else
             {
