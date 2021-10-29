@@ -32,7 +32,7 @@ namespace ofisprojesi
         {
             services.AddControllersWithViews();
             services.AddCors();
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();;
             services.AddAutoMapper(typeof(Startup));
             
 
