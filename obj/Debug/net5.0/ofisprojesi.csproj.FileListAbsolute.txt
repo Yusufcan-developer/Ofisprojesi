@@ -109,3 +109,8 @@
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/ZimmetApi.xml
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/AutoMapper.dll
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/JsonPatch.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/System.Net.Http.Formatting.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/Microsoft.AspNetCore.JsonPatch.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll

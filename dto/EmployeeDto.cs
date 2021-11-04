@@ -15,5 +15,7 @@ namespace ofisprojesi
         public DateTime? RecordDate { get; set; }  
         public DateTime? UpdateDate { get; set; }
         public int? Age { get; set; }
+
+        public Ofisprojesi.DebitDto[] Debiting{get; set;}
     }
 }

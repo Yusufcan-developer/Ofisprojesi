@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Ofisprojesi;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace ofisprojesi
 {
@@ -134,6 +135,14 @@ namespace ofisprojesi
             {
                 return BadRequest("kayıt bulunamadı");
             }
+        }
+        [HttpPatch]
+        public ActionResult UpdatePatch(int id ,[FromBody]JsonPatchDocument<Office> name){
+            Office emp = _context.Offices.FirstOrDefault(e=> e.Id == id);
+
+            name.ApplyTo(emp);
+           _context.SaveChanges();
+           return Ok(name); 
         }
     }
 }

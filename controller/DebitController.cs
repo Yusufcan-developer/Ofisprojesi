@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using AutoMapper;
 using Ofisprojesi;
+using Microsoft.AspNetCore.JsonPatch;
+
 
 namespace ofisprojesi
 {
@@ -160,6 +162,15 @@ namespace ofisprojesi
                 DebitDto dto = _mapper.Map<DebitDto>(debit1);
                 return Ok(dto);
             }
+        }
+        [Route("{id}")]
+        [HttpPatch]
+        public ActionResult UpdatePatch(int id ,[FromBody]JsonPatchDocument<Debit> name){
+            Debit emp = _context.Debits.FirstOrDefault(e=> e.Id == id);
+
+            name.ApplyTo(emp);
+           _context.SaveChanges();
+           return Ok(name); 
         }
     }
 }

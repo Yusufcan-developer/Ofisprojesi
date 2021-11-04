@@ -107,8 +107,6 @@ namespace ofisprojesi
                     .HasForeignKey(d => d.OfficeId)
                     .HasConstraintName("calisan_bagli_oldugu_ofis_fkey");
             });
-
-            
             modelBuilder.Entity<Fixture>(entity =>
             {
                 entity.ToTable("fixture");

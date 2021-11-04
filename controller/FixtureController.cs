@@ -10,6 +10,7 @@ using System.Net;
 using ofisprojesi;
 using AutoMapper;
 using Ofisprojesi;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace ofisprojesi
 {
@@ -158,6 +159,14 @@ namespace ofisprojesi
             {
                 return BadRequest("kayıt bulunamadı");
             }
+        }
+        [HttpPatch]
+        public ActionResult UpdatePatch(int id ,[FromBody]JsonPatchDocument<Fixture> name){
+            Fixture emp = _context.Fixtures.FirstOrDefault(e=> e.Id == id);
+
+            name.ApplyTo(emp);
+           _context.SaveChanges();
+           return Ok(name); 
         }
     }
 }
