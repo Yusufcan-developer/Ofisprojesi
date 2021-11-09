@@ -161,20 +161,26 @@ namespace ofisprojesi
         [HttpGet]
         public ActionResult GetEmployeeByName([FromQuery] string name, bool? durum)
         {
-            List<Employee> searchEmploye = _context.Employees.ToList();
-
-
+            Employee[] searchEmploye = _context.Employees.ToArray();
+            EmployeeDto[] employeeDtos = _mapper.Map<EmployeeDto[]>(searchEmploye);
+            foreach (EmployeeDto cu in employeeDtos){
+               Debit[] debits= _context.Debits.Where(p=>p.EmployeeId==cu.Id).ToArray();
+               DebitDto[] debits1 = _mapper.Map<DebitDto[]>(debits);
+               cu.Debiting=debits1;
+            }
+            
+            
             if (!string.IsNullOrWhiteSpace(name))
             {
-                searchEmploye = searchEmploye.Where(p => p.Name.Contains(name)).ToList();
+                searchEmploye = searchEmploye.Where(p => p.Name.Contains(name)).ToArray();
             }
             if (durum.HasValue)
             {
-                searchEmploye = searchEmploye.Where(p => p.Status == durum).ToList();
+                searchEmploye = searchEmploye.Where(p => p.Status == durum).ToArray();
             }
             if (searchEmploye.ToList().Count > 0)
             {
-                List<EmployeeDto> employeeDtos = _mapper.Map<List<EmployeeDto>>(searchEmploye);
+                
                 return Ok(employeeDtos);
             }
             else

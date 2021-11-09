@@ -114,3 +114,4 @@
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/Microsoft.AspNetCore.JsonPatch.dll
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/obj/Debug/net5.0/ofisprojesi.csproj.CopyComplete

@@ -106,6 +106,12 @@ namespace ofisprojesi
 
             Office source = _context.Offices.Where(p => p.Id == id).FirstOrDefault();
             OfficeDto dto =_mapper.Map<OfficeDto>(source);
+            Fixture[] fixture = _context.Fixtures.Where(p=>p.OfficeId==dto.Id).ToArray();
+            FixtureDto[] dtos = _mapper.Map<FixtureDto[]>(fixture);
+            Employee[] employees = _context.Employees.Where(p=>p.OfficeId==dto.Id).ToArray();
+            EmployeeDto[] dtos1 = _mapper.Map<EmployeeDto[]>(employees);
+            dto.employee=dtos1;
+            dto.Fixtures=dtos;
             return Ok(dto);
         }
         /// <summary>

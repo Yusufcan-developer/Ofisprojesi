@@ -128,7 +128,7 @@ namespace ofisprojesi
         public ActionResult GetFixtureById(int id)
         {
             Fixture fixtures = _context.Fixtures.Where(p => p.Id == id).FirstOrDefault();
-            List<FixtureDto> dto = _mapper.Map<List<FixtureDto>>(fixtures);
+            FixtureDto dto = _mapper.Map<FixtureDto>(fixtures);
             return Ok(dto);
         }
         /// <summary>
