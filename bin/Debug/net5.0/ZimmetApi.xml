@@ -18,7 +18,7 @@
         </member>
         <member name="M:ofisprojesi.DebitController.UpdateAllDebit(System.Int32,Ofisprojesi.DebitDto)">
             <summary>
-            "Zimmet Verisini Güncelle"
+            "id'ye göre Zimmet Verisini Güncelle"
             </summary>
             <returns></returns>
         </member>
@@ -34,7 +34,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.EmployeeController.SaveEmployee(ofisprojesi.EmployeeDto)">
+        <member name="M:ofisprojesi.DebitController.UpdatePatch(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{ofisprojesi.Debit})">
+            <summary>
+            "belirli alanları güncelle"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.EmployeeController.SaveEmployee(ofisprojesi.EmployeeUpdateDto)">
             <summary>
              Çalışan kaydetme
              </summary>
@@ -42,13 +48,13 @@
         </member>
         <member name="M:ofisprojesi.EmployeeController.DeleteByIdEmployee(System.Int32)">
             <summary>
-             Çalışan Silme
+             id ye göre Çalışan Silme
              </summary>
              <return></return>
         </member>
-        <member name="M:ofisprojesi.EmployeeController.UpdateEmployee(ofisprojesi.EmployeeDto,System.Int32)">
+        <member name="M:ofisprojesi.EmployeeController.UpdateEmployee(ofisprojesi.EmployeeUpdateDto,System.Int32)">
             <summary>
-             Çalışan Güncelleme
+             id ye göre Çalışan Güncelleme
              </summary>
              <return></return>
         </member>
@@ -64,6 +70,12 @@
              </summary>
              <return></return>
         </member>
+        <member name="M:ofisprojesi.EmployeeController.UpdatePatch(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{ofisprojesi.Employee})">
+            <summary>
+            "belirli alanları güncelle"
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:ofisprojesi.FixtureController.SaveFixture(Ofisprojesi.FixtureDto)">
             <summary>
             "Demirbas Kaydetme"
@@ -72,13 +84,13 @@
         </member>
         <member name="M:ofisprojesi.FixtureController.DeleteFixtureById(System.Int32)">
             <summary>
-            "Demirbaş Silme"
+            "id ye göre Demirbaş Silme"
             </summary>
             <returns></returns>
         </member>
         <member name="M:ofisprojesi.FixtureController.UpdateFixture(Ofisprojesi.FixtureDto,System.Int32)">
             <summary>
-            "Demirbas Güncelleme"
+            "id ye göre Demirbas Güncelleme"
             </summary>
             <returns></returns>
         </member>
@@ -94,7 +106,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.OfficeController.SaveOffice(Ofisprojesi.OfficeDto)">
+        <member name="M:ofisprojesi.FixtureController.UpdatePatch(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{ofisprojesi.Fixture})">
+            <summary>
+            "belirli alanları güncelle"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.OfficeController.SaveOffice(Ofisprojesi.OfficeUpdateDto)">
             <summary>
             "Ofis Kaydetme"
             </summary>
@@ -106,21 +124,27 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.OfficeController.UpdateOffice(Ofisprojesi.OfficeDto,System.Int32)">
+        <member name="M:ofisprojesi.OfficeController.UpdateOffice(Ofisprojesi.OfficeUpdateDto,System.Int32)">
             <summary>
-            "Ofis Güncelle"
+            "id ye göre Ofis Güncelle"
             </summary>
             <returns></returns>
         </member>
         <member name="M:ofisprojesi.OfficeController.GetOfficeById(System.Int32)">
             <summary>
-            "Ofis id ye göre sorgula"
+            "id ye göre ofis sorgula"
             </summary>
             <returns></returns>
         </member>
         <member name="M:ofisprojesi.OfficeController.GetOfisByName(System.String,System.Nullable{System.Boolean})">
             <summary>
             "Ofis Adına Göre Sorgula Yoksa Tümünü Getir"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.OfficeController.UpdatePatch(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{ofisprojesi.Office})">
+            <summary>
+            "belirli alanları güncelle"
             </summary>
             <returns></returns>
         </member>

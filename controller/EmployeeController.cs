@@ -32,7 +32,7 @@ namespace ofisprojesi
         /// <return></return>
         [Route("")]
         [HttpPost]
-        public ActionResult SaveEmployee([FromBody] EmployeeDto employee)
+        public ActionResult SaveEmployee([FromBody] EmployeeUpdateDto employee)
         {
             Office officecontroller = _context.Offices.Where(p => p.Id == employee.OfficeId).SingleOrDefault();
             Employee employee1 = new Employee();
@@ -63,20 +63,16 @@ namespace ofisprojesi
             {
                 return BadRequest("kayıtlı office bulunamadı");
             }
-            else if (employee.Id != null)
-            {
-                return BadRequest("id hatası");
-            }
             else
             {
                 _context.Employees.Add(employee1);
                 _context.SaveChanges();
-                EmployeeDto dto = _mapper.Map<EmployeeDto>(employee);
+                EmployeeUpdateDto dto = _mapper.Map<EmployeeUpdateDto>(employee);
                 return Ok(dto);
             }
         }
         ///<summary>
-        /// Çalışan Silme
+        /// id ye göre Çalışan Silme
         /// </summary>
         /// <return></return>
         [Route("id")]
@@ -99,12 +95,12 @@ namespace ofisprojesi
 
         }
         ///<summary>
-        /// Çalışan Güncelleme
+        /// id ye göre Çalışan Güncelleme
         /// </summary>
         /// <return></return>
         [Route("{id}")]
         [HttpPut]
-        public ActionResult UpdateEmployee([FromBody] EmployeeDto employees, int id)
+        public ActionResult UpdateEmployee([FromBody] EmployeeUpdateDto employees, int id)
         {
             Employee update = _context.Employees.Where(p => p.Id == id).FirstOrDefault();
             Office officecontrol = _context.Offices.Where(p => p.Id == employees.OfficeId).FirstOrDefault();
@@ -115,10 +111,6 @@ namespace ofisprojesi
             if (employees.Status == false && officecontrol.Id != employees.OfficeId)
             {
                 return BadRequest("olmayan bir çalışanı bir ofise kayıt ettiremezsiniz");
-            }
-            else if (employees.Id != null)
-            {
-                return BadRequest("id hatası");
             }
             else
             {
@@ -131,7 +123,7 @@ namespace ofisprojesi
                 update.RecordDate = update.RecordDate;
                 update.UpdateDate = DateTime.Now;
                 _context.SaveChanges();
-                EmployeeDto dto = _mapper.Map<EmployeeDto>(employees);
+                EmployeeUpdateDto dto = _mapper.Map<EmployeeUpdateDto>(employees);
                 return Ok(dto);
             }
         }
@@ -142,14 +134,14 @@ namespace ofisprojesi
         [HttpGet("{id}", Name = "Get-Employee-By-Id")]
         public ActionResult GetEmployeeById(int id)
         {
-            
+
             Employee employees = _context.Employees.Where(p => p.Id == id).FirstOrDefault();
             EmployeeDto employe = _mapper.Map<EmployeeDto>(employees);
-            Debit[] debit = _context.Debits.Where(p=>p.EmployeeId==employe.Id).ToArray();
+            Debit[] debit = _context.Debits.Where(p => p.EmployeeId == employe.Id).ToArray();
             DebitDto[] debit1 = _mapper.Map<DebitDto[]>(debit);
-            employe.Debiting=debit1;
+            employe.Debit = debit1;
 
-           
+
             return Ok(employe);
 
         }
@@ -163,13 +155,14 @@ namespace ofisprojesi
         {
             Employee[] searchEmploye = _context.Employees.ToArray();
             EmployeeDto[] employeeDtos = _mapper.Map<EmployeeDto[]>(searchEmploye);
-            foreach (EmployeeDto cu in employeeDtos){
-               Debit[] debits= _context.Debits.Where(p=>p.EmployeeId==cu.Id).ToArray();
-               DebitDto[] debits1 = _mapper.Map<DebitDto[]>(debits);
-               cu.Debiting=debits1;
+            foreach (EmployeeDto employelist in employeeDtos)
+            {
+                Debit[] debits = _context.Debits.Where(p => p.EmployeeId == employelist.Id).ToArray();
+                DebitDto[] debits1 = _mapper.Map<DebitDto[]>(debits);
+                employelist.Debit = debits1;
             }
-            
-            
+
+
             if (!string.IsNullOrWhiteSpace(name))
             {
                 searchEmploye = searchEmploye.Where(p => p.Name.Contains(name)).ToArray();
@@ -180,7 +173,7 @@ namespace ofisprojesi
             }
             if (searchEmploye.ToList().Count > 0)
             {
-                
+
                 return Ok(employeeDtos);
             }
             else
@@ -190,11 +183,15 @@ namespace ofisprojesi
             }
 
         }
+        /// <summary>
+        /// "belirli alanları güncelle"
+        /// </summary>
+        /// <returns></returns>
         [HttpPatch]
         public ActionResult UpdatePatch(int id, [FromBody] JsonPatchDocument<Employee> name)
         {
             Employee emp = _context.Employees.FirstOrDefault(e => e.Id == id);
-            
+
             name.ApplyTo(emp);
             _context.SaveChanges();
             return Ok(name);

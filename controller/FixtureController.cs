@@ -36,9 +36,9 @@ namespace ofisprojesi
         {
             Office officecontrol = _context.Offices.Where(p => p.Id == fixture.Officeid).SingleOrDefault();
             Fixture fixture1 = new Fixture();
-            fixture1.Name=fixture.Name;
-            fixture1.OfficeId=fixture.Officeid;
-            fixture1.Status=fixture.Status;
+            fixture1.Name = fixture.Name;
+            fixture1.OfficeId = fixture.Officeid;
+            fixture1.Status = fixture.Status;
 
             if (fixture.Status == false)
             {
@@ -61,14 +61,14 @@ namespace ofisprojesi
             {
                 _context.Fixtures.Add(fixture1);
                 _context.SaveChanges();
-                FixtureDto dto =_mapper.Map<FixtureDto>(fixture1);
+                FixtureDto dto = _mapper.Map<FixtureDto>(fixture1);
                 return Ok(dto);
             }
 
         }
 
         /// <summary>
-        /// "Demirbaş Silme"
+        /// "id ye göre Demirbaş Silme"
         /// </summary>
         /// <returns></returns>
         [Route("id")]
@@ -90,7 +90,7 @@ namespace ofisprojesi
             }
         }
         /// <summary>
-        /// "Demirbas Güncelleme"
+        /// "id ye göre Demirbas Güncelleme"
         /// </summary>
         /// <returns></returns>
         [Route("{id}")]
@@ -116,7 +116,7 @@ namespace ofisprojesi
                 update.Status = fixturee.Status;
                 update.OfficeId = fixturee.Officeid;
                 _context.SaveChanges();
-                FixtureDto dto =_mapper.Map<FixtureDto>(fixturee);
+                FixtureDto dto = _mapper.Map<FixtureDto>(fixturee);
                 return Ok(dto);
             }
         }
@@ -136,11 +136,11 @@ namespace ofisprojesi
         /// </summary>
         /// <returns></returns>
         [Route("name")]
-        [HttpGet]//demibas adına göre sorgula yoksa veya nullsa tümünü getir
+        [HttpGet]
         public ActionResult GetFixtureByName([FromQuery] String name, bool? durum)
         {
             List<Fixture> searchfixture = _context.Fixtures.ToList();
-            
+
 
             if (!string.IsNullOrWhiteSpace(name))
             {
@@ -152,7 +152,7 @@ namespace ofisprojesi
             }
             if (searchfixture.ToList().Count > 0)
             {
-                List<FixtureDto> dto =_mapper.Map<List<FixtureDto>>(searchfixture);
+                List<FixtureDto> dto = _mapper.Map<List<FixtureDto>>(searchfixture);
                 return Ok(dto);
             }
             else
@@ -160,13 +160,18 @@ namespace ofisprojesi
                 return BadRequest("kayıt bulunamadı");
             }
         }
+        /// <summary>
+        /// "belirli alanları güncelle"
+        /// </summary>
+        /// <returns></returns>
         [HttpPatch]
-        public ActionResult UpdatePatch(int id ,[FromBody]JsonPatchDocument<Fixture> name){
-            Fixture emp = _context.Fixtures.FirstOrDefault(e=> e.Id == id);
+        public ActionResult UpdatePatch(int id, [FromBody] JsonPatchDocument<Fixture> name)
+        {
+            Fixture emp = _context.Fixtures.FirstOrDefault(e => e.Id == id);
 
             name.ApplyTo(emp);
-           _context.SaveChanges();
-           return Ok(name); 
+            _context.SaveChanges();
+            return Ok(name);
         }
     }
 }

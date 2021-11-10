@@ -16,7 +16,7 @@ namespace ofisprojesi
     public class OfficeController : ControllerBase
     {
         private OfisProjesiContext _context;
-        private readonly  IMapper _mapper;
+        private readonly IMapper _mapper;
         public OfficeController(OfisProjesiContext context, IMapper mapper)
         {
             _mapper = mapper;
@@ -27,12 +27,12 @@ namespace ofisprojesi
          /// <returns></returns>
         [Route("")]
         [HttpPost]
-        public ActionResult SaveOffice([FromBody] OfficeDto offices)
+        public ActionResult SaveOffice([FromBody] OfficeUpdateDto offices)
         {
             Office offices1 = new Office();
-            offices1.Name=offices.Name;
-            offices1.Status=offices.Status;
-            if (offices.Name == null || !offices.Status.HasValue || offices.Id != null)
+            offices1.Name = offices.Name;
+            offices1.Status = offices.Status;
+            if (offices.Name == null || !offices.Status.HasValue)
             {
                 return BadRequest("hata");
             }
@@ -40,7 +40,7 @@ namespace ofisprojesi
             {
                 _context.Offices.Add(offices1);
                 _context.SaveChanges();
-                OfficeDto dto =_mapper.Map<OfficeDto>(offices1);
+                OfficeUpdateDto dto = _mapper.Map<OfficeUpdateDto>(offices1);
                 return Ok(dto);
             }
         }
@@ -54,14 +54,14 @@ namespace ofisprojesi
         {
 
             Office Delete = _context.Offices.SingleOrDefault(p => p.Id == id);
-            Employee calisanSorgula = _context.Employees.FirstOrDefault(x => x.OfficeId == id);
-            Fixture demirbasSorgula = _context.Fixtures.FirstOrDefault(p => p.OfficeId == id);
+            Employee employesearch = _context.Employees.FirstOrDefault(x => x.OfficeId == id);
+            Fixture fixturesearch = _context.Fixtures.FirstOrDefault(p => p.OfficeId == id);
 
             if (Delete == null)
             {
                 return BadRequest("silme işlemi başarısız kişi bulunmadı");
             }
-            else if ((calisanSorgula != null) || (demirbasSorgula != null))
+            else if ((employesearch != null) || (fixturesearch != null))
             {
                 return BadRequest("Ofisin kullanıcı ve demirbaşta tanımlandığı için silemezsiniz");
             }
@@ -74,56 +74,51 @@ namespace ofisprojesi
 
         }
         /// <summary>
-        /// "Ofis Güncelle"
+        /// "id ye göre Ofis Güncelle"
         /// </summary>
         /// <returns></returns>
         [Route("{id}")]
-        [HttpPut]//ofis güncelle
-        public ActionResult UpdateOffice([FromBody] OfficeDto office, int id)
+        [HttpPut]
+        public ActionResult UpdateOffice([FromBody] OfficeUpdateDto office, int id)
         {
             Office Update = _context.Offices.FirstOrDefault(p => p.Id == id);
-            if (office.Id != null)
-            {
-                return BadRequest("hata");
-            }
-            else
-            {
-                Update.Name = office.Name;
-                Update.Status = office.Status;
-                _context.SaveChanges();
-                OfficeDto dto =_mapper.Map<OfficeDto>(Update);
-                return Ok(dto);
-            }
+
+            Update.Name = office.Name;
+            Update.Status = office.Status;
+            _context.SaveChanges();
+            OfficeUpdateDto dto = _mapper.Map<OfficeUpdateDto>(Update);
+            return Ok(dto);
+
 
         }
         /// <summary>
-        /// "Ofis id ye göre sorgula"
+        /// "id ye göre ofis sorgula"
         /// </summary>
         /// <returns></returns>
-        [HttpGet("{id}")]//ofis id ye sorgulama
+        [HttpGet("{id}")]
         public ActionResult GetOfficeById(int id)
         {
 
             Office source = _context.Offices.Where(p => p.Id == id).FirstOrDefault();
-            OfficeDto dto =_mapper.Map<OfficeDto>(source);
-            Fixture[] fixture = _context.Fixtures.Where(p=>p.OfficeId==dto.Id).ToArray();
-            FixtureDto[] dtos = _mapper.Map<FixtureDto[]>(fixture);
-            Employee[] employees = _context.Employees.Where(p=>p.OfficeId==dto.Id).ToArray();
-            EmployeeDto[] dtos1 = _mapper.Map<EmployeeDto[]>(employees);
-            dto.employee=dtos1;
-            dto.Fixtures=dtos;
-            return Ok(dto);
+            OfficeDto sourcedto = _mapper.Map<OfficeDto>(source);
+            Fixture[] fixture = _context.Fixtures.Where(p => p.OfficeId == sourcedto.Id).ToArray();
+            FixtureDto[] fixturedto = _mapper.Map<FixtureDto[]>(fixture);
+            Employee[] employees = _context.Employees.Where(p => p.OfficeId == sourcedto.Id).ToArray();
+            EmployeeDto[] employeeDto = _mapper.Map<EmployeeDto[]>(employees);
+            sourcedto.employee = employeeDto;
+            sourcedto.Fixtures = fixturedto;
+            return Ok(sourcedto);
         }
         /// <summary>
         /// "Ofis Adına Göre Sorgula Yoksa Tümünü Getir"
         /// </summary>
         /// <returns></returns>
         [Route("name")]
-        [HttpGet]//ofis adına göre sorgula yoksa tümünü getir
+        [HttpGet]
         public ActionResult GetOfisByName([FromQuery] string name, bool? status)
         {
             List<Office> OfficeNameSearch = _context.Offices.ToList();
-            
+
             if (!string.IsNullOrWhiteSpace(name))
             {
                 OfficeNameSearch = OfficeNameSearch.Where(p => p.Name.Contains(name)).ToList();
@@ -142,13 +137,18 @@ namespace ofisprojesi
                 return BadRequest("kayıt bulunamadı");
             }
         }
+        /// <summary>
+        /// "belirli alanları güncelle"
+        /// </summary>
+        /// <returns></returns>
         [HttpPatch]
-        public ActionResult UpdatePatch(int id ,[FromBody]JsonPatchDocument<Office> name){
-            Office emp = _context.Offices.FirstOrDefault(e=> e.Id == id);
+        public ActionResult UpdatePatch(int id, [FromBody] JsonPatchDocument<Office> name)
+        {
+            Office emp = _context.Offices.FirstOrDefault(e => e.Id == id);
 
             name.ApplyTo(emp);
-           _context.SaveChanges();
-           return Ok(name); 
+            _context.SaveChanges();
+            return Ok(name);
         }
     }
 }

@@ -79,7 +79,7 @@ namespace ofisprojesi
 
         }
         /// <summary>
-        /// "Zimmet Verisini Güncelle"
+        /// "id'ye göre Zimmet Verisini Güncelle"
         /// </summary>
         /// <returns></returns>
         [Route("{id}")]
@@ -131,15 +131,15 @@ namespace ofisprojesi
         /// </summary>
         /// <returns></returns>
         [Route("")]
-        [HttpPost]//zimmet verisi kaydet
+        [HttpPost]
 
         public ActionResult SaveDebitById([FromBody] DebitDto debit)
         {
             Debit debit1 = new Debit();
-            debit1.EmployeeId=debit.EmployeeId;
-            debit1.FixtureId=debit.FixtureId;
-            debit1.Date=debit.date;
-            debit1.Status=debit.status;
+            debit1.EmployeeId = debit.EmployeeId;
+            debit1.FixtureId = debit.FixtureId;
+            debit1.Date = debit.date;
+            debit1.Status = debit.status;
             Fixture fixturess = _context.Fixtures.Where(p => p.Id == debit.FixtureId).FirstOrDefault();
             Employee employeess = _context.Employees.Where(p => p.Id == debit.EmployeeId).FirstOrDefault();
 
@@ -163,14 +163,18 @@ namespace ofisprojesi
                 return Ok(dto);
             }
         }
-        [Route("{id}")]
+        /// <summary>
+        /// "belirli alanları güncelle"
+        /// </summary>
+        /// <returns></returns>
         [HttpPatch]
-        public ActionResult UpdatePatch(int id ,[FromBody]JsonPatchDocument<Debit> name){
-            Debit emp = _context.Debits.FirstOrDefault(e=> e.Id == id);
+        public ActionResult UpdatePatch(int id, [FromBody] JsonPatchDocument<Debit> name)
+        {
+            Debit emp = _context.Debits.FirstOrDefault(e => e.Id == id);
 
             name.ApplyTo(emp);
-           _context.SaveChanges();
-           return Ok(name); 
+            _context.SaveChanges();
+            return Ok(name);
         }
     }
 }
