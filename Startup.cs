@@ -38,7 +38,7 @@ namespace ofisprojesi
 
             services.AddDbContext<OfisProjesiContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("OfisDb")));
-
+            services.AddScoped<ICoreService,IEmployeeServices>();
 
             services.AddSwaggerGen(c =>
             {

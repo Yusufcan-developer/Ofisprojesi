@@ -21,10 +21,12 @@ namespace ofisprojesi
     {
         private OfisProjesiContext _context;
         private IMapper _mapper;
-        public EmployeeController(OfisProjesiContext context, IMapper mapper)
+        private ICoreService _coreService;
+        public EmployeeController(OfisProjesiContext context, IMapper mapper,ICoreService coreService)
         {
             _context = context;
             _mapper = mapper;
+            _coreService = coreService;
         }
         ///<summary>
         /// Çalışan kaydetme
@@ -32,7 +34,7 @@ namespace ofisprojesi
         /// <return></return>
         [Route("")]
         [HttpPost]
-        public ActionResult SaveEmployee([FromBody] EmployeeUpdateDto employee)
+        public ActionResult<Employee> SaveEmployee([FromBody] EmployeeUpdateDto employee)
         {
             Office officecontroller = _context.Offices.Where(p => p.Id == employee.OfficeId).SingleOrDefault();
             Employee employee1 = new Employee();
@@ -77,20 +79,11 @@ namespace ofisprojesi
         /// <return></return>
         [Route("id")]
         [HttpDelete]
-        public ActionResult DeleteByIdEmployee([FromQuery] int id)
+        public ActionResult<Employee> DeleteByIdEmployee([FromQuery] int id)
         {
-            Employee Deleted = _context.Employees.Where(p => p.Id == id).FirstOrDefault();
-            Debit debitcontrol = _context.Debits.FirstOrDefault(p => p.EmployeeId == id);
-            if (Deleted == null)
-            {
-                return BadRequest("silinmeye çalışılan kayıt bulunamadı");
-            }
-            else
-            {
-                _context.Employees.Remove(Deleted);
-                _context.SaveChanges();
-                return Ok("kayıt silme başarılı");
-            }
+        DeleteByIdEmployee(id);
+        return Ok("başarılı");
+            
 
 
         }
@@ -114,7 +107,7 @@ namespace ofisprojesi
             }
             else
             {
-
+                
                 update.Name = employees.Name;
                 update.Lastname = employees.Lastname;
                 update.Status = employees.Status;
@@ -132,17 +125,11 @@ namespace ofisprojesi
         /// </summary>
         /// <return></return>
         [HttpGet("{id}", Name = "Get-Employee-By-Id")]
-        public ActionResult GetEmployeeById(int id)
+        public ActionResult<EmployeeDto> GetEmployeeById(int id)
         {
 
-            Employee employees = _context.Employees.Where(p => p.Id == id).FirstOrDefault();
-            EmployeeDto employe = _mapper.Map<EmployeeDto>(employees);
-            Debit[] debit = _context.Debits.Where(p => p.EmployeeId == employe.Id).ToArray();
-            DebitDto[] debit1 = _mapper.Map<DebitDto[]>(debit);
-            employe.Debit = debit1;
-
-
-            return Ok(employe);
+           EmployeeDto employeess= _coreService.GetEmployeeById(id);
+           return(employeess);
 
         }
         ///<summary>
