@@ -19,4 +19,14 @@ namespace ofisprojesi
 
         public DebitDto[] Debit { get; set; }
     }
+
+    public class EmployeeUpdateDto
+    {
+        public string Name { get; set; }
+        public string Lastname { get; set; }
+        public int? OfficeId { get; set; }
+        public DateTime? RecordDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
+        public int? Age { get; set; }
+    }
 }

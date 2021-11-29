@@ -6,6 +6,8 @@
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
 		<PackageReference Include="EntityFramework" Version="6.4.4" />
 		<PackageReference Include="JsonPatch" Version="1.0.2" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9" />
 		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.0-rc.2.21480.10" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.11" />
@@ -16,9 +18,13 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
 		<PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+		<PackageReference Include="Microsoft.Owin.Cors" Version="4.2.0" />
+		<PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.0" />
+		<PackageReference Include="Microsoft.Owin.Security.OAuth" Version="4.2.0" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.3" />
 	</ItemGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DocumentationFile>bin\Debug\net5.0\ZimmetApi.xml</DocumentationFile>
