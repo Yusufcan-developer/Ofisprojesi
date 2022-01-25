@@ -16,6 +16,7 @@ using System;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Logging;
 
 namespace ofisprojesi
 {
@@ -65,8 +66,8 @@ namespace ofisprojesi
             services.AddScoped<IEmployeeService, EmployeeServices>();
             services.AddScoped<IFixtureServices, FixtureService>();
             services.AddScoped<IOfficeServices, OfficeService>();
-            services.AddScoped<IDebitServices,DebitService>();
-            services.AddScoped<IUserService,UserService>();
+            services.AddScoped<IDebitServices, DebitService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Karya SMD - Zimmet API", Version = "v1" });
@@ -118,8 +119,8 @@ namespace ofisprojesi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-            
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -127,6 +128,16 @@ namespace ofisprojesi
             {
                 endpoints.MapControllers();
             });
+        }
+
+        /// <summary>
+        /// Shared logger
+        /// </summary>
+        internal static class ApplicationLogging
+        {
+            internal static ILoggerFactory LoggerFactory { get; set; }// = new LoggerFactory();
+            internal static ILogger CreateLogger<T>() => LoggerFactory.CreateLogger<T>();
+            internal static ILogger CreateLogger(string categoryName) => LoggerFactory.CreateLogger(categoryName);
         }
     }
 }

@@ -1,0 +1,5 @@
+2022-01-07 10:08:30.4697||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı |url: https://localhost/api/debits|action: GetAllDebit
+2022-01-07 11:18:09.9732||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı |url: https://localhost/api/debits|action: GetAllDebit
+2022-01-07 11:18:34.6681||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı |url: https://localhost/api/debits|action: GetAllDebit
+2022-01-07 11:19:16.3478||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı |url: https://localhost/api/debits|action: GetAllDebit
+2022-01-07 11:19:44.0379||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı |url: https://localhost/api/debits|action: GetAllDebit

@@ -15,12 +15,12 @@ namespace Ofisprojesi
 {
     public interface IDebitServices
     {
-        List<DebitDto> GetAllDebit(bool? status);
-        DebitDto GetDebitById(int id);
-        Debit DeleteDebitById(int id);
+        DebitDto[] GetAllDebit(debitservicesenum status, DebitSearchDto debitSearch);
+        DebitDto GetDebitById(int? id);
+        DbActionResult DeleteDebitById(int? id);
         Debit UpdatePatch(int id, JsonPatchDocument<Debit> name);
-        DebitDto UpdateAllDebit(int id, DebitDto debit);
-        DebitDto SaveDebitById(DebitSaveDto debit);
+        DbActionResult UpdateAllDebit(int? id);
+        DbActionResult SaveDebitById(DebitSaveDto debitSaveDto);
     }
     public class DebitService : IDebitServices
     {
@@ -31,134 +31,122 @@ namespace Ofisprojesi
             _context = context;
             _mapper = mapper;
         }
-        public Debit DeleteDebitById(int id)
+        public DbActionResult DeleteDebitById(int? id)
         {
             Debit deleted = _context.Debits.Where(p => p.Id == id).FirstOrDefault();
             if (deleted == null)
             {
-                return null;
+                return DbActionResult.NotFound;
             }
-            else
-            {
-                _context.Debits.Remove(deleted);
-                _context.SaveChanges();
-                return deleted;
-            }
+            _context.Debits.Remove(deleted);
+            _context.SaveChanges();
+            return DbActionResult.Successful;
         }
-        public List<DebitDto> GetAllDebit(bool? status)
+        public DebitDto[] GetAllDebit(debitservicesenum status, DebitSearchDto debitSearch)
         {
+            Debit[] controller = _context.Debits.Include("Employee").Include("Fixture").ToArray();
+            DebitDto[] debits = _mapper.Map<DebitDto[]>(controller);
+            if (controller != null)
             {
-                List<Debit> controller = _context.Debits.Where(p => p.Status == status).ToList();
-                if (status == null)
+                //Tüm kayıtlar
+                if (status == debitservicesenum.DebitAll)
                 {
-                    return null;
-                }
-                if (status.HasValue)
-                {
-
-                    controller = controller.Where(p => p.Status == status).ToList();
-                    List<DebitDto> debit = _mapper.Map<List<DebitDto>>(controller);
-                    return debit;
+                    return debits;
                 }
                 else
                 {
-                    return null;
+                    foreach (DebitDto list in debits)
+                    {
+                        //Pasif kayıtlar
+                        if (status == debitservicesenum.DebitPasive)
+                        {
+                            if (list.Finish_Date != null)
+                            {
+                                DebitDto[] debits1 = debits.Where(p => p.Finish_Date != null).ToArray();
+                                DebitDto[] debitslist1 = debits1.Where(p => p.Created_Date >= debitSearch.Start_Date).ToArray();
+                                DebitDto[] debitslist2 = debitslist1.Where(p => p.Finish_Date <= debitSearch.End_Date).ToArray();
+                                debits = _mapper.Map<DebitDto[]>(debits1);
+                            }
+                        }
+                        //Aktif kayıtlar
+                        else if (status == debitservicesenum.DebitActive)
+                        {
+                            if (list.Finish_Date == null)
+                            {
+                                DebitDto[] debits1 = debits.Where(p => p.Finish_Date == null).ToArray();
+                                debits = _mapper.Map<DebitDto[]>(debits1);
+                            }
+                        }
+                    }
                 }
+
             }
+            return debits;
         }
-        public DebitDto GetDebitById(int id)
+        public DebitDto GetDebitById(int? id)
         {
             Debit debit = _context.Debits.Where(p => p.Id == id).FirstOrDefault();
             if (debit == null)
             {
                 return null;
             }
-            else
+            Fixture fixture = _context.Fixtures.Where(p => p.Id == debit.FixtureId).SingleOrDefault();
+            Employee employee = _context.Employees.Where(p => p.Id == debit.EmployeeId).SingleOrDefault();
             {
                 DebitDto dto = _mapper.Map<DebitDto>(debit);
+                dto.FixtureName = fixture.Name;
+                dto.EmployeeName = employee.Name;
+                dto.EmployeeLastname = employee.Lastname;
                 return (dto);
             }
         }
-        public DebitDto SaveDebitById(DebitSaveDto debit)
+        public DbActionResult SaveDebitById(DebitSaveDto debitSaveDto)
         {
-            if (debit == null)
             {
-                return null;
-            }
-            else
-            {
-                Debit debit1 = new Debit();
-                debit1.EmployeeId = debit.EmployeeId;
-                debit1.FixtureId = debit.FixtureId;
-                debit1.Date = DateTime.Now;
-                debit1.Status=true;
-                Fixture fixtures = _context.Fixtures.Where(p => p.Id == debit.FixtureId).SingleOrDefault();
-                
+                Debit debit = new Debit();
+                debit.EmployeeId = debitSaveDto.EmployeeId;
+                debit.FixtureId = debitSaveDto.FixtureId;
+                debit.CreatedDate = DateTime.Now;
+                debit.FinishDate = null;
+                Fixture fixtures = _context.Fixtures.Where(p => p.Id == debitSaveDto.FixtureId).SingleOrDefault();
+
                 if (fixtures == null)
                 {
-                    return null;
+                    return DbActionResult.NotHaveFixture;
+                }
+                Employee employees = _context.Employees.Where(p => p.Id == debitSaveDto.EmployeeId).SingleOrDefault();
+                if (employees == null)
+                {
+                    return DbActionResult.NotHaveEmployee;
                 }
                 else
                 {
-                    Employee employees = _context.Employees.Where(p => p.Id == debit.EmployeeId).SingleOrDefault();
-                    if (employees == null)
-                    {
-                        return null;
-                    }
-                    else
-                    {
-                        if ( employees.Status == false)
-                        {
-                            return null;
-                        }
-                        if (fixtures.Status == false)
-                        {
-                            return null;
-                        }
-                        else
-                        {
-                            
-
-                            _context.Debits.Add(debit1);
-                            _context.SaveChanges();
-                            DebitDto debit3=_mapper.Map<DebitDto>(debit1);
-                            return (debit3);
-                        }
-                    }
+                    _context.Debits.Add(debit);
+                    DebitDto debit3 = _mapper.Map<DebitDto>(debit);
+                    _context.SaveChanges();
+                    return (DbActionResult.Successful);
                 }
             }
         }
 
-        public DebitDto UpdateAllDebit(int id, DebitDto debit)
+        public DbActionResult UpdateAllDebit(int? id)
         {
-            Employee employee = _context.Employees.Where(p => p.Id == debit.EmployeeId).FirstOrDefault();
-            if (employee == null)
+
+            Debit update = _context.Debits.Where(p => p.Id == id).SingleOrDefault();
+            if (update == null)
             {
-                return null;
+                return DbActionResult.UnknownError;
             }
             else
             {
-                Fixture fixture = _context.Fixtures.Where(p => p.Id == debit.FixtureId).FirstOrDefault();
-                if (fixture == null)
-                { return (null); }
-                else
-                {
-                    Debit update = _context.Debits.Where(p => p.Id == id).FirstOrDefault();
-                    if (update == null)
-                    {
-                        return null;
-                    }
-                    else
-                    {
-                        update.EmployeeId = debit.EmployeeId;
-                        update.Status = debit.status;
-                        update.FixtureId = debit.FixtureId;
-                        update.Date = DateTime.Now;
-                        _context.SaveChanges();
-                        DebitDto dto = _mapper.Map<DebitDto>(update);
-                        return (dto);
-                    }
-                }
+
+                update.EmployeeId = update.EmployeeId;
+                update.FixtureId = update.FixtureId;
+                update.CreatedDate = DateTime.Now;
+                update.FinishDate = DateTime.Now;
+                DebitDto dto = _mapper.Map<DebitDto>(update);
+                _context.SaveChanges();
+                return (DbActionResult.Successful);
             }
         }
         public Debit UpdatePatch(int id, JsonPatchDocument<Debit> name)

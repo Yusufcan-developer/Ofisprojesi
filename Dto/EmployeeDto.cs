@@ -13,11 +13,11 @@ namespace ofisprojesi
         public string Lastname { get; set; }
         public bool? Status { get; set; }
         public int? OfficeId { get; set; }
-        public DateTime? RecordDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
-        public int? Age { get; set; }
+        public DateTime RecordDate{get;set;}
+        public DateTime UpdateDate{get;set;}
+        public DateTime birthday { get; set; }
 
-        public DebitDto[] Debit { get; set; }
+        public DebitDto Debit { get; set; }
     }
 
     public class EmployeeUpdateDto
@@ -25,8 +25,12 @@ namespace ofisprojesi
         public string Name { get; set; }
         public string Lastname { get; set; }
         public int? OfficeId { get; set; }
-        public DateTime? RecordDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
-        public int? Age { get; set; }
+        public DateTime? birthday { get; set; }
+    }
+    public class PatchDto{
+        public string Name{get;set;}
+        public string Lastname{get;set;}
+        public int? OfficeId{get;set;}
+        public DateTime? birthday{get;set;}
     }
 }

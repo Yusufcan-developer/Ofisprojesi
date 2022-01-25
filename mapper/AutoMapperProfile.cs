@@ -19,6 +19,9 @@ namespace ofisprojesi
             CreateMap<User,UserDto>();
             CreateMap<Role,RoleDto>();
             CreateMap<Debit, DebitSaveDto>();
+            CreateMap<User,UserUpdateDto>();
+            CreateMap<Debit,DebitSearchDto>();
+            CreateMap<Employee,PatchDto>();
 
         }
 

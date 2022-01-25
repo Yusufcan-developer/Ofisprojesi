@@ -49,15 +49,17 @@ namespace ofisprojesi
                     .HasColumnName("id")
                     .UseIdentityAlwaysColumn();
 
-                entity.Property(e => e.Date)
+                entity.Property(e => e.CreatedDate)
                     .HasColumnType("date")
-                    .HasColumnName("date");
+                    .HasColumnName("created_date");
 
                 entity.Property(e => e.EmployeeId).HasColumnName("employee_id");
 
-                entity.Property(e => e.FixtureId).HasColumnName("fixture_id");
+                entity.Property(e => e.FinishDate)
+                    .HasColumnType("date")
+                    .HasColumnName("finish_date");
 
-                entity.Property(e => e.Status).HasColumnName("status");
+                entity.Property(e => e.FixtureId).HasColumnName("fixture_id");
 
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.Debits)
@@ -82,7 +84,9 @@ namespace ofisprojesi
                     .HasColumnName("id")
                     .UseIdentityAlwaysColumn();
 
-                entity.Property(e => e.Age).HasColumnName("age");
+                entity.Property(e => e.Birthday)
+                    .HasColumnType("date")
+                    .HasColumnName("birthday");
 
                 entity.Property(e => e.Lastname)
                     .HasMaxLength(25)
@@ -128,7 +132,15 @@ namespace ofisprojesi
 
                 entity.Property(e => e.OfficeId).HasColumnName("office_id");
 
+                entity.Property(e => e.Recdate)
+                    .HasColumnType("date")
+                    .HasColumnName("recdate");
+
                 entity.Property(e => e.Status).HasColumnName("status");
+
+                entity.Property(e => e.Updatedate)
+                    .HasColumnType("date")
+                    .HasColumnName("updatedate");
 
                 entity.HasOne(d => d.Office)
                     .WithMany(p => p.Fixtures)
@@ -148,7 +160,15 @@ namespace ofisprojesi
                     .HasMaxLength(25)
                     .HasColumnName("name");
 
+                entity.Property(e => e.Recdate)
+                    .HasColumnType("date")
+                    .HasColumnName("recdate");
+
                 entity.Property(e => e.Status).HasColumnName("status");
+
+                entity.Property(e => e.Updatedate)
+                    .HasColumnType("date")
+                    .HasColumnName("updatedate");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -156,8 +176,8 @@ namespace ofisprojesi
                 entity.ToTable("role");
 
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
 
                 entity.Property(e => e.Description)
                     .HasMaxLength(50)
@@ -177,8 +197,8 @@ namespace ofisprojesi
                 entity.HasIndex(e => e.RoleId, "role_id");
 
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
 
                 entity.Property(e => e.CreateDate)
                     .HasColumnType("date")

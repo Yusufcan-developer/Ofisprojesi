@@ -10,16 +10,17 @@ using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using System.Collections;
 using Ofisprojesi;
+using System.Web.Http.ModelBinding;
 
 namespace ofisprojesi
 {
     public interface IEmployeeService
     {
-        EmployeeDto[] GetEmployeeByName(string name, bool? durum);
-        EmployeeDto GetEmployeeById(int id);
-        Employee DeleteEmployeById(int id);
-        Employee SaveEmployee(EmployeeUpdateDto employee);
-        EmployeeUpdateDto UpdateEmployee(EmployeeUpdateDto employee, int id,bool durum);
+        EmployeeDto[] GetEmployeeByName(string name, bool? status);
+        EmployeeDto GetEmployeeById(int? id);
+        DbActionResult DeleteEmployeById(int? id);
+        DbActionResult SaveEmployee(EmployeeUpdateDto employeeupdatedto);
+        DbActionResult UpdateEmployee(EmployeeUpdateDto employee, int? id, bool? status);
         Employee UpdatePatch(int id, JsonPatchDocument<Employee> name);
     }
     public class EmployeeServices : IEmployeeService
@@ -31,7 +32,7 @@ namespace ofisprojesi
             _context = context;
             _mapper = mapper;
         }
-        public Employee DeleteEmployeById(int id)
+        public DbActionResult DeleteEmployeById(int? id)
         {
             Employee employee = _context.Employees.FirstOrDefault(p => p.Id == id);
             if (employee != null)
@@ -39,22 +40,26 @@ namespace ofisprojesi
                 Debit debits = _context.Debits.Where(p => p.EmployeeId == employee.Id).FirstOrDefault();
                 if (debits != null)
                 {
-                    return null;
+                    return DbActionResult.HaveDebitError;
                 }
                 else
                 {
                     _context.Employees.Remove(employee);
                     _context.SaveChanges();
-                    return employee;
+                    return DbActionResult.Successful;
                 }
             }
             else
             {
-                return null;
+                return DbActionResult.UnknownError;
             }
         }
-        public EmployeeDto GetEmployeeById(int id)
+        public EmployeeDto GetEmployeeById(int? id)
         {
+            if (id==null)
+            {
+                return null;
+            }
             Employee employee = _context.Employees.Where(p => p.Id == id).FirstOrDefault();
             EmployeeDto employeeDto = _mapper.Map<EmployeeDto>(employee);
             if (employeeDto == null)
@@ -65,11 +70,10 @@ namespace ofisprojesi
             {
                 Debit[] debit = _context.Debits.Where(p => p.EmployeeId == employeeDto.Id).ToArray();
                 DebitDto[] debitDto = _mapper.Map<DebitDto[]>(debit);
-                employeeDto.Debit = debitDto;
                 return (employeeDto);
             }
         }
-        public EmployeeDto[] GetEmployeeByName(string name, bool? durum)
+       public EmployeeDto[] GetEmployeeByName(string name, bool? durum)
         {
             Employee[] employee = _context.Employees.ToArray();
             if (name == null && durum == null)
@@ -89,85 +93,96 @@ namespace ofisprojesi
                 EmployeeDto[] employeeDtos = _mapper.Map<EmployeeDto[]>(employee);
                 foreach (EmployeeDto EmployeeList in employeeDtos)
                 {
-                    Debit[] debits = _context.Debits.Where(p => p.EmployeeId == EmployeeList.Id).ToArray();
-                    DebitDto[] debitDto = _mapper.Map<DebitDto[]>(debits);
-                    EmployeeList.Debit = debitDto;
+                    Debit[] debitList = _context.Debits.Where(p => p.EmployeeId == EmployeeList.Id).ToArray();
+                    Debit last = debitList.Last();
+                    DebitDto debitDto = _mapper.Map<DebitDto>(last);
+                        if (last.FinishDate==null)
+                        {
+                            EmployeeList.Debit = debitDto;
+                            break;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    return employeeDtos;
                 }
-                return employeeDtos;
-            }
+                
             else
             {
                 return null;
             }
         }
-        public Employee SaveEmployee(EmployeeUpdateDto employee)
+        public DbActionResult SaveEmployee(EmployeeUpdateDto employeeupdatedto)
         {
-            Office office = _context.Offices.Where(p => p.Id == employee.OfficeId).SingleOrDefault();
+            if (employeeupdatedto == null || employeeupdatedto.OfficeId == null)
+            {
+                return DbActionResult.UnknownError;
+            }
+            Office office = _context.Offices.Where(p => p.Id == employeeupdatedto.OfficeId).SingleOrDefault();
             Employee Employee = new Employee();
-            Employee.Name = employee.Name;
-            Employee.OfficeId = employee.OfficeId;
-            Employee.Lastname = employee.Lastname;
-            Employee.Age = employee.Age;
+            Employee.Name = employeeupdatedto.Name;
+            Employee.OfficeId = employeeupdatedto.OfficeId;
+            Employee.Lastname = employeeupdatedto.Lastname;
+            Employee.Birthday = employeeupdatedto.birthday;
             Employee.RecordDate = DateTime.Now;
             Employee.UpdateDate = DateTime.Now;
             Employee.Status = true;
-            if (employee.Age > 150 || employee.Age < 5)
+            if (String.IsNullOrWhiteSpace(employeeupdatedto.Name) || String.IsNullOrWhiteSpace(employeeupdatedto.Lastname))
             {
-                return null;
-            }
-            else if (String.IsNullOrWhiteSpace(employee.Name) || String.IsNullOrWhiteSpace(employee.Lastname))
-            {
-                return null;
+                return DbActionResult.NameOrLastNameError;
             }
             else if (office == null)
             {
-                return null;
+                return DbActionResult.OfficeNotFound;
             }
             else
             {
                 _context.Employees.Add(Employee);
                 _context.SaveChanges();
-                EmployeeUpdateDto dto = _mapper.Map<EmployeeUpdateDto>(employee);
-                return Employee;
+                EmployeeUpdateDto dto = _mapper.Map<EmployeeUpdateDto>(employeeupdatedto);
+                return DbActionResult.Successful;
             }
-            return null;
         }
-        public EmployeeUpdateDto UpdateEmployee(EmployeeUpdateDto employee, int id,bool durum)
+        public DbActionResult UpdateEmployee(EmployeeUpdateDto employeeupdatedto, int? id, bool? Status)
         {
-
-            Employee Employee = _context.Employees.Where(p => p.Id == id).FirstOrDefault();
-            Office office = _context.Offices.Where(p => p.Id == employee.OfficeId).FirstOrDefault();
+            Employee Employee = _context.Employees.Where(p => p.Id == id).SingleOrDefault();
+            if (Employee==null){
+                return DbActionResult.UnknownError;
+            }
+            List<Debit> employee1 = _context.Debits.Where(p => p.EmployeeId == id).ToList();
+            Office office = _context.Offices.Where(p => p.Id == employeeupdatedto.OfficeId).SingleOrDefault();
             if (office == null)
             {
-                return null;
-            }
-            if (employee.Age == 0 || employee.Age == null)
-            {
-                return null;
-            }
-            if (Employee.Status == false && office.Id != employee.OfficeId)
-            {
-                return null;
+                return DbActionResult.OfficeNotFound;
             }
             else
             {
-                Employee.Name = employee.Name;
-                Employee.Lastname = employee.Lastname;
-                Employee.Status = durum;
-                Employee.OfficeId = employee.OfficeId;
-                Employee.Age = employee.Age;
-                Employee.RecordDate = Employee.RecordDate;
+                Employee.Name = employeeupdatedto.Name;
+                Employee.Lastname = employeeupdatedto.Lastname;
+                Employee.OfficeId = employeeupdatedto.OfficeId;
+                Employee.Birthday = employeeupdatedto.birthday;
                 Employee.UpdateDate = DateTime.Now;
-                _context.SaveChanges();
-                EmployeeUpdateDto dto = _mapper.Map<EmployeeUpdateDto>(employee);
-                return (dto);
+                if (Employee.Debits.Count <= 0)
+                {
+                    Employee.Status = Status;
+                    _context.SaveChanges();
+                    EmployeeUpdateDto dto = _mapper.Map<EmployeeUpdateDto>(employeeupdatedto);
+                    return (DbActionResult.Successful);
+                }
+                else
+                {
+                    return DbActionResult.HaveDebitError;
+                }
+
             }
         }
         public Employee UpdatePatch(int id, JsonPatchDocument<Employee> name)
         {
             Employee employee = _context.Employees.FirstOrDefault(e => e.Id == id);
-            name.ApplyTo(employee);
-            _context.SaveChanges();
+                name.ApplyTo(employee);
+                _context.SaveChanges();
             return (employee);
         }
     }

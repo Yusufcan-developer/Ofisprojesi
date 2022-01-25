@@ -1,0 +1,386 @@
+2021-12-10 13:45:00.6906||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 13:45:00.7121||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 13:45:00.7138||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 13:45:00.7138||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 13:45:00.7138||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 13:45:21.9868||ERROR|ofisprojesi.EmployeeController|Sİlme işlemi hatalı kod girildi 
+2021-12-10 14:20:11.2720||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 14:20:11.3283||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 14:20:11.3300||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 14:20:11.3300||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 14:20:11.3300||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 14:21:29.2750||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 14:21:29.2966||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 14:21:29.2978||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 14:21:29.2978||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 14:21:29.2978||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 14:22:44.9174||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 14:22:44.9436||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 14:22:44.9436||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 14:22:44.9450||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 14:22:44.9450||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 14:22:51.7438|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: Cannot return null from an action method with a return type of 'Microsoft.AspNetCore.Mvc.ActionResult'.
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.EnsureActionResultNotNull(ObjectMethodExecutor executor, IActionResult actionResult)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-12-10 14:33:27.0364||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 14:33:27.0584||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 14:33:27.0584||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 14:33:27.0584||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 14:33:27.0584||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 14:35:17.9394||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 14:35:17.9593||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 14:35:17.9593||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 14:35:17.9593||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 14:35:17.9593||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 14:35:32.5588|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/employees" for actions - ofisprojesi.EmployeeController.GetEmployeeById (ofisprojesi),ofisprojesi.EmployeeController.GetEmployeeByName (ofisprojesi). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-12-10 14:48:05.3866||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 14:48:05.4081||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 14:48:05.4093||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 14:48:05.4093||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 14:48:05.4093||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 14:55:02.1461||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 14:55:02.1726||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 14:55:02.1740||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 14:55:02.1740||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 14:55:02.1740||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 15:01:03.0626||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 15:01:03.0847||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 15:01:03.0859||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 15:01:03.0859||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 15:01:03.0859||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 15:42:28.7394||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 15:42:28.7614||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 15:42:28.7614||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 15:42:28.7614||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 15:42:28.7614||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 15:44:13.1390|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.birthday, e.lastname, e.name, e.office_id, e.record_date, e.status, e.update_date
+FROM employee AS e
+WHERE e.id = @__id_0
+LIMIT 1 
+2021-12-10 15:44:13.1604|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ofisprojesi.OfisProjesiContext'.
+Npgsql.PostgresException (0x80004005): 42P01: "employee" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "employee" nesnesi mevcut değil
+    Position: 103
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable Npgsql.PostgresException (0x80004005): 42P01: "employee" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "employee" nesnesi mevcut değil
+    Position: 103
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable
+2021-12-10 15:45:01.3089|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. Npgsql.PostgresException (0x80004005): 42P01: "employee" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at ofisprojesi.EmployeeServices.DeleteEmployeById(Nullable`1 id) in /home/yusufcan/Masaüstü/Ofisprojesi-master/services/EmployeeService.cs:line 36
+   at ofisprojesi.EmployeeController.DeleteByIdEmployee(Nullable`1 id) in /home/yusufcan/Masaüstü/Ofisprojesi-master/Controller/EmployeeController.cs:line 76
+   at lambda_method6(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "employee" nesnesi mevcut değil
+    Position: 103
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable
+2021-12-10 15:53:49.4915||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 15:53:49.5164||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 15:53:49.5176||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 15:53:49.5176||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 15:53:49.5176||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 15:54:37.3668|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.birthday, e.lastname, e.name, e.office_id, e.record_date, e.status, e.update_date
+FROM employee AS e
+WHERE e.id = @__id_0
+LIMIT 1 
+2021-12-10 15:54:37.3841|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ofisprojesi.OfisProjesiContext'.
+Npgsql.PostgresException (0x80004005): 42P01: "employee" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "employee" nesnesi mevcut değil
+    Position: 103
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable Npgsql.PostgresException (0x80004005): 42P01: "employee" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "employee" nesnesi mevcut değil
+    Position: 103
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable
+2021-12-10 15:54:37.4342||ERROR|ofisprojesi.EmployeeController|veritabanı hatası 
+2021-12-10 15:55:28.4256||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 15:55:28.4545||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 15:55:28.4545||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 15:55:28.4545||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 15:55:28.4545||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 16:07:48.4995||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 16:07:48.5228||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 16:07:48.5228||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 16:07:48.5228||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 16:07:48.5248||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 17:50:38.0748||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2021-12-10 17:50:38.0999||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2021-12-10 17:50:38.1023||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-12-10 17:50:38.1023||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-12-10 17:50:38.1023||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2021-12-10 17:52:24.8021|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.created_date, d.employee_id, d.finish_date, d.fixture_id
+FROM debit AS d
+WHERE d.id = @__id_0
+LIMIT 1 
+2021-12-10 17:52:24.8239|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ofisprojesi.OfisProjesiContext'.
+Npgsql.PostgresException (0x80004005): 42P01: "debit" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "debit" nesnesi mevcut değil
+    Position: 78
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable Npgsql.PostgresException (0x80004005): 42P01: "debit" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "debit" nesnesi mevcut değil
+    Position: 78
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable
+2021-12-10 17:52:24.8618||ERROR|ofisprojesi.DebitController|DeleteDebitById metodu çalıştırılamadı 
+2021-12-10 17:52:30.9230|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.created_date, d.employee_id, d.finish_date, d.fixture_id
+FROM debit AS d 
+2021-12-10 17:52:30.9256|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ofisprojesi.OfisProjesiContext'.
+Npgsql.PostgresException (0x80004005): 42P01: "debit" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "debit" nesnesi mevcut değil
+    Position: 78
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable Npgsql.PostgresException (0x80004005): 42P01: "debit" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "debit" nesnesi mevcut değil
+    Position: 78
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable
+2021-12-10 17:52:30.9975||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı 
+2021-12-10 17:53:17.8506|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.created_date, d.employee_id, d.finish_date, d.fixture_id
+FROM debit AS d 
+2021-12-10 17:53:17.8540|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ofisprojesi.OfisProjesiContext'.
+Npgsql.PostgresException (0x80004005): 42P01: "debit" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "debit" nesnesi mevcut değil
+    Position: 78
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable Npgsql.PostgresException (0x80004005): 42P01: "debit" nesnesi mevcut değil
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: HATA
+    SqlState: 42P01
+    MessageText: "debit" nesnesi mevcut değil
+    Position: 78
+    File: parse_relation.c
+    Line: 1373
+    Routine: parserOpenTable
+2021-12-10 17:53:17.8905||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı 

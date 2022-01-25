@@ -132,3 +132,8 @@
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/Microsoft.Owin.Cors.dll
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/System.IdentityModel.Tokens.Jwt.dll
 /home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/Swashbuckle.AspNetCore.Annotations.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/System.Web.Http.Cors.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/NLog.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/NLog.Extensions.Logging.dll
+/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/NLog.Web.AspNetCore.dll

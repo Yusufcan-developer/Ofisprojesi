@@ -1,0 +1,6 @@
+2022-01-13 10:01:54.8355||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-01-13 10:02:51.3049||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-01-13 10:04:04.3104||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-01-13 10:04:29.2100||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-01-13 10:05:20.8705||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-01-13 10:15:20.3126||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName

@@ -16,31 +16,31 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:ofisprojesi.DebitController.GetAllDebit(System.Nullable{System.Boolean})">
+        <member name="M:ofisprojesi.DebitController.GetAllDebit(Ofisprojesi.debitservicesenum,ofisprojesi.DebitSearchDto)">
             <summary>
             "duruma göre zimmet verisi getir"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.DebitController.DeleteDebitById(System.Int32)">
+        <member name="M:ofisprojesi.DebitController.DeleteDebitById(System.Nullable{System.Int32})">
             <summary>
             "id ye Göre Zimmet Verisi sil"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.DebitController.UpdateAllDebit(System.Int32,Ofisprojesi.DebitDto)">
+        <member name="M:ofisprojesi.DebitController.UpdateAllDebit(System.Nullable{System.Int32})">
             <summary>
             "id'ye göre Zimmet Verisini Güncelle"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.DebitController.GetDebitById(System.Int32)">
+        <member name="M:ofisprojesi.DebitController.GetDebitById(System.Nullable{System.Int32})">
             <summary>
             "id ye Göre Zimmet Verisi Getir"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.DebitController.SaveDebitById(Ofisprojesi.DebitSaveDto)">
+        <member name="M:ofisprojesi.DebitController.SaveDebitById(ofisprojesi.DebitSaveDto)">
             <summary>
             "Zimmet Verisi kaydet"
             </summary>
@@ -58,19 +58,19 @@
              </summary>
              <return></return>
         </member>
-        <member name="M:ofisprojesi.EmployeeController.DeleteByIdEmployee(System.Int32)">
+        <member name="M:ofisprojesi.EmployeeController.DeleteByIdEmployee(System.Nullable{System.Int32})">
             <summary>
              id ye göre Çalışan Silme
              </summary>
              <return></return>
         </member>
-        <member name="M:ofisprojesi.EmployeeController.UpdateEmployee(ofisprojesi.EmployeeUpdateDto,System.Int32,System.Boolean)">
+        <member name="M:ofisprojesi.EmployeeController.UpdateEmployee(ofisprojesi.EmployeeUpdateDto,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
             <summary>
              id ye göre Çalışan Güncelleme
              </summary>
              <return></return>
         </member>
-        <member name="M:ofisprojesi.EmployeeController.GetEmployeeById(System.Int32)">
+        <member name="M:ofisprojesi.EmployeeController.GetEmployeeById(System.Nullable{System.Int32})">
             <summary>
              Çalışanı id sine Göre Getir
              </summary>
@@ -88,19 +88,19 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.FixtureController.SaveFixture(Ofisprojesi.FixtureDto)">
+        <member name="M:ofisprojesi.FixtureController.SaveFixture(Ofisprojesi.FixtureUpdateDto)">
             <summary>
             "Demirbas Kaydetme"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.FixtureController.DeleteFixtureById(System.Int32)">
+        <member name="M:ofisprojesi.FixtureController.DeleteFixtureById(System.Nullable{System.Int32})">
             <summary>
             "id ye göre Demirbaş Silme"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.FixtureController.UpdateFixture(Ofisprojesi.FixtureDto,System.Int32)">
+        <member name="M:ofisprojesi.FixtureController.UpdateFixture(Ofisprojesi.FixtureUpdateDto,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
             <summary>
             "id ye göre Demirbas Güncelleme"
             </summary>
@@ -112,7 +112,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.FixtureController.GetFixtureByName(System.String,System.Nullable{System.Boolean})">
+        <member name="M:ofisprojesi.FixtureController.GetFixtureByName(ofisprojesi.DebitSearchDto,Ofisprojesi.debitservicesenum)">
             <summary>
             "isme ve duruma göre çalışan sorgulama"
             </summary>
@@ -124,19 +124,19 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.OfficeController.SaveOffice(Ofisprojesi.OfficeUpdateDto)">
+        <member name="M:ofisprojesi.OfficeController.SaveOffice(ofisprojesi.OfficeUpdateDto)">
             <summary>
             "Ofis Kaydetme"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.OfficeController.DeleteOfficeById(System.Int32)">
+        <member name="M:ofisprojesi.OfficeController.DeleteOfficeById(System.Nullable{System.Int32})">
             <summary>
             "id ye göre Ofis Silme"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.OfficeController.UpdateOffice(Ofisprojesi.OfficeUpdateDto,System.Int32)">
+        <member name="M:ofisprojesi.OfficeController.UpdateOffice(ofisprojesi.OfficeUpdateDto,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
             <summary>
             "id ye göre Ofis Güncelle"
             </summary>
@@ -160,18 +160,17 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.UsersController.Authenticate(Ofisprojesi.LoginDto)">
+        <member name="M:ofisprojesi.UsersController.Authenticate(ofisprojesi.LoginDto)">
             <summary>
             Kullanıcı doğrulama
             </summary>
             <param name="login"></param>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.UsersController.GetUsers(Ofisprojesi.UserSearchCriteria)">
+        <member name="M:ofisprojesi.UsersController.GetUsers">
             <summary>
             Kullanıcı arama
             </summary>
-            <param name="criteria"></param>
             <returns></returns>
         </member>
         <member name="M:ofisprojesi.UsersController.GetUserById(System.Int32)">
@@ -207,7 +206,7 @@
             <param name="roleName"></param>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.UsersController.SaveUser(Ofisprojesi.UserUpdateDto)">
+        <member name="M:ofisprojesi.UsersController.SaveUser(ofisprojesi.UserUpdateDto)">
             <summary>
             Kullanıcı kaydetme
             </summary>
@@ -221,11 +220,17 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.UsersController.ChangePassword(Ofisprojesi.changePasswordDto)">
+        <member name="M:ofisprojesi.UsersController.ChangePassword(ofisprojesi.changePasswordDto)">
             <summary>
             Parola güncelleme
             </summary>
             <param name="changePasswordDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ofisprojesi.UsersController.UpdateDto(ofisprojesi.UserUpdateDto,System.Nullable{System.Int32})">
+            <summary>
+            Parola güncelleme
+            </summary>
             <returns></returns>
         </member>
         <member name="M:ofisprojesi.UserService.CheckPassword(System.String,System.String,System.String)">
@@ -250,6 +255,11 @@
             
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:ofisprojesi.Startup.ApplicationLogging">
+            <summary>
+            Shared logger
+            </summary>
         </member>
     </members>
 </doc>

@@ -1,0 +1,71 @@
+2022-01-13 09:51:12.7767||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 09:51:12.8020||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 09:51:12.8037||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 09:51:12.8037||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 09:51:12.8037||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:01:42.4186||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:01:42.4454||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:01:42.4469||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:01:42.4469||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:01:42.4469||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:01:54.8355||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-01-13 10:02:43.1729||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:02:43.2012||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:02:43.2012||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:02:43.2030||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:02:43.2030||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:02:51.3049||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-01-13 10:04:04.3104||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-01-13 10:04:29.2100||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-01-13 10:05:12.1552||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:05:12.1798||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:05:12.1798||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:05:12.1798||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:05:12.1798||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:05:20.8705||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-01-13 10:06:59.1071||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:06:59.1295||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:06:59.1308||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:06:59.1308||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:06:59.1308||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:08:19.9248||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:08:19.9518||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:08:19.9518||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:08:19.9518||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:08:19.9518||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:10:06.7559||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:10:06.7796||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:10:06.7796||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:10:06.7796||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:10:06.7796||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:11:15.7006||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:11:15.7244||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:11:15.7244||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:11:15.7244||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:11:15.7244||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:14:57.1392||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:14:57.1652||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:14:57.1652||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:14:57.1675||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:14:57.1675||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 10:15:20.3126||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-01-13 10:47:28.7910||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 10:47:28.8129||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 10:47:28.8129||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 10:47:28.8129||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 10:47:28.8129||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 13:30:16.0977||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 13:30:16.1222||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 13:30:16.1233||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 13:30:16.1233||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 13:30:16.1233||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 13:48:06.4261||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 13:48:06.4517||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 13:48:06.4517||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 13:48:06.4517||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 13:48:06.4517||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-13 14:20:09.6752||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-13 14:20:09.6950||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-13 14:20:09.6961||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-13 14:20:09.6961||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-13 14:20:09.6961||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 

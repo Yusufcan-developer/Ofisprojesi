@@ -9,9 +9,9 @@ namespace ofisprojesi
     {
         public int Id { get; set; }
         public int? EmployeeId { get; set; }
-        public DateTime? Date { get; set; }
-        public bool? Status { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public int? FixtureId { get; set; }
+        public DateTime? FinishDate { get; set; }
 
         public virtual Employee Employee { get; set; }
         public virtual Fixture Fixture { get; set; }

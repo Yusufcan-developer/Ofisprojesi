@@ -1,15 +1,8 @@
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
-using Newtonsoft.Json;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
-using Ofisprojesi;
-using System.Collections;
+using Microsoft.AspNetCore.Mvc;
 using ofisprojesi;
 namespace Ofisprojesi
 {
@@ -17,9 +10,9 @@ namespace Ofisprojesi
     {
         OfficeDto GetOfficeById(int id);
         OfficeDto[] GetOfficByName(string name, bool? status);
-        Office DeleteOfficeById(int id);
-        OfficeUpdateDto SaveOffice(OfficeUpdateDto offices);
-        OfficeUpdateDto UpdateDto(OfficeUpdateDto office, int id);
+        DbActionResult DeleteOfficeById(int? id);
+        DbActionResult SaveOffice(OfficeUpdateDto officeUpdateDto);
+        DbActionResult UpdateDto(OfficeUpdateDto officeUpdateDto, int? id, bool? durum);
         OfficeDto UpdatePatch(int id, JsonPatchDocument<Office> name);
     }
     public class OfficeService : IOfficeServices
@@ -31,33 +24,30 @@ namespace Ofisprojesi
             _context = context;
             _mapper = mapper;
         }
-        public Office DeleteOfficeById(int id)
+        public DbActionResult DeleteOfficeById(int? id)
         {
+            if (id == null)
+            {
+                return DbActionResult.UnknownError;
+            }
             Office office = _context.Offices.SingleOrDefault(p => p.Id == id);
             if (office == null)
             {
-                return null;
+                return DbActionResult.OfficeNotFound;
+            }
+            Employee employee = _context.Employees.FirstOrDefault(x => x.OfficeId == id);
+            Fixture fixture = _context.Fixtures.FirstOrDefault(p => p.OfficeId == id);
+            if ((employee != null) || (fixture != null))
+            {
+                return DbActionResult.HaveDebitError;
             }
             else
             {
-                Employee employee = _context.Employees.FirstOrDefault(x => x.OfficeId == id);
-                Fixture fixture = _context.Fixtures.FirstOrDefault(p => p.OfficeId == id);
-
-                if (office == null)
-                {
-                    return null;
-                }
-                else if ((employee != null) || (fixture != null))
-                {
-                    return null;
-                }
-                else
-                {
-                    _context.Offices.Remove(office);
-                    _context.SaveChanges();
-                    return office;
-                }
+                _context.Offices.Remove(office);
+                _context.SaveChanges();
+                return DbActionResult.Successful;
             }
+
         }
         public OfficeDto[] GetOfficByName(string name, bool? status)
         {
@@ -72,11 +62,11 @@ namespace Ofisprojesi
             }
             else
             {
-                foreach (Office officeList in Office)
+                foreach (Office OfficeList in Office)
                 {
-                    Fixture[] fixture = _context.Fixtures.Where(p => p.OfficeId == officeList.Id).ToArray();
+                    Fixture[] fixture = _context.Fixtures.Where(p => p.OfficeId == OfficeList.Id).ToArray();
                     FixtureDto[] fixtureDto = _mapper.Map<FixtureDto[]>(fixture);
-                    officeList.Fixtures = fixture;
+                    OfficeList.Fixtures = fixture;
                 }
                 if (!string.IsNullOrWhiteSpace(name))
                 {
@@ -110,7 +100,7 @@ namespace Ofisprojesi
                 Fixture[] fixture = _context.Fixtures.Where(p => p.OfficeId == officedto.Id).ToArray();
                 FixtureDto[] fixturedto = _mapper.Map<FixtureDto[]>(fixture);
                 Employee[] employee = _context.Employees.Where(p => p.OfficeId == officedto.Id).ToArray();
-                EmployeeDto[] employeeDto = _mapper.Map<EmployeeDto[]>(employee);
+                FixtureDto[] employeeDto = _mapper.Map<FixtureDto[]>(employee);
                 officedto.employee = employeeDto;
                 officedto.Fixtures = fixturedto;
                 if (office == null)
@@ -123,38 +113,55 @@ namespace Ofisprojesi
                 }
             }
         }
-        public OfficeUpdateDto SaveOffice(OfficeUpdateDto offices)
+        public DbActionResult SaveOffice(OfficeUpdateDto officeupdatedto)
         {
             Office Office = new Office();
-            Office.Name = offices.Name;
-            Office.Status = offices.Status;
-            if (offices.Name == null || !offices.Status.HasValue)
+            Office.Name = officeupdatedto.Name;
+            Office.Status = true;
+            Office.Recdate = System.DateTime.Now;
+            Office.Updatedate = System.DateTime.Now;
+            if (officeupdatedto.Name == null)
             {
-                return null;
+                return DbActionResult.OfficeNotFound;
             }
             else
             {
                 _context.Offices.Add(Office);
                 _context.SaveChanges();
                 OfficeUpdateDto dto = _mapper.Map<OfficeUpdateDto>(Office);
-                return (dto);
+                return (DbActionResult.Successful);
             }
         }
-        public OfficeUpdateDto UpdateDto(OfficeUpdateDto office, int id)
+        public DbActionResult UpdateDto(OfficeUpdateDto officeupdatedto, int? id, bool? status)
         {
+            if (officeupdatedto == null || id == null)
+            {
+                return DbActionResult.UnknownError;
+            }
             Office Office = _context.Offices.FirstOrDefault(p => p.Id == id);
-            if (Office == null || office.Name == null)
+            if (Office == null)
             {
-                return null;
+                return DbActionResult.OfficeNotFound;
             }
-            else
+
+            Office.Name = officeupdatedto.Name;
+            Office.Status = status;
+            Office.Recdate = Office.Recdate;
+            Office.Updatedate = System.DateTime.Now;
+
+            Fixture fixture = _context.Fixtures.Where(p => p.OfficeId == id).FirstOrDefault();
+            if (fixture != null && status == false)
             {
-                Office.Name = office.Name;
-                Office.Status = office.Status;
-                _context.SaveChanges();
-                OfficeUpdateDto dto = _mapper.Map<OfficeUpdateDto>(Office);
-                return (dto);
+                return DbActionResult.HaveDebitError;
             }
+            Employee employee = _context.Employees.Where(p => p.OfficeId == id).FirstOrDefault();
+            if (employee != null && status == false)
+            {
+                return DbActionResult.HaveDebitError;
+            }
+            _context.SaveChanges();
+            OfficeUpdateDto dto = _mapper.Map<OfficeUpdateDto>(Office);
+            return (DbActionResult.Successful);
         }
         public OfficeDto UpdatePatch(int id, JsonPatchDocument<Office> name)
         {

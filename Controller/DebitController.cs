@@ -4,10 +4,11 @@ using AutoMapper;
 using Ofisprojesi;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace ofisprojesi
 {
-    [Authorize]
+    
     [Route("api/debits")]
     [ApiController]
     public class DebitController : ControllerBase
@@ -15,8 +16,10 @@ namespace ofisprojesi
         private OfisProjesiContext _context;
         private IMapper _mapper;
         private IDebitServices _debitservice;
-        public DebitController(OfisProjesiContext context, IMapper mapper, IDebitServices debitservices)
+        private readonly ILogger<DebitController> _logger;
+        public DebitController(OfisProjesiContext context, IMapper mapper, IDebitServices debitservices, ILogger<DebitController> logger)
         {
+            _logger = logger;
             _mapper = mapper;
             _context = context;
             _debitservice = debitservices;
@@ -27,17 +30,28 @@ namespace ofisprojesi
         /// <returns></returns>
         [Route("")]
         [HttpGet]
-        public ActionResult GetAllDebit(bool? status)
+        public ActionResult GetAllDebit(debitservicesenum status, [FromQuery] DebitSearchDto datesearch)
         {
-            List<DebitDto> debit = _debitservice.GetAllDebit(status);
-            if (debit == null)
+
+            try
             {
-                return BadRequest("sorgu başarısız");
+                DebitDto[] debit = _debitservice.GetAllDebit(status, datesearch);
+                if (debit == null)
+                {
+                    return BadRequest(new { isSucces = false, message = "zimmet bilgisi bulunamadı" });
+                }
+                else
+                {
+                    return Ok(new { isSucces = true, message = debit });
+                }
             }
-            else
+            catch (System.Exception)
             {
-                return Ok(debit);
+
+                _logger.LogError(string.Format("GetAllDebit metodu çalıştırılamadı"), null);
+                return BadRequest("bir hata ile karşılaşıldı");
             }
+
         }
         /// <summary>
         /// "id ye Göre Zimmet Verisi sil"
@@ -45,17 +59,37 @@ namespace ofisprojesi
         /// <returns></returns>
         [Route("id")]
         [HttpDelete]
-        public ActionResult DeleteDebitById([FromQuery] int id)
+        public ActionResult DeleteDebitById([FromQuery] int? id)
         {
-            Debit debit = _debitservice.DeleteDebitById(id);
-            if (debit == null)
+            try
             {
-                return BadRequest("silme başarısız");
+                if (id == null)
+                {
+                    return BadRequest(new { isSucces = false, message = "id alanı boş bırakılamaz" });
+                }
+                DbActionResult debit = _debitservice.DeleteDebitById(id);
+                ActionResult result = null;
+                switch (debit)
+                {
+                    case DbActionResult.NotFound:
+                        result = BadRequest(new { isSucces = true, message = "silinecek zimmet bilgisi bulunamadı" });
+                        break;
+                    case DbActionResult.Successful:
+                        result = Ok(new { isSucces = true, message = "silme işlemi başarılı" });
+                        break;
+                    default:
+                        result = BadRequest(new { isSucces = false, message = "bir hata oluştu" });
+                        break;
+                }
+                return result;
             }
-            else
+            catch (System.Exception)
             {
-                return Ok("silme başarılı");
+
+                _logger.LogError(string.Format("DeleteDebitById metodu çalıştırılamadı"), null);
+                return BadRequest("bir hata ile karşılaşıldı");
             }
+
         }
         /// <summary>
         /// "id'ye göre Zimmet Verisini Güncelle"
@@ -63,34 +97,69 @@ namespace ofisprojesi
         /// <returns></returns>
         [Route("{id}")]
         [HttpPut]
-        public ActionResult UpdateAllDebit(int id, [FromBody] DebitDto debit)
+        public ActionResult UpdateAllDebit(int? id)
         {
-            DebitDto debits = _debitservice.UpdateAllDebit(id, debit);
-            if (debits == null)
+            try
             {
-                return BadRequest("kayıt başarısız");
+                if (id == null)
+                {
+                    return BadRequest(new { isSucces = false, message = "hata" });
+                }
+
+                DbActionResult debits = _debitservice.UpdateAllDebit(id);
+
+                switch (debits)
+                {
+                    case DbActionResult.Successful:
+                        return Ok(new { isSucces = true, message = "başarı ile güncellendi" });
+                    case DbActionResult.UnknownError:
+                        return BadRequest(new { isSucces = false, message = "bilinmeyen bir hata oluştu" });
+                    case DbActionResult.NotHaveEmployee:
+                        return BadRequest(new { isSucces = false, message = "çalışan bulunamadı" });
+                    case DbActionResult.NotHaveFixture:
+                        return BadRequest(new { isSucces = false, message = "demirbaş bulunamadı" });
+                    default:
+                        return BadRequest(new { isSucces = false, message = "bilinmeyen bir hata oluştu" });
+                }
             }
-            else
+            catch (System.Exception)
             {
-                return Ok("kayıt başarılı");
+
+                _logger.LogError(string.Format("UpdateAllDebit metodu çalıştırılamadı"), null);
+                return BadRequest("bir hata ile karşılaşıldı");
             }
+
         }
         /// <summary>
         /// "id ye Göre Zimmet Verisi Getir"
         /// </summary>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public ActionResult<DebitDto> GetDebitById(int id)
+        public ActionResult<DebitDto> GetDebitById(int? id)
         {
-            DebitDto debit = _debitservice.GetDebitById(id);
-            if (debit == null)
+            try
             {
-                return BadRequest("kayıt bulunamadı");
+                if (id == null)
+                {
+                    return BadRequest(new { isSucces = false, message = "id alanını boş bırakmayın" });
+                }
+                DebitDto debit = _debitservice.GetDebitById(id);
+                if (debit == null)
+                {
+                    return BadRequest(new { isSucces = false, message = "aranan zimmet bilgisi bulunamadı" });
+                }
+                else
+                {
+                    return Ok(new { isSucces = true, message = debit });
+                }
             }
-            else
+            catch (System.Exception)
             {
-                return Ok(debit);
+
+                _logger.LogError(string.Format("GetDebitById metodu çalıştırılamadı"), null);
+                return BadRequest("bir hata ile karşılaşıldı");
             }
+
         }
         /// <summary>
         /// "Zimmet Verisi kaydet"
@@ -100,15 +169,44 @@ namespace ofisprojesi
         [HttpPost]
         public ActionResult SaveDebitById([FromBody] DebitSaveDto debit)
         {
-            DebitDto debitt = _debitservice.SaveDebitById(debit);
-            if (debitt == null)
+            try
             {
-                return BadRequest("kayıt sırasında sorun oluştu");
+                if (debit == null)
+                {
+                    return BadRequest("zimmet bilgileri eksik veya yanlış");
+                }
+                DbActionResult debitt = _debitservice.SaveDebitById(debit);
+                ActionResult result = null;
+                switch (debitt)
+                {
+                    case DbActionResult.NotHaveFixture:
+                        result = BadRequest(new { isSucces = false, message = "demirbaş bulunamadı" });
+                        break;
+                    case DbActionResult.NotHaveEmployee:
+                        result = BadRequest(new { isSucces = false, message = "çalışan bulunamadı" });
+                        break;
+                    case DbActionResult.EmployeeFalse:
+                        result = BadRequest(new { isSucces = false, message = "çalışan durumu zimmet için uygun değil" });
+                        break;
+                    case DbActionResult.FixtureFalse:
+                        result = BadRequest(new { isSucces = false, message = "demirbaşın durumu zimmet için uygun değildir" });
+                        break;
+                    case DbActionResult.Successful:
+                        result = Ok(new { isSucces = true, message = "zimmet kaydı başarılı" });
+                        break;
+                    default:
+                        result = BadRequest(new { isSucces = false, message = "zimmetlenme sırasında hata" });
+                        break;
+                }
+                return result;
             }
-            else
+            catch (System.Exception)
             {
-                return Ok("kayıt başarılı");
+
+                _logger.LogError(string.Format("SaveDebitById metodu çalıştırılamadı"), null);
+                return BadRequest("bir hata ile karşılaşıldı");
             }
+
         }
         /// <summary>
         /// "belirli alanları güncelle"
@@ -117,14 +215,23 @@ namespace ofisprojesi
         [HttpPatch]
         public ActionResult UpdatePatch(int id, [FromBody] JsonPatchDocument<Debit> name)
         {
-            Debit debit = _debitservice.UpdatePatch(id, name);
-            if (debit == null)
+            try
             {
-                return BadRequest("güncelleme başarısız");
+                Debit debit = _debitservice.UpdatePatch(id, name);
+                if (debit == null)
+                {
+                    return BadRequest(new { isSucces = false, message = "güncelleme başarısız" });
+                }
+                else
+                {
+                    return Ok(new { isSucces = true, message = "güncelleme başarılı" });
+                }
             }
-            else
+            catch (System.Exception)
             {
-                return Ok("güncelleme başarılı");
+
+                _logger.LogError(string.Format("UpdatePatch metodu çalıştırılamadı"), null);
+                return BadRequest("bir hata ile karşılaşıldı");
             }
         }
     }

@@ -42,11 +42,10 @@ namespace ofisprojesi{
         /// <summary>
         /// Kullanıcı arama
         /// </summary>
-        /// <param name="criteria"></param>
         /// <returns></returns>
         [SwaggerOperationAttribute(Tags = new[] { "Kullanıcı İşlemleri" })]
-        [HttpPost("users/search")]
-        public ActionResult<UserDto> GetUsers([FromBody] UserSearchCriteria criteria)
+        [HttpGet("users/search")]
+        public ActionResult<UserUpdateDto> GetUsers()
         {
             Claim userRoleClaim = User.Claims.SingleOrDefault(it => it.Type == "urole");
             if (userRoleClaim == null)
@@ -54,7 +53,7 @@ namespace ofisprojesi{
                 return BadRequest(new { IsSuccess = false, Message = "Erişim yetkiniz yok!" });
             }
 
-            UserDto list = _userService.GetUsers(criteria);
+            List<UserUpdateDto> list = _userService.GetUsers();
 
             return Ok(list);
         }
@@ -237,10 +236,6 @@ namespace ofisprojesi{
 
             if (userRoleClaim.Value != null)
             {
-                if (username != usernameClaim.Value)
-                {
-                    return BadRequest(new { IsSuccess = false, Message = "Erişim yetkiniz yok! Sadece Admin başka kullanıcının parolasını değiştirebilir." });
-                }
                 if (string.IsNullOrWhiteSpace(changePasswordDto.oldPassword))
                 {
                     return BadRequest(new { IsSuccess = false, Message = "Eski parola boş bırakılamaz!" });
@@ -256,6 +251,43 @@ namespace ofisprojesi{
             {
                 return BadRequest(new { IsSuccess = false, Message = "Parola değiştirme işlemi başarısız!" });
             }
+            
+        }
+        /// <summary>
+        /// Parola güncelleme
+        /// </summary>
+        /// <returns></returns>
+        [SwaggerOperationAttribute(Tags = new[] { "Kullanıcı İşlemleri" })]
+        [HttpPut("change-password")]
+        public ActionResult UpdateDto([FromBody] UserUpdateDto userUpdateDto, int? id)
+        {
+            
+            if (userUpdateDto == null || id == null)
+            {
+                return BadRequest(new { isSucces = false, message = "update bilgileri hatalı" });
+            }
+            DbActionResult User = _userService.UpdateDto(userUpdateDto, id);
+            ActionResult result = null;
+            switch (User)
+            {
+                case DbActionResult.NameOrLastNameError:
+                    result = BadRequest(new { isSucces = false, message = "demirbaşın ismi boş bırakılamaz" });
+                    break;
+                case DbActionResult.OfficeNotFound:
+                    result = BadRequest(new { isSucces = false, message = "office bulunamadı" });
+                    break;
+                case DbActionResult.UnknownError:
+                    result = BadRequest(new { isSucces = false, message = "demirbaş bulunamadı" });
+                    break;
+                case DbActionResult.Successful:
+                    result = Ok(new { isSucces = true, message = "güncelleme başarılı" });
+                    break;
+                default:
+                    result = BadRequest(new { isSucces = false, message = "hatalı güncelleme" });
+                    break;
+            }
+            return result;
         }
     }
+
 }

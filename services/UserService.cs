@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -17,7 +18,7 @@ namespace ofisprojesi{
        public interface IUserService
     {
         UserDto Authenticate(string username, string password);
-        UserDto GetUsers(UserSearchCriteria criteria);
+        List<UserUpdateDto> GetUsers();
         UserDto GetUserById(int userId);
         IList<RoleDto> GetRoles();
         RoleDto GetRoleById(int roleId);
@@ -27,6 +28,7 @@ namespace ofisprojesi{
         bool ChangePassword(string username, string oldPassword, string newPassword);
         string EncodePassword(string password, string passwordKey);
         string GetPasswordKey();
+        DbActionResult UpdateDto(UserUpdateDto userUpdateDto, int? id);
     }
 
     public class UserService : IUserService
@@ -94,26 +96,12 @@ namespace ofisprojesi{
             return userDto;
         }
 
-        public UserDto GetUsers(UserSearchCriteria criteria)
+
+        public List<UserUpdateDto> GetUsers()
         {
-            var query = _context.Users.Include(it => it.Role).AsQueryable();
-
-            if (criteria.IsActive != null)
-            {
-                query = query.Where(it => it.IsLocked != criteria.IsActive);
-            }
-            if (!string.IsNullOrWhiteSpace(criteria.Keyword))
-            {
-                query = query.Where(it => it.Username.Contains(criteria.Keyword));
-            }
-
-            int totalCount = query.Count();
-            //sorting
-            query = query.OrderBy(it => it.FirstName);
-            //paging
-            int? pageIndex = criteria.PageIndex;
-            int? pageCount = criteria.PageCount;
-            return null;
+            List<User> userDto = _context.Users.ToList();
+            List<UserUpdateDto> userUpdateDtos = _mapper.Map<List<UserUpdateDto>>(userDto);
+            return userUpdateDtos;
         }
 
         public UserDto GetUserById(int userId)
@@ -138,9 +126,7 @@ namespace ofisprojesi{
         }
 
         public bool SaveUser(UserUpdateDto userDto, int updateUserId, out int userId, out string message)
-        {
-            
-            userId = -1;
+        {userId = -1;
             message = null;
 
             if (userDto == null)
@@ -151,6 +137,16 @@ namespace ofisprojesi{
             if (string.IsNullOrWhiteSpace(userDto.Username))
             {
                 message = "userDto.Username alanı boş ya da null olamaz";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(userDto.FirstName))
+            {
+                message = "userDto.FirstName alanı boş ya da null olamaz";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(userDto.LastName))
+            {
+                message = "userDto.LastName alanı boş ya da null olamaz";
                 return false;
             }
             if (userDto.RoleId == null || userDto.RoleId <= 0)
@@ -223,6 +219,9 @@ namespace ofisprojesi{
                 }
             }
 
+            user.FirstName = userDto.FirstName;
+            user.LastName = userDto.LastName;
+            user.Email = userDto.Email;
             user.RoleId = (int)userDto.RoleId;
             user.IsLocked = userDto.IsLocked;
             if (user.Id > 0)
@@ -346,8 +345,27 @@ namespace ofisprojesi{
             return Convert.ToBase64String(key);
         }
         #endregion
+        public DbActionResult UpdateDto(UserUpdateDto userUpdateDto, int? id)
+        {
+            if (userUpdateDto == null || id == null)
+            {
+                return DbActionResult.UnknownError;
+            }
+            User user = _context.Users.FirstOrDefault(p => p.Id == id);
+            if (user == null)
+            {
+                return DbActionResult.OfficeNotFound;
+            }
+            user.FirstName = userUpdateDto.FirstName;
+            user.Username=userUpdateDto.Username;
+            user.LastUpdateDate=DateTime.Now;
+            user.Email = userUpdateDto.Email;
+            user.LastName = userUpdateDto.LastName;
+            _context.SaveChanges();
+            return (DbActionResult.Successful);
+        }
     }
-
-    }
+}
+    
 
 

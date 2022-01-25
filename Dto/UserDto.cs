@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ofisprojesi
+namespace ofisprojesi
 {
          public class UserDto{
         public int? Id { get; set; }
@@ -16,10 +16,13 @@ namespace Ofisprojesi
 
     public class UserUpdateDto
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Username { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public bool IsLocked { get; set; }
         public int? RoleId { get; set; }
+        public string Email { get; set; }
     }
 
     public class RoleDto

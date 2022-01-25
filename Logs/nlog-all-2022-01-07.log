@@ -1,0 +1,60 @@
+2022-01-07 10:00:03.6692||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 10:00:03.6951||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 10:00:03.6951||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 10:00:03.6951||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 10:00:03.6951||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 10:08:24.3766||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 10:08:24.4073||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 10:08:24.4086||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 10:08:24.4086||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 10:08:24.4086||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 10:08:30.4697||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı 
+2022-01-07 10:09:06.8059||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 10:09:06.8309||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 10:09:06.8309||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 10:09:06.8324||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 10:09:06.8324||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 10:09:33.7163||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 10:09:33.7417||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 10:09:33.7417||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 10:09:33.7417||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 10:09:33.7417||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 11:04:48.6303||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 11:04:48.6534||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 11:04:48.6534||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 11:04:48.6534||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 11:04:48.6534||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 11:12:59.0759||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 11:12:59.0988||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 11:12:59.0988||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 11:12:59.0988||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 11:12:59.1005||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 11:17:11.3533||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 11:17:11.3764||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 11:17:11.3764||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 11:17:11.3764||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 11:17:11.3764||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 11:18:09.9732||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı 
+2022-01-07 11:18:34.6681||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı 
+2022-01-07 11:19:16.3478||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı 
+2022-01-07 11:19:44.0379||ERROR|ofisprojesi.DebitController|GetAllDebit metodu çalıştırılamadı 
+2022-01-07 11:24:42.1102||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 11:24:42.1385||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 11:24:42.1385||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 11:24:42.1385||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 11:24:42.1385||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 11:29:24.8239||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 11:29:24.8511||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 11:29:24.8511||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 11:29:24.8511||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 11:29:24.8511||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 12:02:34.3864||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 12:02:34.4090||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 12:02:34.4090||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 12:02:34.4090||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 12:02:34.4090||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-01-07 14:51:30.9000||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-01-07 14:51:30.9519||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-01-07 14:51:30.9519||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 14:51:30.9519||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 14:51:30.9519||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 

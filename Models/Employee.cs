@@ -5,17 +5,21 @@ using System.Collections.Generic;
 
 namespace ofisprojesi
 {
-    public partial class Fixture
+    public partial class Employee
     {
-        public Fixture()
+        public Employee()
         {
             Debits = new HashSet<Debit>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Lastname { get; set; }
         public bool? Status { get; set; }
         public int? OfficeId { get; set; }
+        public DateTime? RecordDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
+        public DateTime? Birthday { get; set; }
 
         public virtual Office Office { get; set; }
         public virtual ICollection<Debit> Debits { get; set; }
