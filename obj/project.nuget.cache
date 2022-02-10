@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BN1rk/2QGMir+AquL87DlZfLHrcFB+5RNrKN1xORoqK4v4FfV3g53ZJHeFZYOxW9nGpd8isGgCdLYKqKIRweAw==",
+  "dgSpecHash": "OYuu3LIv6aXrEfVbBHApLZMLFbh7GjH+ogjMmXgT9HKH01BFog3aFy2C6bSi7WB2ee3N0xtHBpyRJ3uarVFfqw==",
   "success": true,
   "projectFilePath": "/home/yusufcan/Masaüstü/Ofisprojesi-master/ofisprojesi.csproj",
   "expectedPackageFiles": [
@@ -66,6 +66,8 @@
     "/home/yusufcan/.nuget/packages/npgsql.entityframeworkcore.postgresql/5.0.10/npgsql.entityframeworkcore.postgresql.5.0.10.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/npgsql.entityframeworkcore.postgresql.design/1.1.1/npgsql.entityframeworkcore.postgresql.design.1.1.1.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/owin/1.0.0/owin.1.0.0.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/pagedlist.core/1.17.4/pagedlist.core.1.17.4.nupkg.sha512",
+    "/home/yusufcan/.nuget/packages/pagedlist.core.mvc/3.0.0/pagedlist.core.mvc.3.0.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/runtime.native.system.data.sqlclient.sni/4.7.0/runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/home/yusufcan/.nuget/packages/runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

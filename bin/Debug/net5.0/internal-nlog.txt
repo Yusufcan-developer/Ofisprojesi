@@ -638,3 +638,240 @@
 2022-01-24 11:04:31.6948 Info Adding target FileTarget(Name=allfile)
 2022-01-24 11:04:31.7062 Info Adding target FileTarget(Name=ownFile-web)
 2022-01-24 11:04:31.7290 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-25 17:40:07.3129 Info Message Template Auto Format enabled
+2022-01-25 17:40:07.3277 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-25 17:40:07.3701 Info Adding target FileTarget(Name=allfile)
+2022-01-25 17:40:07.3785 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-25 17:40:07.4004 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-26 10:24:17.0146 Info Message Template Auto Format enabled
+2022-01-26 10:24:17.0343 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-26 10:24:17.0760 Info Adding target FileTarget(Name=allfile)
+2022-01-26 10:24:17.0850 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-26 10:24:17.1112 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-26 11:55:51.4217 Info Message Template Auto Format enabled
+2022-01-26 11:55:51.4420 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-26 11:55:51.4931 Info Adding target FileTarget(Name=allfile)
+2022-01-26 11:55:51.5033 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-26 11:55:51.5329 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-26 14:20:15.7444 Info Message Template Auto Format enabled
+2022-01-26 14:20:15.7640 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-26 14:20:15.8122 Info Adding target FileTarget(Name=allfile)
+2022-01-26 14:20:15.8193 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-26 14:20:15.8456 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-26 14:25:26.0274 Info Message Template Auto Format enabled
+2022-01-26 14:25:26.0484 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-26 14:25:26.0897 Info Adding target FileTarget(Name=allfile)
+2022-01-26 14:25:26.1001 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-26 14:25:26.1283 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-26 14:27:40.8000 Info Message Template Auto Format enabled
+2022-01-26 14:27:40.8176 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-26 14:27:40.8626 Info Adding target FileTarget(Name=allfile)
+2022-01-26 14:27:40.8715 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-26 14:27:40.8989 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-26 15:05:31.6795 Info Message Template Auto Format enabled
+2022-01-26 15:05:31.6965 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-26 15:05:31.7377 Info Adding target FileTarget(Name=allfile)
+2022-01-26 15:05:31.7478 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-26 15:05:31.7756 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-26 15:06:43.0953 Info Message Template Auto Format enabled
+2022-01-26 15:06:43.1148 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-26 15:06:43.1609 Info Adding target FileTarget(Name=allfile)
+2022-01-26 15:06:43.1711 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-26 15:06:43.1951 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-27 10:29:36.6386 Info Message Template Auto Format enabled
+2022-01-27 10:29:36.6592 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-27 10:29:36.7046 Info Adding target FileTarget(Name=allfile)
+2022-01-27 10:29:36.7150 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-27 10:29:36.7375 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-27 11:28:34.2895 Info Message Template Auto Format enabled
+2022-01-27 11:28:34.3067 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-27 11:28:34.3563 Info Adding target FileTarget(Name=allfile)
+2022-01-27 11:28:34.3663 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-27 11:28:34.3966 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-28 12:56:40.9126 Info Message Template Auto Format enabled
+2022-01-28 12:56:40.9339 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-28 12:56:40.9779 Info Adding target FileTarget(Name=allfile)
+2022-01-28 12:56:40.9872 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-28 12:56:41.0136 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-01-28 20:41:04.4390 Info AppDomain Shutting down. Logger closing...
+2022-01-28 20:41:04.4613 Info Logger has been shut down.
+2022-01-31 09:46:04.0762 Info Message Template Auto Format enabled
+2022-01-31 09:46:04.0961 Info Loading assembly: NLog.Web.AspNetCore
+2022-01-31 09:46:04.1382 Info Adding target FileTarget(Name=allfile)
+2022-01-31 09:46:04.1504 Info Adding target FileTarget(Name=ownFile-web)
+2022-01-31 09:46:04.1740 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-01 14:10:05.7900 Info Message Template Auto Format enabled
+2022-02-01 14:10:05.8099 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-01 14:10:05.8580 Info Adding target FileTarget(Name=allfile)
+2022-02-01 14:10:05.8685 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-01 14:10:05.8981 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-03 09:35:23.1258 Info Message Template Auto Format enabled
+2022-02-03 09:35:23.1468 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-03 09:35:23.1967 Info Adding target FileTarget(Name=allfile)
+2022-02-03 09:35:23.2069 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-03 09:35:23.2331 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-03 11:37:45.5791 Info Message Template Auto Format enabled
+2022-02-03 11:37:45.5990 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-03 11:37:45.6530 Info Adding target FileTarget(Name=allfile)
+2022-02-03 11:37:45.6633 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-03 11:37:45.6833 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-03 17:21:41.3898 Info Message Template Auto Format enabled
+2022-02-03 17:21:41.4065 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-03 17:21:41.4516 Info Adding target FileTarget(Name=allfile)
+2022-02-03 17:21:41.4617 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-03 17:21:41.4885 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-03 17:43:06.3833 Info Message Template Auto Format enabled
+2022-02-03 17:43:06.4058 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-03 17:43:06.4528 Info Adding target FileTarget(Name=allfile)
+2022-02-03 17:43:06.4637 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-03 17:43:06.4892 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-04 10:02:21.9333 Info Message Template Auto Format enabled
+2022-02-04 10:02:21.9496 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-04 10:02:21.9935 Info Adding target FileTarget(Name=allfile)
+2022-02-04 10:02:22.0043 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-04 10:02:22.0298 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-04 16:57:46.8042 Info Message Template Auto Format enabled
+2022-02-04 16:57:46.8258 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-04 16:57:46.8742 Info Adding target FileTarget(Name=allfile)
+2022-02-04 16:57:46.8848 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-04 16:57:46.9106 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-04 17:48:25.9778 Info Message Template Auto Format enabled
+2022-02-04 17:48:25.9938 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-04 17:48:26.0398 Info Adding target FileTarget(Name=allfile)
+2022-02-04 17:48:26.0495 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-04 17:48:26.0770 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-04 17:52:41.4740 Info Message Template Auto Format enabled
+2022-02-04 17:52:41.4948 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-04 17:52:41.5400 Info Adding target FileTarget(Name=allfile)
+2022-02-04 17:52:41.5485 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-04 17:52:41.5747 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-04 17:56:50.9242 Info Message Template Auto Format enabled
+2022-02-04 17:56:50.9437 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-04 17:56:50.9914 Info Adding target FileTarget(Name=allfile)
+2022-02-04 17:56:51.0016 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-04 17:56:51.0259 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-07 11:15:02.2220 Info Message Template Auto Format enabled
+2022-02-07 11:15:02.2460 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-07 11:15:02.2985 Info Adding target FileTarget(Name=allfile)
+2022-02-07 11:15:02.3094 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-07 11:15:02.3412 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-07 14:04:22.9369 Info Message Template Auto Format enabled
+2022-02-07 14:04:22.9574 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-07 14:04:23.0151 Info Adding target FileTarget(Name=allfile)
+2022-02-07 14:04:23.0268 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-07 14:04:23.0478 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-07 14:44:57.8297 Info Message Template Auto Format enabled
+2022-02-07 14:44:57.8530 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-07 14:44:57.9017 Info Adding target FileTarget(Name=allfile)
+2022-02-07 14:44:57.9103 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-07 14:44:57.9342 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-07 15:51:40.1333 Info Message Template Auto Format enabled
+2022-02-07 15:51:40.1521 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-07 15:51:40.1957 Info Adding target FileTarget(Name=allfile)
+2022-02-07 15:51:40.2033 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-07 15:51:40.2280 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-08 11:29:25.4342 Info Message Template Auto Format enabled
+2022-02-08 11:29:25.4635 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-08 11:29:25.5088 Info Adding target FileTarget(Name=allfile)
+2022-02-08 11:29:25.5257 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-08 11:29:25.5641 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-08 17:35:26.3282 Info Message Template Auto Format enabled
+2022-02-08 17:35:26.3427 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-08 17:35:26.3920 Info Adding target FileTarget(Name=allfile)
+2022-02-08 17:35:26.4024 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-08 17:35:26.4297 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-09 10:12:19.6414 Info Message Template Auto Format enabled
+2022-02-09 10:12:19.6555 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-09 10:12:19.7025 Info Adding target FileTarget(Name=allfile)
+2022-02-09 10:12:19.7124 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-09 10:12:19.7384 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-09 10:15:09.3805 Info Message Template Auto Format enabled
+2022-02-09 10:15:09.4036 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-09 10:15:09.4525 Info Adding target FileTarget(Name=allfile)
+2022-02-09 10:15:09.4616 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-09 10:15:09.4896 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-09 11:40:16.1848 Info Message Template Auto Format enabled
+2022-02-09 11:40:16.2040 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-09 11:40:16.2568 Info Adding target FileTarget(Name=allfile)
+2022-02-09 11:40:16.2681 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-09 11:40:16.2965 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-09 16:25:26.5105 Info Message Template Auto Format enabled
+2022-02-09 16:25:26.5316 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-09 16:25:26.5823 Info Adding target FileTarget(Name=allfile)
+2022-02-09 16:25:26.5928 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-09 16:25:26.6185 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-09 16:32:37.5947 Info Message Template Auto Format enabled
+2022-02-09 16:32:37.6106 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-09 16:32:37.6615 Info Adding target FileTarget(Name=allfile)
+2022-02-09 16:32:37.6721 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-09 16:32:37.6917 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-09 17:40:45.5356 Info Message Template Auto Format enabled
+2022-02-09 17:40:45.5512 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-09 17:40:45.5945 Info Adding target FileTarget(Name=allfile)
+2022-02-09 17:40:45.6036 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-09 17:40:45.6274 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 11:02:10.6261 Info Message Template Auto Format enabled
+2022-02-10 11:02:10.6479 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 11:02:10.6922 Info Adding target FileTarget(Name=allfile)
+2022-02-10 11:02:10.7031 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 11:02:10.7398 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 11:19:38.9876 Info Message Template Auto Format enabled
+2022-02-10 11:19:39.0087 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 11:19:39.0647 Info Adding target FileTarget(Name=allfile)
+2022-02-10 11:19:39.0762 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 11:19:39.1020 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 11:22:42.4165 Info Message Template Auto Format enabled
+2022-02-10 11:22:42.4371 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 11:22:42.4823 Info Adding target FileTarget(Name=allfile)
+2022-02-10 11:22:42.4908 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 11:22:42.5157 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 11:35:31.6868 Info Message Template Auto Format enabled
+2022-02-10 11:35:31.7048 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 11:35:31.7480 Info Adding target FileTarget(Name=allfile)
+2022-02-10 11:35:31.7569 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 11:35:31.7817 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 11:52:32.8940 Info Message Template Auto Format enabled
+2022-02-10 11:52:32.9153 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 11:52:32.9619 Info Adding target FileTarget(Name=allfile)
+2022-02-10 11:52:32.9706 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 11:52:32.9990 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 11:53:21.2552 Info Message Template Auto Format enabled
+2022-02-10 11:53:21.2729 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 11:53:21.3139 Info Adding target FileTarget(Name=allfile)
+2022-02-10 11:53:21.3239 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 11:53:21.3517 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 13:17:01.2533 Info Message Template Auto Format enabled
+2022-02-10 13:17:01.2754 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 13:17:01.3185 Info Adding target FileTarget(Name=allfile)
+2022-02-10 13:17:01.3275 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 13:17:01.3540 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 13:19:36.3758 Info Message Template Auto Format enabled
+2022-02-10 13:19:36.3957 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 13:19:36.4421 Info Adding target FileTarget(Name=allfile)
+2022-02-10 13:19:36.4511 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 13:19:36.4748 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 13:21:43.0475 Info Message Template Auto Format enabled
+2022-02-10 13:21:43.0690 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 13:21:43.1132 Info Adding target FileTarget(Name=allfile)
+2022-02-10 13:21:43.1229 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 13:21:43.1534 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 13:24:15.4462 Info Message Template Auto Format enabled
+2022-02-10 13:24:15.4685 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 13:24:15.5160 Info Adding target FileTarget(Name=allfile)
+2022-02-10 13:24:15.5267 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 13:24:15.5558 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 13:34:35.4988 Info Message Template Auto Format enabled
+2022-02-10 13:34:35.5206 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 13:34:35.5673 Info Adding target FileTarget(Name=allfile)
+2022-02-10 13:34:35.5780 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 13:34:35.6030 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 17:14:26.9063 Info Message Template Auto Format enabled
+2022-02-10 17:14:26.9270 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 17:14:26.9708 Info Adding target FileTarget(Name=allfile)
+2022-02-10 17:14:26.9791 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 17:14:27.0117 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config
+2022-02-10 17:17:09.9645 Info Message Template Auto Format enabled
+2022-02-10 17:17:09.9849 Info Loading assembly: NLog.Web.AspNetCore
+2022-02-10 17:17:10.0284 Info Adding target FileTarget(Name=allfile)
+2022-02-10 17:17:10.0386 Info Adding target FileTarget(Name=ownFile-web)
+2022-02-10 17:17:10.0673 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=47, FilePath=/home/yusufcan/Masaüstü/Ofisprojesi-master/bin/Debug/net5.0/nlog.config

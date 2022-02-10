@@ -11,7 +11,7 @@ namespace Ofisprojesi
 {
     public interface IFixtureServices
     {
-        FixtureDto[] GetFixtureByName(string name, bool? status);
+        List<FixtureDto> GetFixtureByName(string name, fixtureservicesenum? status);
         FixtureDto GetFixtureById(int id);
         DbActionResult DeleteFixtureById(int? id);
         DbActionResult SaveFixture(FixtureUpdateDto fixtureupdatedto);
@@ -52,9 +52,10 @@ namespace Ofisprojesi
             return dto;
         }
 
-        public FixtureDto[] GetFixtureByName(string name, bool? status)
+        public List<FixtureDto> GetFixtureByName(string name, fixtureservicesenum? status)
         {
-            Fixture[] fixture = _context.Fixtures.ToArray();
+            List<Fixture> fixture = _context.Fixtures.ToList();
+            List<FixtureDto> dto = _mapper.Map<List<FixtureDto>>(fixture);
             
             if (name == null && status == null)
             {
@@ -63,23 +64,28 @@ namespace Ofisprojesi
             if (!string.IsNullOrWhiteSpace(name))
             {
 
-                fixture = fixture.Where(p => p.Name.Contains(name)).ToArray();
+                fixture = fixture.Where(p => p.Name.Contains(name)).ToList();
+                List<FixtureDto> NameSearch = _mapper.Map<List<FixtureDto>>(fixture);
+                return NameSearch;
+                
             }
-            if (status.HasValue)
+            if (status == fixtureservicesenum.FixtureAll)
             {
-                fixture = fixture.Where(p => p.Status == status).ToArray();
+                return dto;
             }
+            if(status==fixtureservicesenum.FixtureActive)
             {
-                FixtureDto[] fixtureDto = _mapper.Map<FixtureDto[]>(fixture);
-                foreach (FixtureDto fixtureList in fixtureDto)
-                {
-                    Debit[] debits = _context.Debits.Where(p => p.EmployeeId == fixtureList.id).ToArray();
-                    DebitDto[] debitDto = _mapper.Map<DebitDto[]>(debits);
-                    fixtureList.debits = debitDto;
-                }
-
-                return fixtureDto;
+                List<Fixture> fixtures = fixture.Where(p=>p.Status==true).ToList();
+                List<FixtureDto> DtoActive = _mapper.Map<List<FixtureDto>>(fixtures);
+                return DtoActive;
             }
+            if(status==fixtureservicesenum.FixturePasive){
+                List<Fixture> fixtures= fixture.Where(p=>p.Status==false).ToList();
+                List<FixtureDto> DtoPasive = _mapper.Map<List<FixtureDto>>(fixtures);
+                return DtoPasive;
+            }
+            
+            return null;
         }
         public DbActionResult SaveFixture(FixtureUpdateDto fixtureupdatedto)
         {

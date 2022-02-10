@@ -55,6 +55,7 @@
           "NLog.Web.AspNetCore": "4.14.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.10",
           "Npgsql.EntityFrameworkCore.PostgreSQL.Design": "1.1.1",
+          "PagedList.Core.Mvc": "3.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "Swashbuckle.AspNetCore.Annotations": "6.2.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -1027,6 +1028,31 @@
         },
         "compile": {
           "lib/net40/Owin.dll": {}
+        }
+      },
+      "PagedList.Core/1.17.4": {
+        "runtime": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {}
+        }
+      },
+      "PagedList.Core.Mvc/3.0.0": {
+        "dependencies": {
+          "PagedList.Core": "1.17.4"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/PagedList.Core.Mvc.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/PagedList.Core.Mvc.dll": {}
         }
       },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -3386,6 +3412,20 @@
       "sha512": "sha512-OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
       "path": "owin/1.0.0",
       "hashPath": "owin.1.0.0.nupkg.sha512"
+    },
+    "PagedList.Core/1.17.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Me111vdmlPp4GGeHqvNlnv4Raq1f1F77fDsJebuKsHCZXG4v4kMDzd5h1YVDv/Q7q9DuVgueR9mxp7eO7Yj4LA==",
+      "path": "pagedlist.core/1.17.4",
+      "hashPath": "pagedlist.core.1.17.4.nupkg.sha512"
+    },
+    "PagedList.Core.Mvc/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cfMopTUyfyDcZ/HL58w9DWmlb6M9yYYaJ0i3c1j8bGeZCHRyfX3Y5rDnPa1olFdqJmh8sRIx2aKMczGe++E9sA==",
+      "path": "pagedlist.core.mvc/3.0.0",
+      "hashPath": "pagedlist.core.mvc.3.0.0.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "type": "package",

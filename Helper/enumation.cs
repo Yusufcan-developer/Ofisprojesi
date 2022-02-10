@@ -26,4 +26,9 @@ namespace Ofisprojesi
         DebitAll=2,
         DebitPasive=3,
     }
+    public enum fixtureservicesenum{
+        FixtureActive=1,
+        FixtureAll=2,
+        FixturePasive=3,
+    }
 }

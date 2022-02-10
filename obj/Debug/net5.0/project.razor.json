@@ -13566,6 +13566,82 @@
         }
       },
       {
+        "HashCode": -1738148667,
+        "Kind": "ITagHelper",
+        "Name": "PagedList.Core.Mvc.PagerTagHelper",
+        "AssemblyName": "PagedList.Core.Mvc",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "pager"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "list",
+            "TypeName": "PagedList.Core.IPagedList",
+            "Metadata": {
+              "Common.PropertyName": "List"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-all-route-data",
+            "TypeName": "System.Collections.Generic.IDictionary<System.String, System.String>",
+            "IndexerNamePrefix": "asp-route-",
+            "IndexerTypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "RouteValues"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-action",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "AspAction"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-controller",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "AspController"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-area",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "AspArea"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "options",
+            "TypeName": "PagedList.Core.Mvc.PagedListRenderOptions",
+            "Metadata": {
+              "Common.PropertyName": "Options"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "param-page-number",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ParamPageNumber"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "PagedList.Core.Mvc.PagerTagHelper"
+        }
+      },
+      {
         "HashCode": 1342982883,
         "Kind": "Components.Bind",
         "Name": "Bind",

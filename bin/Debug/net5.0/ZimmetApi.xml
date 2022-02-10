@@ -112,7 +112,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.FixtureController.GetFixtureByName(ofisprojesi.DebitSearchDto,Ofisprojesi.debitservicesenum)">
+        <member name="M:ofisprojesi.FixtureController.GetFixtureByName(System.String,System.Nullable{Ofisprojesi.fixtureservicesenum},System.Int32,System.Int32)">
             <summary>
             "isme ve duruma göre çalışan sorgulama"
             </summary>
