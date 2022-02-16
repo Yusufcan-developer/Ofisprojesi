@@ -15,7 +15,7 @@ namespace Ofisprojesi
         public DateTime recdate{get;set;}
         public DateTime updatedate{get;set;}
         public DebitDto[] debits {get;set;}
-        public int page { get; set; }
+        
     }
     public class FixtureUpdateDto
     {

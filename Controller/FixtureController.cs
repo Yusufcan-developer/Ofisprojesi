@@ -170,7 +170,7 @@ namespace ofisprojesi
             {
                 FixtureDto fixture = _fixtureservices.GetFixtureById(id);
                 if (fixture == null) return BadRequest(new { isSucces = false, message = "aranan kritere uygun demirbaş bulunamadı" });
-
+        
                 return Ok(fixture);
             }
             catch (System.Exception)
@@ -191,9 +191,9 @@ namespace ofisprojesi
         {
             try
             {
-                List<FixtureDto> fixture = _fixtureservices.GetFixtureByName(fixturename, status);
+                ResultDto fixture = _fixtureservices.GetFixtureByName(fixturename, status,pagecount,pageindex);
                 if (fixture == null) return BadRequest("Böyle bir çalışan bulunamadı.");
-              //  PagedList<Fixture> model = new PagedList<Fixture>(_context.Fixtures, pagecount, pageindex);
+                
                 return Ok(fixture);
 
             }

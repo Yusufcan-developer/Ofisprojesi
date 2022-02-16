@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using ofisprojesi;
-
+using Ofisprojesi.helper;
 namespace Ofisprojesi
 {
     public interface IFixtureServices
     {
-        List<FixtureDto> GetFixtureByName(string name, fixtureservicesenum? status);
+        ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex);
         FixtureDto GetFixtureById(int id);
         DbActionResult DeleteFixtureById(int? id);
         DbActionResult SaveFixture(FixtureUpdateDto fixtureupdatedto);
@@ -52,40 +52,52 @@ namespace Ofisprojesi
             return dto;
         }
 
-        public List<FixtureDto> GetFixtureByName(string name, fixtureservicesenum? status)
+        public ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex)
         {
-            List<Fixture> fixture = _context.Fixtures.ToList();
-            List<FixtureDto> dto = _mapper.Map<List<FixtureDto>>(fixture);
-            
+
+            var fixture = _context.Fixtures.AsQueryable();
+            var dto = _mapper.Map<List<FixtureDto>>(fixture).AsQueryable();
+
+
             if (name == null && status == null)
             {
-                return null;
+                dto = null;
             }
             if (!string.IsNullOrWhiteSpace(name))
             {
-
-                fixture = fixture.Where(p => p.Name.Contains(name)).ToList();
-                List<FixtureDto> NameSearch = _mapper.Map<List<FixtureDto>>(fixture);
-                return NameSearch;
-                
+                fixture = fixture.Where(p => p.Name.Contains(name)).AsQueryable();
+                var NameSearch = _mapper.Map<List<FixtureDto>>(fixture).AsQueryable();
+                dto = NameSearch;
             }
             if (status == fixtureservicesenum.FixtureAll)
             {
-                return dto;
             }
-            if(status==fixtureservicesenum.FixtureActive)
+            if (status == fixtureservicesenum.FixtureActive)
             {
-                List<Fixture> fixtures = fixture.Where(p=>p.Status==true).ToList();
-                List<FixtureDto> DtoActive = _mapper.Map<List<FixtureDto>>(fixtures);
-                return DtoActive;
+                var fixtures = fixture.Where(p => p.Status == true).AsQueryable();
+                var DtoActive = _mapper.Map<List<FixtureDto>>(fixtures).AsQueryable();
+                dto = DtoActive;
             }
-            if(status==fixtureservicesenum.FixturePasive){
-                List<Fixture> fixtures= fixture.Where(p=>p.Status==false).ToList();
-                List<FixtureDto> DtoPasive = _mapper.Map<List<FixtureDto>>(fixtures);
-                return DtoPasive;
+            if (status == fixtureservicesenum.FixturePasive)
+            {
+                var fixtures = fixture.Where(p => p.Status == false).AsQueryable();
+                var DtoPasive = _mapper.Map<List<FixtureDto>>(fixtures).AsQueryable();
+                dto = DtoPasive;
+
             }
-            
-            return null;
+            //paging
+            int? pageIndex = pageindex;
+            int? pageCount = pagecount;
+            int totalDataCount = (int)dto.Count();
+            dto = dto.AddPaging(ref pageIndex, ref pageCount);
+            var result = new ResultDto()
+            {
+                PageIndex = (int)pageIndex,
+                PageCount = (int)pageCount,
+                TotalDataCount=totalDataCount,
+                Data = dto,
+            };
+            return result;
         }
         public DbActionResult SaveFixture(FixtureUpdateDto fixtureupdatedto)
         {

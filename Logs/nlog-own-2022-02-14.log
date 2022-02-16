@@ -1,0 +1,2 @@
+2022-02-14 10:09:31.8767||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-14 10:11:10.8580||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
