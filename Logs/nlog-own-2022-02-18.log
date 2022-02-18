@@ -1,0 +1,9 @@
+2022-02-18 15:50:56.3083||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-18 16:00:33.9661||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-18 16:07:49.4381||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-18 16:10:58.7739||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-18 16:11:48.1079||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-18 17:20:30.7171||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-18 17:20:35.4423||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-18 17:20:36.4095||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName
+2022-02-18 17:20:48.6993||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı |url: https://localhost/api/fixtures|action: GetFixtureByName

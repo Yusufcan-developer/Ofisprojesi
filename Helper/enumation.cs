@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,5 +31,12 @@ namespace Ofisprojesi
         FixtureActive=1,
         FixtureAll=2,
         FixturePasive=3,
+    }
+    public enum SortingOrder
+    {
+        [Description("ASC")]
+        ASC,
+        [Description("DESC")]
+        DESC
     }
 }

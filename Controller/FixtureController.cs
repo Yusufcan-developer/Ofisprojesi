@@ -187,11 +187,11 @@ namespace ofisprojesi
         /// <returns></returns>
         [Route("")]
         [HttpGet]
-        public ActionResult GetFixtureByName([FromQuery] string fixturename, fixtureservicesenum? status, [FromQuery] int pagecount, [FromQuery] int pageindex)
+        public ActionResult GetFixtureByName([FromQuery] string fixturename, fixtureservicesenum? status, [FromQuery] int pagecount, [FromQuery] int pageindex,[FromQuery] criteria criteria)
         {
             try
             {
-                ResultDto fixture = _fixtureservices.GetFixtureByName(fixturename, status,pagecount,pageindex);
+                ResultDto fixture = _fixtureservices.GetFixtureByName(fixturename, status,pagecount,pageindex, criteria);
                 if (fixture == null) return BadRequest("Böyle bir çalışan bulunamadı.");
                 
                 return Ok(fixture);

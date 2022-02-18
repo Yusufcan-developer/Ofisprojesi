@@ -112,7 +112,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ofisprojesi.FixtureController.GetFixtureByName(System.String,System.Nullable{Ofisprojesi.fixtureservicesenum},System.Int32,System.Int32)">
+        <member name="M:ofisprojesi.FixtureController.GetFixtureByName(System.String,System.Nullable{Ofisprojesi.fixtureservicesenum},System.Int32,System.Int32,Ofisprojesi.criteria)">
             <summary>
             "isme ve duruma göre çalışan sorgulama"
             </summary>

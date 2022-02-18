@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,7 +12,7 @@ namespace Ofisprojesi
 {
     public interface IFixtureServices
     {
-        ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex);
+        ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex,criteria criteria);
         FixtureDto GetFixtureById(int id);
         DbActionResult DeleteFixtureById(int? id);
         DbActionResult SaveFixture(FixtureUpdateDto fixtureupdatedto);
@@ -52,7 +53,7 @@ namespace Ofisprojesi
             return dto;
         }
 
-        public ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex)
+        public ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex, criteria criteriax)
         {
 
             var fixture = _context.Fixtures.AsQueryable();
@@ -85,6 +86,14 @@ namespace Ofisprojesi
                 dto = DtoPasive;
 
             }
+            //sorting
+            if (criteriax.SortingField.Equals("name", StringComparison.InvariantCultureIgnoreCase))
+            {
+                dto = (criteriax.SortingOrder == SortingOrder.DESC) ? dto.OrderByDescending(it => it.Name) : dto.OrderBy(it => it.Name);
+                var dtosort = _mapper.Map<List<FixtureDto>>(dto).AsQueryable();
+                dto=dtosort;
+            }
+
             //paging
             int? pageIndex = pageindex;
             int? pageCount = pagecount;
@@ -94,10 +103,11 @@ namespace Ofisprojesi
             {
                 PageIndex = (int)pageIndex,
                 PageCount = (int)pageCount,
-                TotalDataCount=totalDataCount,
+                TotalDataCount = totalDataCount,
                 Data = dto,
             };
             return result;
+
         }
         public DbActionResult SaveFixture(FixtureUpdateDto fixtureupdatedto)
         {

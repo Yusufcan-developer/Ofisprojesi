@@ -15,4 +15,5 @@ namespace Ofisprojesi
         public System.Linq.IQueryable<Ofisprojesi.FixtureDto> Data { get; set; }
 
     }
+    
 }
