@@ -8,6 +8,8 @@ namespace Ofisprojesi
 {
     public class ResultDto
     {
+        public DateTime? todate {get;set;}
+        public DateTime? fromdate {get;set;}
         public int PageIndex { get; set; }
         public int PageCount { get; set; }
         public int TotalDataCount { get; set; }

@@ -104,17 +104,21 @@ namespace Ofisprojesi
             //paging
             int? pageIndex = pageindex;
             int? pageCount = pagecount;
+            DateTime? dateTime=start;
+            DateTime? datetime=end;
             int totalDataCount = (int)dto.Count();
             dto = dto.AddPaging(ref pageIndex, ref pageCount);
             var result = new ResultDto()
             {
+                fromdate = (DateTime)start,
+                todate = (DateTime)end,
                 PageIndex = (int)pageIndex,
                 PageCount = (int)pageCount,
                 TotalDataCount = totalDataCount,
                 Data = dto,
             };
             return result;
-
+ 
         }
         public DbActionResult SaveFixture(FixtureUpdateDto fixtureupdatedto)
         {

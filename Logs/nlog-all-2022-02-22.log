@@ -43,3 +43,94 @@
 2022-02-22 10:54:46.1438||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
 2022-02-22 10:54:46.1438||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
 2022-02-22 10:54:46.1438||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-02-22 13:29:52.2571||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-02-22 13:29:52.2788||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-02-22 13:29:52.2788||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-02-22 13:29:52.2788||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-02-22 13:29:52.2788||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-02-22 15:01:56.7796||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-02-22 15:01:56.8042||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-02-22 15:01:56.8042||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-02-22 15:01:56.8042||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-02-22 15:01:56.8042||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-02-22 15:03:03.3938||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-02-22 15:03:03.4185||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-02-22 15:03:03.4185||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-02-22 15:03:03.4185||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-02-22 15:03:03.4185||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-02-22 15:04:34.6176||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:04:34.7513||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:04:37.7176||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:04:38.3288||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:04:41.3712||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:04:42.1806||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:04:45.3823||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:04:47.7479||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:05:02.0871||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:09:23.2992||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:09:48.8728||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:10:58.9367||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:11:03.1167||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:11:37.5103||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:14:23.7880||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:15:21.9337||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-02-22 15:15:21.9586||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-02-22 15:15:21.9586||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-02-22 15:15:21.9586||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-02-22 15:15:21.9586||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-02-22 15:18:43.5113||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:19:07.6158||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:19:15.9015||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:5001 
+2022-02-22 15:19:15.9357||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5000 
+2022-02-22 15:19:15.9357||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-02-22 15:19:15.9381||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-02-22 15:19:15.9381||INFO|Microsoft.Hosting.Lifetime|Content root path: /home/yusufcan/Masaüstü/Ofisprojesi-master 
+2022-02-22 15:24:43.5212||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:24:54.5524||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:25:40.6161||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:27:22.8923||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:27:31.5196||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:30:57.5969||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:31:13.4358||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:31:24.1997||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:33:17.3435||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:33:21.5992||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:47:13.9295||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:47:30.1556||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:53:04.6185||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:53:21.7044||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:00.5278||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:02.0535||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:02.5492||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:02.7021||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:03.0165||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:03.3615||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:03.5447||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:03.7044||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 15:58:03.8572||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:02:12.8005||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:03:44.5682||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:03:57.9519||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:08:48.7891||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:09:48.4848||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:11:31.5964||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:15:47.4682||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:16:27.2670||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:17:44.2319||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:18:20.1002||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:18:56.3830||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:19:05.8751||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:20:06.1721||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:20:13.0156||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:22:06.3147||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:23:19.2280||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:24:45.9589||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:28:29.6426||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:30:25.7230||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:35:13.4244||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:36:13.4984||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:36:19.1505||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:36:46.5800||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:36:47.4807||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:36:50.5541||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
+2022-02-22 16:37:07.0867||ERROR|ofisprojesi.FixtureController|GetFixtureByName metodu çalıştırılamadı 
