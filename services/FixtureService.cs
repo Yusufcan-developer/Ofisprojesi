@@ -12,7 +12,7 @@ namespace Ofisprojesi
 {
     public interface IFixtureServices
     {
-        ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex,criteria criteria);
+        ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex, criteria criteria,DateTime? start, DateTime? end);
         FixtureDto GetFixtureById(int id);
         DbActionResult DeleteFixtureById(int? id);
         DbActionResult SaveFixture(FixtureUpdateDto fixtureupdatedto);
@@ -53,7 +53,7 @@ namespace Ofisprojesi
             return dto;
         }
 
-        public ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex, criteria criteriax)
+        public ResultDto GetFixtureByName(string name, fixtureservicesenum? status, int pagecount, int pageindex, criteria criteriax, DateTime? start, DateTime? end)
         {
 
             var fixture = _context.Fixtures.AsQueryable();
@@ -86,12 +86,19 @@ namespace Ofisprojesi
                 dto = DtoPasive;
 
             }
+            if(start!=null || end!=null)
+            {
+               IQueryable<FixtureDto> TarihArama = dto.Where(p=>p.Recdate>=start&&p.Recdate<=end).AsQueryable();
+               dto=TarihArama;
+            }
+            
+            
             //sorting
             if (criteriax.SortingField.Equals("name", StringComparison.InvariantCultureIgnoreCase))
             {
                 dto = (criteriax.SortingOrder == SortingOrder.DESC) ? dto.OrderByDescending(it => it.Name) : dto.OrderBy(it => it.Name);
                 var dtosort = _mapper.Map<List<FixtureDto>>(dto).AsQueryable();
-                dto=dtosort;
+                dto = dtosort;
             }
 
             //paging

@@ -17,6 +17,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Logging;
+using System.Text.Json.Serialization;
 
 namespace ofisprojesi
 {
@@ -56,6 +57,11 @@ namespace ofisprojesi
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
+            });
+            // for sorting criterias' naming
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
             services.AddControllers().AddNewtonsoftJson(); ;
             services.AddAutoMapper(typeof(Startup));

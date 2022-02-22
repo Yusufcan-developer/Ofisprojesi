@@ -12,8 +12,8 @@ namespace Ofisprojesi
         public string Name { get; set; }
         public int? Officeid { get; set; }
         public bool? Status { get; set; }
-        public DateTime recdate{get;set;}
-        public DateTime updatedate{get;set;}
+        public DateTime? Recdate{get;set;}
+        public DateTime? Updatedate{get;set;}
         public DebitDto[] debits {get;set;}
         
     }
